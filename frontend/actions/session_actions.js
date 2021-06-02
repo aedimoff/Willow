@@ -18,16 +18,16 @@ const receiveErrors = errors => ({
     errors
 })
 
-export const createNewUser = user => dispatch => (
-    SessionAPIUtil.createNewUser(user)
-    .then(user => dispatch(receiveCurrentUser(user)))
-    .fail(errors => dispatch(receiveErrors(errors.responseJSON)))
+export const signup= user => dispatch => (
+    SessionAPIUtil.signup(user)
+    .then(user => dispatch(receiveCurrentUser(user)), err => dispatch
+    (receiveErrors(err.responseJSON)))
 )
 
 export const login = user => dispatch => (
     SessionAPIUtil.login(user)
-    .then(user => dispatch(receiveCurrentUser(user)))
-    .fail(errors => dispatch(receiveErrors(errors.responseJSON)))
+    .then(user => dispatch(receiveCurrentUser(user)), err => dispatch
+    (receiveErrors(err.responseJSON)))
 
 )
 

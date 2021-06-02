@@ -1,11 +1,19 @@
 import React from 'react';
 import NavBarContainer from './navbar/nav_bar_container';
-import SignUpContainer from './signup/signup_container'
+import GreetingContainer from './greeting/greeting_container';
+import LoginContainer from './session/login_form_container';
+import SignupContainer from './session/signup_form_container';
 import { Route } from 'react-router-dom';
 
 const App = () => (
     <div>
-        <Route path="/" component={NavBarContainer}/>
+        <header>
+            <h1>Willow</h1>
+            <GreetingContainer/>
+        </header>
+
+        <Route path="/login" component={LoginContainer}/>
+        <Route path="/signup" component={SignupContainer}/>
     </div>
 );
 

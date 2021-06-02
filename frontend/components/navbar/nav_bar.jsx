@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default ({ currentUser, logout }) => {
+const NavBar = ({ currentUser, logout }) => {
     const display = currentUser ? (
         <div>
             <p>Hello, {currentUser.email} </p>
@@ -23,3 +23,5 @@ export default ({ currentUser, logout }) => {
         </header>
     );
 };
+
+export default NavBar;

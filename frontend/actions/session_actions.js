@@ -18,8 +18,8 @@ const receiveErrors = errors => ({
     errors
 })
 
-export const signup = user => dispatch => (
-    SessionAPIUtil.signup(user)
+export const createNewUser = user => dispatch => (
+    SessionAPIUtil.createNewUser(user)
     .then(user => dispatch(receiveCurrentUser(user)))
     .fail(errors => dispatch(receiveErrors(errors.responseJSON)))
 )

@@ -19,6 +19,7 @@ const NavBar = ({ currentUser, logout, openModal }) => {
 
     return (
         <header className="nav-bar">
+            <div className="place-holder"></div>
             <h1 className="logo">Willow</h1>
             <div>
                 {currentUser ? loggedIn() : loggedOut()}

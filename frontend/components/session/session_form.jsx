@@ -20,6 +20,22 @@ class SessionForm extends React.Component {
 
     }
 
+    buttonName(formType) {
+        if (formType === "Log In") {
+            return "Create New Account"
+        } else {
+            return "Log In"
+        }
+    }
+
+    // accountStatus(formType) {
+    //     if (formType === "Log In") {
+    //         return ""
+    //     } else {
+    //         return "Have an Account?"
+    //     }
+    // }
+
     renderErrors() {
         return(
             <ul>
@@ -35,33 +51,40 @@ class SessionForm extends React.Component {
     render() {
         return (
             <div className="login-form-container">
-                <form onSubmit={this.handleSubmit} className="login-form-box">
-                    Welcome to Willow!
+                <form onSubmit={this.handleSubmit} className="login-input-box">
+                    <h1 className="modal-header">Welcome to Willow!</h1> 
                     <br />
-                    {this.props.formType} or {this.props.otherForm}
                     {/* <div onClick={this.props.closeModal} className="close-x">X</div> */}
                     {this.renderErrors()}
                     <div className="login-form">
-                        <br />
-                        <label>Email:
-                            <input type="text" 
-                                value={this.state.email}
-                                onChange={this.update('email')}
+                        <div className="modal-input">
+                            <label>Email:</label>
+                                <input type="text" 
+                                    value={this.state.email}
+                                    onChange={this.update('email')}
+                                    className="login-input"
+                                />
+                            
+                        </div>
+                        <div className="modal-input">
+                            <label>Password:</label>
+                                <input type="password" 
+                                value={this.state.password} 
+                                onChange={this.update('password')}
                                 className="login-input"
-                            />
-                        </label>
-                        <br />
-                        <label>Password:
-                            <input type="password" 
-                            value={this.state.password} 
-                            onChange={this.update('password')}
-                            className="login-input"
-                            />
-                        </label>
-                        <br />
+                                />
+                        </div>
+
                     </div>
-                    <input className="session-submit" type="submit" value={this.props.formType} />
+                    <input className="button" type="submit" value={this.props.formType} />
                 </form>
+                    <div>
+                        {/* {this.accountStatus(this.props.formType)}  */}
+                        <button className="button" 
+                                onClick={this.props.openModal}>
+                                {this.buttonName(this.props.formType)}
+                        </button>
+                    </div>
             </div>
         );
     }

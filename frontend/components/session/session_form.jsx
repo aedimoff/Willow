@@ -16,8 +16,7 @@ class SessionForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        const user = Object.assign({}, this.state);
-        this.props.processForm(user);
+        this.props.processForm(this.state);
 
     }
 
@@ -39,6 +38,7 @@ class SessionForm extends React.Component {
                 <form onSubmit={this.handleSubmit} className="login-form-box">
                     Welcome to Willow!
                     <br />
+                    {this.props.formType} or {this.props.navLink}
                     <div className="login-form">
                         <br />
                         <label>Email:

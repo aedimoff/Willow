@@ -8,7 +8,6 @@ import { Route } from 'react-router-dom';
 const App = () => (
     <div>
         <header>
-            <h1>Willow</h1>
             <GreetingContainer/>
         </header>
         <Route path="/" component={NavBarContainer}/>

@@ -1,8 +1,11 @@
 .nav-bar {
     display: flex;
-    background-color: aquamarine;
+    background-color: white;
     justify-content: space-between;
     padding: 20px;
+    border-bottom: 1px solid black;
+    color: rgb(0, 51, 255);
+    font-family: 'Josefin Sans', sans-serif;
 
     .button {
         text-decoration: none;
@@ -17,7 +20,7 @@
 }
 
 .modal-background {
-  position: fixed;
+  position: absolute;
   top: 0;
   bottom: 0;
   right: 0;
@@ -28,7 +31,35 @@
 
 .modal-child {
   position: absolute;
+  margin: 15% auto;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  background-color: white;
+  height: 300px;
+  max-height: 100%;
+  width: 300px;
+  max-width: 100%;
+  padding: 20px;
+
+  .session-submit {
+    background-color: #0033FF;
+    border: none;
+    color: white;
+    text-align: center;
+    padding: 10px 15px;
+    display: inline-block;
+    font-size: 16px;
+    justify-content: center;
+    border-radius: 3px;
+  }
+
+  .login-input {
+    border-radius: 3px;
+    background-color: rgb(247, 242, 242);
+  }
+}
+
+.login-form-box {
+  color: red;
 }

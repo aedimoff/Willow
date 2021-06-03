@@ -5,21 +5,29 @@ import React from 'react';
 import { login } from './actions/session_actions'
 
 document.addEventListener('DOMContentLoaded', () => {
+    let store;
+    if (window.currentUser) {
+        const preloadedState = {
+            entities: {
+                users: { [window.currentUser.id]: window.currentUser}
+            },
+            session: { id: window.currentUser.id }
+        };
+        store = configureStore(preloadedState);
+        delete window.currentUser;
+    } else {
+        store = configureStore()
+    }
+
+
     const root = document.getElementById('root');
-    const store = configureStore();
-    console.log(store.getState())
     ReactDOM.render(<Root store={store}/>, root)
+
+
+
+    //testing
     window.getState = store.getState
     window.dispatch = store.dispatch
     window.login = login
 })
 
-    // let preloadedState = undefined;
-    // if (window.currentUser) {
-    //     preloadedState = {
-    //         session: {
-    //             currentUser: window.currentUser
-    //         }
-    //     };
-    // }
-    // ##for bootstrapping

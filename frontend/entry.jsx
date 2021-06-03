@@ -3,6 +3,8 @@ import configureStore from './store/store';
 import Root from './components/root';
 import React from 'react';
 import { login } from './actions/session_actions'
+import '../app/assets/stylesheets/application.scss'
+
 
 document.addEventListener('DOMContentLoaded', () => {
     let store;

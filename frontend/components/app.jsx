@@ -8,14 +8,8 @@ import { Route } from 'react-router-dom';
 
 const App = () => (
     <div>
-        <Modal />
-        <header>
-            {/* <h1>Willow</h1> */}
-            <GreetingContainer/>
-        </header>
+        <Modal className="modal"/>
         <Route path="/" component={NavBarContainer}/>
-        {/* <Route path="/login" component={LoginContainer}/>
-        <Route path="/signup" component={SignupContainer}/> */}
     </div>
 );
 

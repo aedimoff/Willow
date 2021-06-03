@@ -11,7 +11,7 @@ const App = () => (
             <h1>Willow</h1>
             <GreetingContainer/>
         </header>
-
+        <Route path="/" component={NavBarContainer}/>
         <Route path="/login" component={LoginContainer}/>
         <Route path="/signup" component={SignupContainer}/>
     </div>

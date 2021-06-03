@@ -1,4 +1,5 @@
 class Api::UsersController < ApplicationController
+
     def new
         @user = User.new
         render :new
@@ -8,6 +9,7 @@ class Api::UsersController < ApplicationController
         @user = User.new(user_params)
         if @user.save!
             log_in(@user)
+            render json: { currentUser: @user }
         else
             render :new
         end

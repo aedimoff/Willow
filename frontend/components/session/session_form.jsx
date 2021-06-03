@@ -16,7 +16,7 @@ class SessionForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.processForm(this.state);
+        this.props.processForm(this.state).then(this.props.closeModal);
 
     }
 
@@ -38,7 +38,9 @@ class SessionForm extends React.Component {
                 <form onSubmit={this.handleSubmit} className="login-form-box">
                     Welcome to Willow!
                     <br />
-                    {this.props.formType} or {this.props.navLink}
+                    {this.props.formType} or {this.props.otherForm}
+                    <div onClick={this.props.closeModal} className="close-x">X</div>
+                    {this.renderErrors()}
                     <div className="login-form">
                         <br />
                         <label>Email:

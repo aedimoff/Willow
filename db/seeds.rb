@@ -1,4 +1,4 @@
-# This file should contain all the record creation needed to seed the database with its default values.
+        # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
 # Examples:
@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require 'faker'
+require 'open-uri'
 
 User.destroy_all
 Listing.destroy_all
@@ -19,7 +20,7 @@ Listing.destroy_all
 end
 
 20.times do 
-    Listing.create!(
+    listing = Listing.create!(
         address: Faker::Address.street_name,
         zipcode: Faker::Address.zip,
         description: Faker::Quote.famous_last_words,
@@ -27,7 +28,9 @@ end
         price: rand(1..1000000),
         seller_id: 117,
         status: "for_sale"
-
     )
+
+    listing.images.attach(io: open("https://image.shutterstock.com/shutterstock/photos/529108441/display_1500/stock-photo-beautiful-exterior-of-newly-built-luxury-home-yard-with-green-grass-and-walkway-lead-to-ornately-529108441.jpg"), filename: 'house')
 end
 
+# Faker::LoremFlickr.image(size: "300x200", search_terms: ['house'])

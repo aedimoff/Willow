@@ -7,6 +7,9 @@ class ListingIndexItem extends React.Component {
         return (
             <li className="listing-index-item">
                 <Link to={`api/listings/${listing.id}`}>{listing.address}</Link>
+                
+                <img src={listing.imageUrls[0]}/>
+
             </li>
         )
     }

@@ -11,12 +11,11 @@
 #  zipcode     :string           not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
-#  seller_id   :integer          not null
+#  seller_id   :integer
 #
 # Indexes
 #
-#  index_listings_on_seller_id  (seller_id)
-#  index_listings_on_zipcode    (zipcode)
+#  index_listings_on_zipcode  (zipcode)
 #
 require 'test_helper'
 

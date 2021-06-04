@@ -1,15 +1,14 @@
 import React from 'react';
-import NavBarContainer from './navbar/nav_bar_container';
-import GreetingContainer from './greeting/greeting_container';
-import Modal from './modal/modal';
-import LoginContainer from './session/login_form_container';
-import SignupContainer from './session/signup_form_container';
 import { Route } from 'react-router-dom';
+import Modal from './modal/modal';
+import NavBarContainer from './navbar/nav_bar_container';
+import ListingIndexContainer from './listing/listing_index_container';
 
 const App = () => (
     <div>
         <Modal className="modal"/>
         <Route path="/" component={NavBarContainer}/>
+        <Route path="/" component={ListingIndexContainer}/>
     </div>
 );
 

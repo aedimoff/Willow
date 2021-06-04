@@ -4,7 +4,6 @@ import Root from './components/root';
 import React from 'react';
 import { login } from './actions/session_actions'
 import '../app/assets/stylesheets/application.scss'
-import createListing from '../frontend/util/listing_api_util'
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -26,12 +25,5 @@ document.addEventListener('DOMContentLoaded', () => {
     const root = document.getElementById('root');
     ReactDOM.render(<Root store={store}/>, root)
 
-
-
-    //testing
-    window.getState = store.getState
-    window.dispatch = store.dispatch
-    window.login = login
-    window.createListing = createListing
 })
 

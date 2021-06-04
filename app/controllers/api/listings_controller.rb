@@ -1,8 +1,7 @@
-class Api::ListingController < ApplicationController
-    before_action require_login
+class Api::ListingsController < ApplicationController
     
     def index 
-        @listing = Listing.all
+        @listings = Listing.all
         render 'api/listings/index'
     end
 
@@ -24,7 +23,7 @@ class Api::ListingController < ApplicationController
     def update 
         @listing = Listing.find_by(id: params[:id])
         
-        if @listing && @listing.update 
+        if @listing && @listing.update(listing_params)
             render 'api/listings/show'
         else
             render json: ["Invalid user input"], status: 401

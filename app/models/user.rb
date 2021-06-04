@@ -1,3 +1,18 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :bigint           not null, primary key
+#  email           :string           not null
+#  password_digest :string           not null
+#  session_token   :string           not null
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#
+# Indexes
+#
+#  index_users_on_email  (email)
+#
 class User < ApplicationRecord
     attr_reader :password
 
@@ -5,6 +20,10 @@ class User < ApplicationRecord
     validates :password_digest, presence: { message: 'Password can\'t be blank' } 
     validates :password, length: {minimum: 6}, allow_nil: true
     before_validation :ensure_session_token
+
+    has_many :listings,
+        foreign_key: :seller_id,
+        class_name: :Listing
 
     def generate_session_token 
         SecureRandom.base64

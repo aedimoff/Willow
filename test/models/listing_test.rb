@@ -8,6 +8,8 @@
 #  beds          :integer
 #  city          :string           not null
 #  description   :string
+#  lat           :float
+#  lng           :float
 #  price         :integer          not null
 #  property_type :string
 #  state         :string

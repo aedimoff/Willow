@@ -1,4 +1,23 @@
 
+.home-page {
+  display: flex;
+  overflow-y: hidden;
+  height: 95vh;
+
+  .listing-index-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 10px;
+      width: 45vw;
+      overflow-y: scroll;
+  }  
+
+  #map-container {
+    width: 55vw;
+  }
+
+}
+
 .nav-bar {
     display: flex;
     background-color: white;
@@ -7,6 +26,7 @@
     border-bottom: 1px solid black;
     color: rgb(0, 51, 255);
     font-family: 'Josefin Sans', sans-serif;
+    position: sticky;
 
     .button {
       background-color: white;
@@ -105,3 +125,4 @@
 .login-input-box {
   color: #0033FF;
 }
+

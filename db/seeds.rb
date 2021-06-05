@@ -31,7 +31,9 @@ end
         status: "for_sale",
         beds: rand(1..6),
         baths: rand(1..3),
-        property_type: 'house'
+        property_type: 'house',
+        lat: rand(36..38),
+        lng: rand(-122..123),
     )
 
     listing.images.attach(io: open(Faker::LoremFlickr.image(size: "300x200", search_terms: ['house'])), filename: 'house')

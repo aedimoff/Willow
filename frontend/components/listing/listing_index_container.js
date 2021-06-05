@@ -10,4 +10,4 @@ const mapDispatchToProps = dispatch => ({
     requestListings: () => dispatch(requestListings())
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(ListingsIndex)
+export default connect(mapStateToProps, mapDispatchToProps)(ListingsIndex);

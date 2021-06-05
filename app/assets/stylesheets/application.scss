@@ -18,6 +18,11 @@
 
 }
 
+.welcome-banner {
+  width: fit-content;
+  height: 500px;
+}
+
 .nav-bar {
     display: flex;
     background-color: white;
@@ -27,6 +32,7 @@
     color: rgb(0, 51, 255);
     font-family: 'Josefin Sans', sans-serif;
     position: sticky;
+    height: 5vh;
 
     .button {
       background-color: white;
@@ -53,17 +59,13 @@
     }
 }
 
-.modal-background {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  background: rgba(0, 0, 0, 0.7);
-  z-index: 10;
-}
+  .header-link {
+    text-decoration: none;
+  }
 
-.modal-child {
+
+
+.modal {
   position: absolute;
   margin: -10% auto;
   top: 50%;
@@ -104,7 +106,25 @@
     flex-direction: column;
   }
 
+    .modal-header {
+    font-size: 30px;
+    text-align: center;
+    border-bottom: 1px solid black;
+    padding: 15px 0px 15px 0px;
+  }
+
 }
+
+  .modal-background {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 10;
+  }
+
 
 .login-form-container {
   height: 100%;
@@ -113,12 +133,7 @@
   flex-direction: column;
   justify-content: space-between;
 
-  .modal-header {
-    font-size: 30px;
-    text-align: center;
-    border-bottom: 1px solid black;
-    padding: 15px 0px 15px 0px;
-  }
+
 }
 
 

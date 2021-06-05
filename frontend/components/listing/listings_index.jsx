@@ -9,8 +9,8 @@ class ListingsIndex extends React.Component {
     render() {
         const { listings } = this.props;
         return (
-            <div>
-                <ul>
+            <div className="listing-grid-container">
+                <ul className="listing-index-container">
                     {
                         listings.map(listing => (
                             <ListingIndexItem 

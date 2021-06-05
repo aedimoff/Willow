@@ -43,7 +43,9 @@ class Api::ListingsController < ApplicationController
             :property_type, 
             :images, 
             :beds, 
-            :baths
+            :baths,
+            :lat,
+            :lng,
             )
     end
 end

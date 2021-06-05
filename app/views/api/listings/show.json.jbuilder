@@ -1,6 +1,6 @@
 json.listings do 
     json.set! @listing.id do
-        json.extract! @listing, :id, :address, :zipcode, :city, :state, :price, :beds, :baths, :property_type, :description, :status, :image_urls
+        json.extract! @listing, :id, :address, :zipcode, :city, :state, :price, :beds, :baths, :property_type, :description, :status, :image_urls, :lat, :lng
     end
 end
 

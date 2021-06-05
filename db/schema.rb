@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_04_214715) do
+ActiveRecord::Schema.define(version: 2021_06_05_003123) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,8 @@ ActiveRecord::Schema.define(version: 2021_06_04_214715) do
     t.integer "baths"
     t.string "property_type"
     t.string "state"
+    t.float "lat"
+    t.float "lng"
     t.index ["zipcode"], name: "index_listings_on_zipcode"
   end
 

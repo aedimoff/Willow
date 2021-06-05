@@ -2,8 +2,10 @@ import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
 import React from 'react';
-import { login } from './actions/session_actions'
-import '../app/assets/stylesheets/application.scss'
+import '../app/assets/stylesheets/application.scss';
+import '../app/assets/stylesheets/api/listing.scss';
+
+
 
 
 document.addEventListener('DOMContentLoaded', () => {

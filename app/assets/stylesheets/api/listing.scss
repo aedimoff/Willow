@@ -1,3 +1,58 @@
 // Place all the styles related to the api::listing controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.listing-grid-container {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0.5rem;
+}
+.listing-index-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+    width: 45vw;
+}
+
+.listing-index-item {
+    font-family: 'Open Sans', sans-serif;    
+    border-bottom: 4px solid rgb(0, 51, 255);
+    border-right: 0.5px solid #EAEAEA;
+    border-left: 0.5px solid #EAEAEA;
+    border-top: 0.5px solid #EAEAEA;
+    box-shadow: 0 4px 2px -2px gray;
+
+    h2 {
+        font-size: 20px;
+        font-weight: bold;  
+    }
+
+    .listing-card {
+        display: flex;
+        flex-direction: column;
+        height: 35%;
+        justify-content: space-between;
+        padding: 7px 5px 1px 10px;
+        letter-spacing: 0.2px;
+    }
+    
+    .save-action {
+        border: grey;
+        font-size: 25px;
+    }
+
+}
+
+
+
+
+// .card {
+//     display: grid;
+//     grid-template-rows: max-content 200px 1fr;
+// }
+
+.listing-index-item img {
+    object-fit: cover;
+    width: 100%;
+    height: 60%;
+}
+    

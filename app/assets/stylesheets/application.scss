@@ -33,13 +33,6 @@
     font-family: 'Josefin Sans', sans-serif;
     position: sticky;
     height: 5vh;
-
-    .button {
-      background-color: white;
-        text-decoration: none;
-        margin: 5px;
-        color: rgb(0, 51, 255);
-    }
     
     .logo {
         flex: 1;
@@ -50,12 +43,23 @@
       flex: 1;
     }
 
-    .nav-greeting {
+    .nav-menu {
       flex: 1;
       display: flex;
-      h2 {
-        margin-right: 8px;
-      }
+      justify-content: flex-end;
+
+        h2 {
+          margin-right: 15px;
+          margin-top: 3px;
+          align-self: center;
+        }
+
+        .login-status {
+          width: 100%;
+          height: 100%;
+          display: flex;
+          justify-content: flex-end;
+        }
     }
 }
 
@@ -141,3 +145,18 @@
   color: #0033FF;
 }
 
+
+  .toggle-login-logout {
+    background-color: #0033FF;
+    border: none;
+    color: white;
+    text-align: center;
+    padding: 10px 15px;
+    display: inline-block;
+    font-size: 16px;
+    justify-content: center;
+    border-radius: 3px;
+    height: 65%;
+    align-self: center;
+    padding: 1px 8px 1px 8px;
+    }

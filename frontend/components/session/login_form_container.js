@@ -5,7 +5,7 @@ import SessionForm from './session_form';
 import { openModal, closeModal } from '../../actions/modal_actions';
 
 const mapStateToProps = state => ({
-    errors: state.errors,
+    errors: Object.values(state.errors),
     formType: 'Log In',
     // navLink: <Link to="/signup">Create an Account</Link>,
 });

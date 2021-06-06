@@ -7,7 +7,14 @@ class SessionForm extends React.Component {
             email: "",
             password: ""
         };
+
+        this.demoUser = {
+            email: "demo@gmail.com",
+            password: "123456"
+        };
+
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.loginDemoUser = this.loginDemoUser.bind(this);
     }
 
     update(field) {
@@ -20,21 +27,10 @@ class SessionForm extends React.Component {
 
     }
 
-    buttonName(formType) {
-        if (formType === "Log In") {
-            return "Create New Account"
-        } else {
-            return "Log In"
-        }
+    loginDemoUser(e) {
+        e.preventDefault();
+        this.props.processForm(this.demoUser).then(this.props.closeModal);
     }
-
-    // accountStatus(formType) {
-    //     if (formType === "Log In") {
-    //         return ""
-    //     } else {
-    //         return "Have an Account?"
-    //     }
-    // }
 
     renderErrors() {
         return(
@@ -46,6 +42,10 @@ class SessionForm extends React.Component {
                 ))}
             </ul>
         );
+    }
+
+    buttonName(formType) {
+        return formType === "Log In" ? "Create New Account" : "Log In"
     }
 
     render() {
@@ -63,27 +63,26 @@ class SessionForm extends React.Component {
                                     value={this.state.email}
                                     onChange={this.update('email')}
                                     className="login-input"
-                                />
-                            
+                            />
                         </div>
                         <div className="modal-input">
                             <label>Password:</label>
                                 <input type="password" 
-                                value={this.state.password} 
-                                onChange={this.update('password')}
-                                className="login-input"
-                                />
+                                    value={this.state.password} 
+                                    onChange={this.update('password')}
+                                    className="login-input"
+                            />
                         </div>
-
                     </div>
                     <input className="button" type="submit" value={this.props.formType} />
                 </form>
                     <div>
-                        {/* {this.accountStatus(this.props.formType)}  */}
                         <button className="button" 
                                 onClick={this.props.openModal}>
                                 {this.buttonName(this.props.formType)}
                         </button>
+                        <button className="demo-login" onClick={this.loginDemoUser}>Demo User</button>
+
                     </div>
             </div>
         );

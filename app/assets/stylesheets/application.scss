@@ -1,21 +1,25 @@
+@import 'variables';
+@import 'nav_bar';
+@import 'media_query';
+@import 'login_form';
+@import 'listing';
+
 
 .home-page {
   display: flex;
   overflow-y: hidden;
   height: 95vh;
+}
 
-  .listing-index-container {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-gap: 10px;
-      width: 45vw;
-      overflow-y: scroll;
-  }  
+.listing-index-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+    overflow-y: scroll;
+}  
 
-  #map-container {
-    width: 55vw;
-  }
-
+#map-container {
+  width: 55vw;
 }
 
 .welcome-banner {
@@ -23,144 +27,38 @@
   height: 500px;
 }
 
-.nav-bar {
-    display: flex;
-    background-color: white;
-    justify-content: space-between;
-    padding: 20px;
-    border-bottom: 1px solid black;
-    color: rgb(0, 51, 255);
-    font-family: 'Josefin Sans', sans-serif;
-    position: sticky;
-    height: 5vh;
-    
-    .logo {
-        flex: 1;
-        font-size: 40px;
-        display: flex;
-        justify-content: center;
-    }
-
-    .place-holder {
-      flex: 1;
-    }
-
-    .nav-menu {
-      flex: 1;
-      display: flex;
-      justify-content: flex-end;
-
-        h2 {
-          margin-right: 15px;
-          margin-top: 3px;
-          align-self: center;
-        }
-
-        .login-status {
-          width: 100%;
-          height: 100%;
-          display: flex;
-          justify-content: flex-end;
-        }
-    }
-}
-
   .header-link {
     text-decoration: none;
   }
 
 
+.button {
+  background-color: $willow-blue;
+  border: none;
+  color: white;
+  text-align: center;
+  padding: 10px 15px;
+  font-size: 16px;
+  justify-content: center;
+  border-radius: 3px;
+  align-self: center;
+  padding: 1px 8px 1px 8px;
+  min-width: 100px;
+  height: 26px;
+  font: $functional-font;
+}
 
-.modal {
-  position: absolute;
-  margin: -10% auto;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: white;
-  height: 360px;
-  max-height: 100%;
-  width: 320px;
-  max-width: 100%;
-  padding: 20px;
-  border-radius: 6px;
-
-  .button {
-    background-color: #0033FF;
-    border: none;
-    color: white;
+.secondary-button {
+    background-color: white;
+    border: 1px solid $willow-blue;
+    color: $willow-blue;
     text-align: center;
     padding: 10px 15px;
-    display: inline-block;
     font-size: 16px;
     justify-content: center;
     border-radius: 3px;
-    min-width: 300px;
-  }
-
-  .login-input {
-    border-radius: 3px;
-    background-color: rgb(247, 242, 242);
-  }
-
-  .login-form {
-    margin-bottom: 8px;
-    margin-top: -8px;
-  }
-
-  .modal-input {
-    display: flex;
-    flex-direction: column;
-  }
-
-    .modal-header {
-    font-size: 30px;
-    text-align: center;
-    border-bottom: 1px solid black;
-    padding: 15px 0px 15px 0px;
-  }
-
-}
-
-  .modal-background {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  background: rgba(0, 0, 0, 0.7);
-  z-index: 10;
-  }
-
-
-.login-form-container {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-
-
-}
-
-
-.login-input-box {
-  color: #0033FF;
-}
-
-
-  .toggle-login-logout {
-    background-color: #0033FF;
-    border: none;
-    color: white;
-    text-align: center;
-    padding: 10px 15px;
-    display: inline-block;
-    font-size: 16px;
-    justify-content: center;
-    border-radius: 3px;
-    height: 65%;
     align-self: center;
     padding: 1px 8px 1px 8px;
-    min-width: 300px;
-    }
+    min-width: 100px;
+    height: 28px;
+}

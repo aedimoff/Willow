@@ -6,14 +6,14 @@ const NavBar = ({ currentUser, logout, openModal }) => {
 
     const loggedOut = () => (
         <nav className="login-signup">
-            <button className="toggle-login-logout" onClick={() => openModal('Log In')}>Log In</button>
+            <button className="button toggle-login-logout" onClick={() => openModal('Log In')}>Log In</button>
         </nav>
     );
 
     const loggedIn = () => (
         <nav className="login-status">
             <h2 >Welcome, {currentUser.email}!</h2>
-            <button className="toggle-login-logout" onClick={logout}>Log Out</button>
+            <button className="button toggle-login-logout" onClick={logout}>Log Out</button>
         </nav>  
     )
 

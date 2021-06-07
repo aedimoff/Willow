@@ -3,7 +3,6 @@ import configureStore from './store/store';
 import Root from './components/root';
 import React from 'react';
 import '../app/assets/stylesheets/application.scss';
-import '../app/assets/stylesheets/api/listing.scss';
 
 
 

@@ -1,6 +1,5 @@
-// Place all the styles related to the api::listing controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import 'variables';
+
 .listing-grid-container {
     display: flex;
     justify-content: flex-end;
@@ -8,8 +7,8 @@
 }
 
 .listing-index-item {
-    font-family: 'Open Sans', sans-serif;    
-    border-bottom: 4px solid rgb(0, 51, 255);
+    font-family: $functional-font;    
+    border-bottom: 4px solid $willow-blue;
     border-right: 0.5px solid #EAEAEA;
     border-left: 0.5px solid #EAEAEA;
     border-top: 0.5px solid #EAEAEA;
@@ -35,9 +34,6 @@
     }
 
 }
-
-
-
 
 // .card {
 //     display: grid;

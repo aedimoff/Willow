@@ -1,0 +1,60 @@
+@import 'variables';
+
+.nav-bar {
+    display: flex;
+    background-color: white;
+    justify-content: space-between;
+    padding: 20px;
+    border-bottom: 1px solid $border-grey;
+    color: $willow-blue;
+    font-family: $style-font;
+    position: sticky;
+    height: 3vh;
+    
+    .logo {
+        flex: 1;
+        font-size: 40px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .place-holder {
+      flex: 1;
+    }
+
+  .nav-menu {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+
+      h2 {
+        margin-right: 15px;
+        margin-top: 3px;
+        align-self: center;
+      }
+
+      .login-status {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: flex-end;
+      }
+  }
+
+  // .toggle-login-logout {
+  //   background-color: $willow-blue;
+  //   border: none;
+  //   color: white;
+  //   text-align: center;
+  //   padding: 10px 15px;
+  //   display: inline-block;
+  //   font-size: 16px;
+  //   justify-content: center;
+  //   border-radius: 3px;
+  //   align-self: center;
+  //   padding: 1px 8px 1px 8px;
+  //   min-width: 100px;
+  //   height: 100%;
+  // }
+}
+

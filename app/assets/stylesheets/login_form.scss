@@ -1,0 +1,80 @@
+@import 'variables';
+
+.modal {
+  position: absolute;
+  margin: -10% auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  height: 360px;
+  max-height: 100%;
+  width: 320px;
+  max-width: 100%;
+  padding: 20px;
+  border-radius: 6px;
+}
+
+.modal-input {
+  display: flex;
+  flex-direction: column;
+  padding-top: 15px;
+}
+
+.modal-button {
+  width: 40%;
+}
+
+
+.modal-background {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 10;
+}
+
+
+
+
+.login-form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: $willow-blue;
+  height: 100%;
+  width: 100%;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  flex: 9;
+}
+
+.login-input {
+  border-radius: 3px;
+  background-color: rgb(247, 242, 242);
+}
+
+.modal-header {
+  font-size: 30px;
+  text-align: center;
+  border-bottom: 1px solid rgba(243, 243, 243, 0.769);
+  padding: 15px 0px 15px 0px;
+  flex: 1;
+}
+
+.form-submit-button {
+  padding-top: 15px;
+}
+
+.button-box {
+  display: flex;
+  justify-content: space-between;
+  flex: 1;
+}
+
+

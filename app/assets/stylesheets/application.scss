@@ -3,6 +3,26 @@
 @import 'media_query';
 @import 'login_form';
 @import 'listing';
+@import 'buttons';
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.spinner {
+  border: 16px solid $willow-blue;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  margin: 25px;
+  background: $border-grey;
+  animation: spinner 2s linear infinite;
+  // box-shadow: 0px -18px 18px -9px $outline-blue;
+
+
+}
+
 
 
 .home-page {
@@ -31,34 +51,3 @@
     text-decoration: none;
   }
 
-
-.button {
-  background-color: $willow-blue;
-  border: none;
-  color: white;
-  text-align: center;
-  padding: 10px 15px;
-  font-size: 16px;
-  justify-content: center;
-  border-radius: 3px;
-  align-self: center;
-  padding: 1px 8px 1px 8px;
-  min-width: 100px;
-  height: 26px;
-  font: $functional-font;
-}
-
-.secondary-button {
-    background-color: white;
-    border: 1px solid $willow-blue;
-    color: $willow-blue;
-    text-align: center;
-    padding: 10px 15px;
-    font-size: 16px;
-    justify-content: center;
-    border-radius: 3px;
-    align-self: center;
-    padding: 1px 8px 1px 8px;
-    min-width: 100px;
-    height: 28px;
-}

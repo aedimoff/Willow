@@ -11,6 +11,7 @@ class ListingsIndex extends React.Component {
         const { listings } = this.props;
         return (
             <div className="listing-grid-container">
+                {/* <h1 className="listing-header">Real Estate & Homes for Sale</h1> */}
                 <ul className="listing-index-container">
                     {
                         listings.map(listing => (

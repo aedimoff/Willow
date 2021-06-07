@@ -56,7 +56,9 @@
 
 .login-input {
   border-radius: 3px;
-  background-color: rgb(247, 242, 242);
+  border: 1px solid grey;
+  padding: 0.5rem;
+  margin-top: 6px;
 }
 
 .modal-header {
@@ -77,4 +79,8 @@
   flex: 1;
 }
 
+.session-errors {
+  color: red;
+  margin-top: 10px;
+}
 

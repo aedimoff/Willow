@@ -38,6 +38,7 @@ end
     )
 
     # listing.images.attach(io: open(Faker::LoremFlickr.image(size: "300x200", search_terms: ['house'])), filename: 'house')
+    # l.images.attach(io: File.open(url), filename: "house")
 end
 
 # Faker::LoremFlickr.image(size: "300x200", search_terms: ['house'])

@@ -37,7 +37,7 @@ end
         lng: rand(-122..123),
     )
 
-    # listing.photos.attach(io: open(Faker::LoremFlickr.image(size: "300x200", search_terms: ['house'])), filename: 'house')
+    # listing.images.attach(io: open(Faker::LoremFlickr.image(size: "300x200", search_terms: ['house'])), filename: 'house')
 end
 
 # Faker::LoremFlickr.image(size: "300x200", search_terms: ['house'])

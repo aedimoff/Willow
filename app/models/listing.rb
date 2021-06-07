@@ -35,7 +35,7 @@ class Listing < ApplicationRecord
         foreign_key: :seller_id,
         class_name: :User
 
-    has_many_attached :photos
+    has_many_attached :images
 
     # def image_urls
     #     images.map do |image|

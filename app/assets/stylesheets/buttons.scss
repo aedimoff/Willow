@@ -1,0 +1,47 @@
+@import 'variables';
+
+.button {
+  background-color: $willow-blue;
+  border: none;
+  color: white;
+  text-align: center;
+  padding: 10px 15px;
+  font-size: 16px;
+  justify-content: center;
+  border-radius: 3px;
+  align-self: center;
+  padding: 1px 8px 1px 8px;
+  min-width: 100px;
+  height: 26px;
+  font: $functional-font;
+}
+
+.button:hover {
+    background-color: white;
+    border: 1px solid $willow-blue;
+    color: $willow-blue;
+    text-align: center;
+    padding: 10px 15px;
+    font-size: 16px;
+    justify-content: center;
+    border-radius: 3px;
+    align-self: center;
+    padding: 1px 8px 1px 8px;
+    min-width: 100px;
+    height: 28px;
+}
+
+.secondary-button {
+    background-color: white;
+    border: 1px solid $willow-blue;
+    color: $willow-blue;
+    text-align: center;
+    padding: 10px 15px;
+    font-size: 16px;
+    justify-content: center;
+    border-radius: 3px;
+    align-self: center;
+    padding: 1px 8px 1px 8px;
+    min-width: 100px;
+    height: 28px;
+}

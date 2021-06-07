@@ -19,6 +19,7 @@ Listing.destroy_all
     )
 end
 
+
 20.times do 
     listing = Listing.create!(
         address: Faker::Address.street_name,
@@ -36,7 +37,7 @@ end
         lng: rand(-122..123),
     )
 
-    listing.images.attach(io: open(Faker::LoremFlickr.image(size: "300x200", search_terms: ['house'])), filename: 'house')
+    # listing.photos.attach(io: open(Faker::LoremFlickr.image(size: "300x200", search_terms: ['house'])), filename: 'house')
 end
 
 # Faker::LoremFlickr.image(size: "300x200", search_terms: ['house'])

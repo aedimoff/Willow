@@ -35,12 +35,12 @@ class Listing < ApplicationRecord
         foreign_key: :seller_id,
         class_name: :User
 
-    has_many_attached :images
+    has_many_attached :photos
 
-    def image_urls
-        images.map do |image|
-            image.service_url
-        end
-    end
+    # def image_urls
+    #     images.map do |image|
+    #         image.service_url
+    #     end
+    # end
 
 end

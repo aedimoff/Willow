@@ -16,7 +16,7 @@ class Api::ListingsController < ApplicationController
     end
 
     def show
-        @listing = Listing.find_by(id: params[:id])
+        @listing = Listing.with_attached_photos.find_by(id: params[:id])
         render 'api/listings/show'
     end
 
@@ -41,7 +41,7 @@ class Api::ListingsController < ApplicationController
             :price, 
             :status, 
             :property_type, 
-            :images, 
+            :photos, 
             :beds, 
             :baths,
             :lat,

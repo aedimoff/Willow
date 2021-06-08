@@ -1,28 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import NumberFormat from 'react-number-format';
-
-// class ImageCard extends React.Component {
-//     render() {
-//         const { imageUrl, header, details, footer }
-
-//         return (
-//             <article className="image-card">
-//                 <img className="image" src={listing.imageUrls[0]}/>
-
-//                 <div className="card-info">
-//                     <div className="card-heading">
-//                         { heading }
-//                     </div>
-//                     <div>
-//                         { footer }
-//                     </div>
-//                 </div>
-//                 <div className="card-save-action" onClick={() => this.action()}></div>
-//             </article>
-//         )
-//     }
-// }
+import { AiOutlineHeart } from 'react-icons/ai';
 
 class ListingIndexItem extends React.Component {
     formatStatus(status) {
@@ -57,7 +34,7 @@ class ListingIndexItem extends React.Component {
                         {listing.address}, {listing.city}, {listing.state}, {listing.zipcode}
                     </div>
                     <div className="save-action">
-                        <i className="fa fa-heart fa6x"></i>
+                        <AiOutlineHeart />
                     </div>
                 </article>
                 {/* <Link to={`api/listings/${listing.id}`}>{listing.address}</Link> */}

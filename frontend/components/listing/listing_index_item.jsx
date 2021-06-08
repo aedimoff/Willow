@@ -21,11 +21,19 @@ class ListingIndexItem extends React.Component {
         return '$' + price.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
     }
 
+    formatDetails(beds, baths, propertyType) {
+        return `${beds} bds ${baths} ba - ${this.formatType(propertyType)} ${this.formatStatus(status)}`
+    }
+    
+    formatAddress(address, city, state, zipcode) {
+        return `${address}, ${city}, ${state}, ${zipcode}`
+    }
+
     setListingAndOpenModal(listingId) {
-        const { openModal, requestListing } = this.props;
-        requestListing(listingId)
-        .then(response => (openModal('Listing Show', { size: "large" })))
-        .fail(errors => console.log(errors))
+        const { openModal, setSelectedListingId } = this.props;
+        setSelectedListingId(listingId)
+        openModal('Listing Show', { size: "large" });
+
     }
 
     // handleClick(listingId) {
@@ -35,7 +43,7 @@ class ListingIndexItem extends React.Component {
     render() {
         const { listing } = this.props;
 
-        console.log("listing prop in listing index item", listing )
+        console.log("listingIndexItemListing", listing)
 
         return (
 
@@ -44,10 +52,10 @@ class ListingIndexItem extends React.Component {
                 <article className="listing-card">
                     <h2 className="card-header">{this.formatPrice(listing.price)}</h2>
                     <div className="card-body">
-                        {listing.beds} bds {listing.baths} ba - {this.formatType(listing.propertyType)} {this.formatStatus(listing.status)}
+                        {this.formatDetails(listing.beds, listing.baths, listing.propertyType)}
                     </div>
                     <div className="card-footer">
-                        {listing.address}, {listing.city}, {listing.state}, {listing.zipcode}
+                        {this.formatAddress(listing.address, listing.city, listing.state, listing.zipcode)}
                     </div>
                     <div className="save-action">
                         <AiOutlineHeart />

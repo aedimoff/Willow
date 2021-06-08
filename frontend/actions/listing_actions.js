@@ -4,6 +4,7 @@ import * as ListingAPIUtil from '../util/listing_api_util';
 export const RECEIVE_ALL_LISTINGS = "RECEIVE_ALL_LISTINGS";
 export const RECEIVE_LISTING = "RECEIVE_LISTING";
 export const REMOVE_LISTING = "REMOVE_LISTING";
+export const SET_SELECTED_LISTING_ID = "SET_SELECTED_LISTING_ID";
 
 const receiveAllListings = listings => ({
     type: RECEIVE_ALL_LISTINGS,
@@ -15,10 +16,19 @@ const receiveListing = listing => ({
     listing
 })
 
+const setListing = selectedListingId => ({
+    type: SET_SELECTED_LISTING_ID,
+    selectedListingId
+})
+
 const removeListing = listingId => ({
     type: REMOVE_LISTING,
     listingId
 })
+
+export const setSelectedListingId = (selectedListingId) => dispatch => (
+    dispatch(setListing(selectedListingId))
+)
 
 export const requestListings = () => dispatch => (
     ListingAPIUtil.fetchAllListings()

@@ -1,7 +1,8 @@
 import { 
     RECEIVE_ALL_LISTINGS,
     RECEIVE_LISTING,
-    REMOVE_LISTING
+    REMOVE_LISTING,
+    SET_SELECTED_LISTING_ID
 } from '../actions/listing_actions';
 
 const listingReducer = (state = {}, action) => {

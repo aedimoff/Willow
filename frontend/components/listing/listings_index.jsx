@@ -4,12 +4,12 @@ import Spinner from '../spinner/spinner';
 
 class ListingsIndex extends React.Component {
     componentDidMount() {
-        console.log(this.props)
         this.props.requestListings()
     }
 
     render() {
-        const { listings } = this.props;
+        const { listings, openModal, requestListing } = this.props;
+        console.log("listings in listings index", listings)
         const display = listings[listings.length - 1] ? 
             (<ul className="listing-index-container">
                     {
@@ -17,6 +17,8 @@ class ListingsIndex extends React.Component {
                             <ListingIndexItem 
                                 key={listing.id}
                                 listing={listing}
+                                openModal={openModal}
+                                requestListing={requestListing}
                             />
                         ))
                     }

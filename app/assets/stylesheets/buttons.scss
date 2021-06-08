@@ -8,12 +8,14 @@
   padding: 10px 15px;
   font-size: 16px;
   justify-content: center;
-  border-radius: 3px;
+  border-radius: 2px;
   align-self: center;
   padding: 1px 8px 1px 8px;
-  min-width: 100px;
-  height: 26px;
+  min-width: 80px;
+  height: 24px;
   font: $functional-font;
+  box-shadow: 0px 1px 4px -1px;
+  cursor: pointer;
 }
 
 .button:hover {
@@ -24,11 +26,13 @@
     padding: 10px 15px;
     font-size: 16px;
     justify-content: center;
-    border-radius: 3px;
+    border-radius: 2px;
     align-self: center;
     padding: 1px 8px 1px 8px;
-    min-width: 100px;
-    height: 28px;
+    min-width: 80px;
+    height: 24px;
+    box-shadow: 0px 1px 4px -1px;
+    cursor: pointer;
 }
 
 .secondary-button {
@@ -42,6 +46,8 @@
     border-radius: 3px;
     align-self: center;
     padding: 1px 8px 1px 8px;
-    min-width: 100px;
-    height: 28px;
+    min-width: 80px;
+    height: 24px;
+    box-shadow: 0px 1px 4px -1px;
+    cursor: pointer;
 }

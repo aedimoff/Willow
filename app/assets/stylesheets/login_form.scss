@@ -7,12 +7,21 @@
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: white;
-  height: 360px;
+
   max-height: 100%;
-  width: 320px;
   max-width: 100%;
   padding: 20px;
   border-radius: 6px;
+}
+
+.medium-modal {
+  height: 360px;
+  width: 320px;
+}
+
+.large-modal {
+  height: 800px;
+  width: 800px;
 }
 
 .modal-input {

@@ -1,5 +1,6 @@
 import React from 'react';
 import { AiOutlineHeart } from 'react-icons/ai';
+import { Link, withRouter } from "react-router";
 
 class ListingIndexItem extends React.Component {
     formatStatus(status) {
@@ -11,19 +12,34 @@ class ListingIndexItem extends React.Component {
             return '- SOLD'
         }
     }
-
+    
     formatType(name) {
         return name.charAt(0).toUpperCase() + name.slice(1)
     }
-
+    
     formatPrice(price) {
         return '$' + price.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
     }
+
+    setListingAndOpenModal(listingId) {
+        const { openModal, requestListing } = this.props;
+        requestListing(listingId)
+        .then(response => (openModal('Listing Show', { size: "large" })))
+        .fail(errors => console.log(errors))
+    }
+
+    // handleClick(listingId) {
+    //     this.props.history.push(`/listings/${listingId}`)
+    // }
     
     render() {
         const { listing } = this.props;
+
+        console.log("listing prop in listing index item", listing )
+
         return (
-            <li className="listing-index-item"> 
+
+            <li className="listing-index-item" onClick={() => this.setListingAndOpenModal(listing.id)}>
                 <img className="image" src={listing.imageUrls && listing.imageUrls[0]}/>
                 <article className="listing-card">
                     <h2 className="card-header">{this.formatPrice(listing.price)}</h2>
@@ -37,8 +53,8 @@ class ListingIndexItem extends React.Component {
                         <AiOutlineHeart />
                     </div>
                 </article>
-                {/* <Link to={`api/listings/${listing.id}`}>{listing.address}</Link> */}
             </li>
+
         )
     }
 }

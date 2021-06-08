@@ -37,10 +37,10 @@ class Listing < ApplicationRecord
 
     has_many_attached :images
 
-    def image_urls
-        images.map do |image|
-            image.service_url
-        end
-    end
+    # def image_urls
+    #     images.map do |image|
+    #         image.service_url
+    #     end
+    # end
 
 end

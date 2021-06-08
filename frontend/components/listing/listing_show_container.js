@@ -4,9 +4,10 @@ import { requestListing } from '../../actions/listing_actions';
 
 
 const mapStateToProps = (state) => {
-    // console.log("state in mstp", state)
-    // console.log("ownProps in mstp", ownProps)
-    return {listing: state.entities.listings.listing }
+    console.log("state in mstp", state)
+    return {
+        listing: state.entities.listings[state.ui.listingId.selectedListingId] 
+    }
 };
 
 const mapDispatchToProps = dispatch => ({

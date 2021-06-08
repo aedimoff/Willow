@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import SignupFormContainer from '../../components/session/signup_form_container';
 import LoginFormContainer from '../../components/session/login_form_container';
 import ListingShowContainer from '../listing/listing_show_container';
+import ListingShow from '../listing/listing_show';
 import { closeModal } from '../../actions/modal_actions';
 
 const modalSize = size => {

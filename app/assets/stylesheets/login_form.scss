@@ -1,29 +1,5 @@
 @import 'variables';
 
-.modal {
-  position: absolute;
-  margin: -10% auto;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: white;
-
-  max-height: 100%;
-  max-width: 100%;
-  padding: 20px;
-  border-radius: 6px;
-}
-
-.medium-modal {
-  height: 360px;
-  width: 320px;
-}
-
-.large-modal {
-  height: 800px;
-  width: 800px;
-}
-
 .modal-input {
   display: flex;
   flex-direction: column;

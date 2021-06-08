@@ -8,8 +8,7 @@ class ListingsIndex extends React.Component {
     }
 
     render() {
-        const { listings, openModal, requestListing } = this.props;
-        console.log("listings in listings index", listings)
+        const { listings, openModal, setSelectedListingId } = this.props;
         const display = listings[listings.length - 1] ? 
             (<ul className="listing-index-container">
                     {
@@ -18,7 +17,7 @@ class ListingsIndex extends React.Component {
                                 key={listing.id}
                                 listing={listing}
                                 openModal={openModal}
-                                requestListing={requestListing}
+                                setSelectedListingId={setSelectedListingId}
                             />
                         ))
                     }

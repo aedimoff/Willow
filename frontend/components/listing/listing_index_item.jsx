@@ -47,7 +47,7 @@ class ListingIndexItem extends React.Component {
         const { listing } = this.props;
         return (
             <li className="listing-index-item"> 
-                <img className="image" src={listing.imageUrls[0]}/>
+                <img className="image" src={listing.imageUrls && listing.imageUrls[0]}/>
                 <article className="listing-card">
                     <h2 className="card-header">{this.formatPrice(listing.price)}</h2>
                     <div className="card-body">

@@ -1,3 +1,4 @@
+@import 'variables';
 html, body, div, span, h1, h2, h3, h4, h5, h6, p, blockquote, 
 a, font, img, ol, ul, li, form, label {
   margin: 0;
@@ -8,6 +9,7 @@ a, font, img, ol, ul, li, form, label {
   font-family: inherit;
   font-size: 100%;
   font-family: inherit;
+  color: $font-black;
   vertical-align: baseline;
 }
 /* remember to define focus styles! */
@@ -16,7 +18,7 @@ a, font, img, ol, ul, li, form, label {
 }
 body {
   line-height: 1;
-  color: black;
+  color: $font-black;
   background: white;
 }
 ol, ul {

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import SignupFormContainer from '../../components/session/signup_form_container';
 import LoginFormContainer from '../../components/session/login_form_container';
 import ListingShowContainer from '../listing/listing_show_container';
-import ListingShow from '../listing/listing_show';
+import { Buy, Sell, Rent }from '../home/options';
 import { closeModal } from '../../actions/modal_actions';
 
 const modalSize = size => {
@@ -24,6 +24,15 @@ const Modal = ({ modal, closeModal }) => {
             break;
         case 'Listing Show':
             component = <ListingShowContainer listing={modal.params.listing}/>;
+            break;
+        case 'Buy':
+            component = <Buy/>;
+            break;
+        case 'Sell':
+            component = <Sell/>;
+            break;
+        case 'Rent':
+            component = <Rent/>;
         default:
             break;
     }
@@ -39,7 +48,7 @@ const Modal = ({ modal, closeModal }) => {
 
  
 const mapStateToProps = state => ({
-    modal: state.ui.modal
+    modal: state.ui.modal,
 });
 
 const mapDisatchToProps = dispatch => ({

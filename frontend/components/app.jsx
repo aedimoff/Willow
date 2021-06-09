@@ -5,7 +5,7 @@ import Modal from './modal/modal';
 import ListingShow from './listing/listing_show';
 import NavBarContainer from './navbar/nav_bar_container';
 import HomePage from './home/home_page';
-import Welcome from './home/welcome';
+import WelcomeContainer from './home/welcome_container';
 
 const App = () => (
     <div>
@@ -16,7 +16,7 @@ const App = () => (
         </header>
         <ProtectedRoute to="/home" component={HomePage}/>
         <Switch>
-            <AuthRoute to="/welcome" component={Welcome}/>
+            <AuthRoute to="/welcome" component={WelcomeContainer}/>
         </Switch>
         <Modal className="modal"/>
     </div>

@@ -52,3 +52,31 @@
     box-shadow: 0px 1px 4px -1px;
     cursor: pointer;
 }
+
+.secondary-button:hover {
+    background-color: $willow-blue;
+  border: none;
+  color: white;
+  text-align: center;
+  padding: 10px 15px;
+  font-size: 14px;
+  justify-content: center;
+  border-radius: 2px;
+  align-self: center;
+  padding: 1px 8px 1px 8px;
+  min-width: 80px;
+  height: 24px;
+  font-family: $functional-font;
+  box-shadow: 0px 1px 4px -1px;
+  cursor: pointer;
+}
+
+.large-button {
+  height: 40px;
+  width: 70%;
+}
+
+.large-button:hover {
+  height: 40px;
+  width: 70%;
+}

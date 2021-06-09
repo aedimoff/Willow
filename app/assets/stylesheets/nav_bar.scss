@@ -5,21 +5,30 @@
     background-color: white;
     justify-content: space-between;
     padding: 20px;
-    border-bottom: 1px solid $border-grey;
+    border-bottom: 1px solid lightgrey;
     color: $willow-blue;
     font-family: $style-font;
     position: sticky;
     height: 3vh;
     
     .logo {
-        flex: 1;
-        font-size: 40px;
-        display: flex;
-        justify-content: center;
+      flex: 1;
+      
+      display: flex;
+      justify-content: center;
+    }
+    
+    .logo-title {
+      font-size: 44px;
+      padding-left: 2px;
     }
 
     .place-holder {
       flex: 1;
+    }
+
+    .willow-icon {
+      font-size: 34px
     }
 
   .nav-menu {

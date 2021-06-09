@@ -1,5 +1,6 @@
 import React from 'react';
-// import GreetingContainer from './greeting/greeting_container';
+import { BsHouseDoorFill } from 'react-icons/bs';
+
 
 
 const NavBar = ({ currentUser, logout, openModal }) => {
@@ -20,7 +21,10 @@ const NavBar = ({ currentUser, logout, openModal }) => {
     return (
         <header className="nav-bar">
             <div className="place-holder"></div>
-            <h1 className="logo">Willow</h1>
+            <div className="logo">
+                <BsHouseDoorFill className="willow-icon"/>
+                <h1 className="logo-title">Willow</h1>
+            </div>
             <div className="nav-menu">
                 {currentUser ? loggedIn() : loggedOut()}
             </div>

@@ -6,14 +6,14 @@
   color: white;
   text-align: center;
   padding: 10px 15px;
-  font-size: 16px;
+  font-size: 14px;
   justify-content: center;
   border-radius: 2px;
   align-self: center;
   padding: 1px 8px 1px 8px;
   min-width: 80px;
   height: 24px;
-  font: $functional-font;
+  font-family: $functional-font;
   box-shadow: 0px 1px 4px -1px;
   cursor: pointer;
 }
@@ -24,8 +24,8 @@
     color: $willow-blue;
     text-align: center;
     padding: 10px 15px;
-    font-size: 16px;
-    justify-content: center;
+    font-size: 14px;
+    font-family: $functional-font;
     border-radius: 2px;
     align-self: center;
     padding: 1px 8px 1px 8px;
@@ -41,7 +41,8 @@
     color: $willow-blue;
     text-align: center;
     padding: 10px 15px;
-    font-size: 16px;
+    font-size: 14px;
+    font-family: $functional-font;
     justify-content: center;
     border-radius: 3px;
     align-self: center;

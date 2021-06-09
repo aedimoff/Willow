@@ -1,5 +1,5 @@
 import React from 'react';
-import { AiOutlineHeart } from 'react-icons/ai';
+import { AiOutlineHeart} from 'react-icons/ai';
 import { Link, withRouter } from "react-router";
 
 class ListingIndexItem extends React.Component {
@@ -48,6 +48,9 @@ class ListingIndexItem extends React.Component {
         return (
 
             <li className="listing-index-item" onClick={() => this.setListingAndOpenModal(listing.id)}>
+                <div className="save-action">
+                    <AiOutlineHeart className="heart"/> 
+                </div>
                 <img className="image" src={listing.imageUrls && listing.imageUrls[0]}/>
                 <article className="listing-card">
                     <h2 className="card-header">{this.formatPrice(listing.price)}</h2>
@@ -57,9 +60,7 @@ class ListingIndexItem extends React.Component {
                     <div className="card-footer">
                         {this.formatAddress(listing.address, listing.city, listing.state, listing.zipcode)}
                     </div>
-                    <div className="save-action">
-                        <AiOutlineHeart />
-                    </div>
+
                 </article>
             </li>
 

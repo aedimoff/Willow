@@ -1,4 +1,6 @@
 import React from 'react';
+import { AiOutlineHeart } from 'react-icons/ai';
+import { BsHouseDoorFill } from 'react-icons/bs';
 
 class ListingShow extends React.Component {
     formatPrice(price) {
@@ -42,14 +44,33 @@ class ListingShow extends React.Component {
                     </div>
                 </div> 
                 <div className="description-container">
-                    <h1 className="listing-show-header">Willow</h1>
+                    <div className="header-box">
+                        <div className="listing-show-header" >
+                            <BsHouseDoorFill className="willow-icon"/>
+                            <h1 className="show-header">Willow</h1>
+                        </div>
+                        <div className="modal-save-action">
+                            <AiOutlineHeart className="modal-heart"/> <p>Save</p>
+                        </div>
+                    </div>
+                    
                     <h2 className="listing-header">{this.formatPrice(listing.price)}</h2>
                     <div className="listing-details">{this.formatDetails(listing.beds, listing.baths, listing.propertyType)}</div>
                     <div className="listing-address">{this.formatAddress(listing.address, listing.city, listing.state, listing.zipcode)}</div>
                     <h2 className="description-header">Overview</h2>
+                    <div className="days-and-saves">
+                        <div className="days-count">
+                            Time on Willow: 14 days
+                        </div>
+                        <div className="saves-count">
+                            Saves: 145
+                        </div>
+                    </div>
                     <p className="listing-description">{listing.description}</p>
                 </div>
             </div>
+
+            // {this.saveCount(listing.saves)}
         )
     }
 }

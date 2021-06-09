@@ -1,0 +1,24 @@
+.modal {
+  position: absolute;
+  margin: -10% auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  max-height: 100%;
+  max-width: 100%;
+  
+}
+
+.medium-modal {
+  height: 360px;
+  width: 320px;
+  border-radius: 6px;
+  padding: 20px;
+}
+
+.large-modal {
+  height: 100vw;
+  width: 77vw;
+  margin-top: 0px;
+}

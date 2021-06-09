@@ -1,0 +1,47 @@
+@import 'variables';
+
+.listing-grid-container {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0.5rem;
+    width: 45vw;
+}
+
+.listing-index-item {
+    position: relative;
+    font-family: $functional-font;    
+    border-bottom: 4px solid $willow-blue;
+    border-right: 0.5px solid #EAEAEA;
+    border-left: 0.5px solid #EAEAEA;
+    border-top: 0.5px solid #EAEAEA;
+    box-shadow: 0 4px 2px -2px gray;
+    cursor: pointer;
+
+    h2 {
+        font-size: 20px;
+        font-weight: bold;  
+    }
+
+    .listing-card {
+        display: flex;
+        flex-direction: column;
+        height: 35%;
+        justify-content: space-between;
+        padding: 7px 5px 1px 10px;
+        letter-spacing: 0.2px;
+    }
+}
+
+.save-action {
+    display: flex;
+    justify-content: flex-end;
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    font-size: 26px;
+    color: white;
+}
+
+
+
+

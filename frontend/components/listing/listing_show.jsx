@@ -50,7 +50,7 @@ class ListingShow extends React.Component {
                             <h1 className="show-header">Willow</h1>
                         </div>
                         <div className="modal-save-action">
-                            <AiOutlineHeart className="modal-heart"/> <p>Save</p>
+                            <AiOutlineHeart className="modal-heart"/> <h5>Save</h5>
                         </div>
                     </div>
                     
@@ -66,7 +66,10 @@ class ListingShow extends React.Component {
                             Saves: 145
                         </div>
                     </div>
-                    <p className="listing-description">{listing.description}</p>
+                    {/* <p className="listing-description">{listing.description}</p> */}
+                    <p>Beautiful home on corner lot with mountain views! Enjoy an open floor plan and lots of natural light. The living room offers an inviting fireplace and flows to the gourmet kitchen. Kitchen features include a large center island, elegant cabinetry, and stainless steel appliances. The primary bedroom offers carpet flooring, a walk-in closet, dual sinks in the primary bathroom, a soaking tub, and a walk-in shower. Additional property highlights include the inside laundry room, 3 car tandem garage, and no HOA. Convenient to area schools, shopping plazas, and major freeways!</p>
+                    <h2 className="description-header">Facts and Features</h2>
+                    <img className="listing-features" src={window.listing_features} />
                 </div>
             </div>
 

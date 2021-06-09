@@ -8,6 +8,7 @@
 @import 'buttons';
 @import 'spinner';
 @import 'modal';
+@import 'welcome';
 
 .home-page {
   display: flex;
@@ -26,12 +27,7 @@
   width: 55vw;
 }
 
-.welcome-banner {
-  width: 100%;
-  height: 500px;
+.header-link {
+  text-decoration: none;
 }
-
-  .header-link {
-    text-decoration: none;
-  }
 

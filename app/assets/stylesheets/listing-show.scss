@@ -16,7 +16,15 @@
 .description-container {
     width: 45vw;
     height: 100%;
+    padding-left: 6px;
+
+    p {
+        line-height: 30px;
+        padding: 15px 0px 0px 15px;
+    }
 }
+
+
 
 .images {
     height: 100%;
@@ -57,7 +65,7 @@
     font-weight: bold;
     font-size: 26px;
     height: 5%;
-    padding: 10px 0px 0px 9px;
+    padding: 20px 0px 0px 9px;
     letter-spacing: 1px;
 }
 
@@ -72,12 +80,13 @@
     font-size: 36px;
     font-weight: bold;
     height: 5%;
-    padding: 12px 0px 3px 13px;
+    padding: 20px 0px 10px 13px;
 }
 
 .show-header {
     padding-top: 4px;
     color: $willow-blue;
+    font-family: $style-font;
 }
 
 .modal-save-action {
@@ -89,11 +98,12 @@
     font-family: $functional-font;
     align-self: center;
     padding-top: 4px;
+
+    h5 {
+    color: $willow-blue;
+    }
 }
 
-.modal-save-action p {
-    color: $willow-blue;
-}
 
 .modal-heart {
     font-size: 18px;
@@ -109,7 +119,7 @@
 .description-header {
     font-size: 24px;
     height: 5%;
-    padding: 9px 0px 0px 12px;
+    padding: 19px 0px 3px 12px;
 }
 
 .listing-description {
@@ -134,7 +144,6 @@
 
 .days-count {
     padding-right: 16px;
-    border-right: 1px solid gray;
 }
 
 .saves-count {
@@ -143,4 +152,10 @@
 
 .willow-icon {
     color: $willow-blue;
+}
+
+.listing-features {
+    padding: 12px 0px 0px 24px;
+    width: 93%;
+    border-top: 1px solid lightgrey;
 }

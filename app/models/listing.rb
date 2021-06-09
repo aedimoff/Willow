@@ -36,4 +36,10 @@ class Listing < ApplicationRecord
         class_name: :User
 
     has_many_attached :images
+
+    has_many :saves
+
+    has_many :user_saves,
+        through: :saves, 
+        source: :user
 end

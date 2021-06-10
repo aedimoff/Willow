@@ -45,7 +45,7 @@ class ListingShow extends React.Component {
                 </div> 
                 <div className="description-container">
                     <div className="header-box">
-                        <div className="listing-show-header" >
+                        <div className="willow-header" >
                             <BsHouseDoorFill className="willow-icon"/>
                             <h1 className="show-header">Willow</h1>
                         </div>

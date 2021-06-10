@@ -1,4 +1,5 @@
 import React from 'react';
+import { BsHouseDoorFill } from 'react-icons/bs';
 
 class ListingCreate extends React.Component {
     constructor(props) {
@@ -22,6 +23,10 @@ class ListingCreate extends React.Component {
         return(
             <div className="listing-create-container">
                 <form className="listing-create-form" onSubmit={this.handleSubmit}>
+                    <div className="willow-header" >
+                        <BsHouseDoorFill className="willow-icon"/>
+                        <h1 className="header">Willow</h1>
+                    </div>
                     <label className="input">Street Address
                         <input type="text" 
                         value={this.state.address}
@@ -66,7 +71,7 @@ class ListingCreate extends React.Component {
                     <label className="input">Property Type
                         <select value={this.state.property_type}
                             onChange={this.update('property_type')}>
-                            <option value="" selected disabled hidden>Select</option>
+                            <option defaultValue="Select"/>
                             <option value="house">House</option>
                             <option value="apartment">Apartment</option>
                             <option value="lot">Lot</option>

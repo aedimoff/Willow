@@ -1,21 +1,21 @@
-class Api::SavesController < ApplicationController
-    def create
-        @save = Save.new(:listing_id: params: [:save][:listing_id])
-        @save.user_id = current_user.id
+# class Api::SavesController < ApplicationController
+#     def create
+#         @save = Save.new(:listing_id: params: [:save][:listing_id])
+#         @save.user_id = current_user.id
 
-        if @save.save!
-            render 'api/saves/show'
-        else
-            render json: ["Error"], status: 401
-        end
-    end
+#         if @save.save!
+#             render 'api/saves/show'
+#         else
+#             render json: ["Error"], status: 401
+#         end
+#     end
 
-    def index 
+#     def index 
         
 
-    end
+#     end
 
-    def destroy
+#     def destroy
 
-    end
-end
+#     end
+# end

@@ -5,13 +5,36 @@ class ListingCreate extends React.Component {
     constructor(props) {
         super(props)
         this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleFile = this.handleFile.bind(this)
         this.state = this.props.listing
     }
 
     handleSubmit(e) {
-        console.log("in handlesubmit", this.props)
         e.preventDefault()
-        this.props.createListing(this.state)
+        const formData = new FormData();
+        formData.append('listing[address]', this.state.address);
+        formData.append('listing[description]', this.state.description);
+        formData.append('listing[zipcode]', this.state.zipcode);
+        formData.append('listing[city]', this.state.city);
+        formData.append('listing[state]', this.state.state);
+        formData.append('listing[price]', this.state.price);
+        formData.append('listing[status]', this.state.status);
+        formData.append('listing[property_type]', this.state.property_type);
+        formData.append('listing[beds]', this.state.beds);
+        formData.append('listing[baths]', this.state.baths);
+        formData.append('listing[lat]', this.state.lat);
+        formData.append('listing[lng]', this.state.lng);
+
+        const { images } = this.state;
+        for (let i = 0; i < images.length; i++) {
+            formData.append("listing[images][]", images[i]);
+        }
+
+        this.props.createListing(formData)
+    }
+
+    handleFile(e) {
+        this.setState({images: e.currentTarget.files })
     }
 
     update(field) {
@@ -19,7 +42,6 @@ class ListingCreate extends React.Component {
     }
 
     render() {
-        console.log("createForm", this.props)
         return(
             <div className="listing-create-container">
                 <form className="listing-create-form" onSubmit={this.handleSubmit}>
@@ -77,7 +99,13 @@ class ListingCreate extends React.Component {
                             <option value="lot">Lot</option>
                         </select>
                     </label>
-                    <button className="button" type="submit">Create Listing</button>
+                    <div className="upload-button-container">
+                        <input className="upload-button" type="file" 
+                            onChange={e => this.setState({ images: e.target.files })}
+                            multiple
+                        />
+                    </div>
+                    <button className="button" id="create-listing-button" type="submit">Create Listing</button>
                 </form>
             </div>
         )

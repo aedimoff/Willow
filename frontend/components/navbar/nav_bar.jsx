@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { BsHouseDoorFill } from 'react-icons/bs';
 
 
@@ -13,8 +14,8 @@ const NavBar = ({ currentUser, logout, openModal }) => {
 
     const loggedIn = () => (
         <nav className="login-status">
-            <h2 className="nav-bar-greeting">Welcome, {currentUser.email}!</h2>
-            <button className="secondary-button" onClick={logout}>Log Out</button>
+            <Link to={`users/${currentUser.id}`} className="nav-bar-greeting">My Saves</Link>
+            <button className="secondary-button nav-button" onClick={logout}>Log Out</button>
         </nav>  
     )
 
@@ -23,7 +24,8 @@ const NavBar = ({ currentUser, logout, openModal }) => {
             <div className="nav-bar-options">
                 <p className="nav-bar-link">Buy</p>
                 <p className="nav-bar-link">Rent</p>
-                <p className="nav-bar-link">Sell</p>
+                <Link to={`users/${currentUser.id}`} className="nav-bar-link" 
+                    onClick={() => openModal("Create Listing", { size: "large" })}>Sell</Link>
             </div>
             <div className="logo">
                 <BsHouseDoorFill className="willow-icon"/>

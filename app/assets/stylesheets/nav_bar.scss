@@ -26,7 +26,8 @@
     }
 
     .nav-bar-greeting {
-      padding-top: 2px;
+      padding: 10px 14px;
+      text-decoration: none;
     }
 
     .nav-bar-options {
@@ -39,6 +40,7 @@
 
     .nav-bar-link {
       padding-right: 75px;
+      text-decoration: none;
     }
 
     .willow-icon {
@@ -64,6 +66,9 @@
       }
   }
 
+  .nav-button {
+    margin-top: 10px;
+  }
 
 }
 

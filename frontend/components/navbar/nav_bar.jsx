@@ -5,6 +5,7 @@ import { BsHouseDoorFill } from 'react-icons/bs';
 
 
 const NavBar = ({ currentUser, logout, openModal }) => {
+            console.log("navbar", currentUser)
 
     const loggedOut = () => (
         <nav className="login-signup">
@@ -19,13 +20,19 @@ const NavBar = ({ currentUser, logout, openModal }) => {
         </nav>  
     )
 
+    const sellLink = () => (
+        currentUser ? 
+        <Link to={`users/${currentUser.id}`} className="nav-bar-link" 
+            onClick={() => openModal("Create Listing", { size: "large" })}>Sell</Link> :
+            ""
+    )
+
     return (
         <header className="nav-bar">
             <div className="nav-bar-options">
                 <p className="nav-bar-link">Buy</p>
                 <p className="nav-bar-link">Rent</p>
-                <Link to={`users/${currentUser.id}`} className="nav-bar-link" 
-                    onClick={() => openModal("Create Listing", { size: "large" })}>Sell</Link>
+                <p>{sellLink()}</p>
             </div>
             <div className="logo">
                 <BsHouseDoorFill className="willow-icon"/>

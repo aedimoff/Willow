@@ -8,8 +8,9 @@ class ListingCreate extends React.Component {
     }
 
     handleSubmit(e) {
+        console.log("in handlesubmit", this.props)
         e.preventDefault()
-        this.props.createListing(this.props.listing)
+        this.props.createListing(this.state)
     }
 
     update(field) {
@@ -17,63 +18,61 @@ class ListingCreate extends React.Component {
     }
 
     render() {
-        console.log("listingCreate", this.props)
+        console.log("createForm", this.props)
         return(
-            <div>
-                <form onSubmit={this.handleSubmit}>
-                    <label>Street Address
+            <div className="listing-create-container">
+                <form className="listing-create-form" onSubmit={this.handleSubmit}>
+                    <label className="input">Street Address
                         <input type="text" 
                         value={this.state.address}
                         onChange={this.update('address')}/>
                     </label>
-                    <label>Street Address
-                        <input type="text" 
-                        value={this.state.address}
-                        onChange={this.update('address')}/>
-                    </label>
-                    <label>City
+                    <label className="input">City
                         <input type="text" 
                         value={this.state.city}
                         onChange={this.update('city')}/>
                     </label>
-                    <label>State
+                    <label className="input">State
                         <input type="text" 
                         value={this.state.state}
                         onChange={this.update('state')}/>
                     </label>
-                    <label>Zipcode
+                    <label className="input">Zipcode
                         <input type="text" 
                         value={this.state.zipcode}
                         onChange={this.update('zipcode')}/>
                     </label>
-                    <label>Number of Beds
+                    <label className="input">Number of Beds
                         <input type="text" 
                         value={this.state.beds}
                         onChange={this.update('beds')}/>
                     </label>
-                    <label>Number of Baths
+                    <label className="input">Number of Baths
                         <input type="text" 
                         value={this.state.baths}
                         onChange={this.update('baths')}/>
                     </label>
-                    <label>Description
+                    <label className="input">Description
                         <textarea
-                        value={this.state.address}
-                        onChange={this.update('address')}
+                        value={this.state.description}
+                        onChange={this.update('description')}
                         />
                     </label>
-                    <label>Listing Price
+                    <label className="input">Listing Price
                         <input type="text" 
                         value={this.state.price}
                         onChange={this.update('price')}/>
                     </label>
-                    <label>Property Type
-                        <select value={this.state.property_type}>
+                    <label className="input">Property Type
+                        <select value={this.state.property_type}
+                            onChange={this.update('property_type')}>
+                            <option value="" selected disabled hidden>Select</option>
                             <option value="house">House</option>
                             <option value="apartment">Apartment</option>
                             <option value="lot">Lot</option>
                         </select>
                     </label>
+                    <button className="button" type="submit">Create Listing</button>
                 </form>
             </div>
         )

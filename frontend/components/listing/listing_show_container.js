@@ -4,7 +4,6 @@ import { requestListing } from '../../actions/listing_actions';
 
 
 const mapStateToProps = (state) => {
-    console.log("state in mstp", state)
     return {
         listing: state.entities.listings[state.ui.listingId.selectedListingId] 
     }

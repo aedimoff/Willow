@@ -2,16 +2,26 @@
 
 .listing-create-form {
     height: 100%;
+    width: 100%;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .listing-create-container {
     height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .input {
   display: flex;
   flex-direction: column;
-  padding-top: 15px;
+  padding-top: 25px;
+  width: 45%;
+  border-radius: 3px;
+  padding: 0.5rem;
+  margin-top: 6px;
 }
+

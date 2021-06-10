@@ -41,11 +41,11 @@ class Api::ListingsController < ApplicationController
             :price, 
             :status, 
             :property_type, 
-            :images, 
             :beds, 
             :baths,
             :lat,
             :lng,
+            images: [], 
             )
     end
 end

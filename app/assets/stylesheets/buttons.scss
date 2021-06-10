@@ -80,3 +80,65 @@
   height: 40px;
   width: 70%;
 }
+
+.upload-button {
+  display: flex;
+  width: 27%;
+  align-self: center;
+  padding-left: 73px;
+  padding-top: 22px;
+}
+.upload-button-container {
+  height: 12%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.upload-button::-webkit-file-upload-button {
+  visibility: hidden;
+}
+
+.upload-button::before {
+  content: "Upload Images";
+  display: inline-block;
+  background-color: $willow-blue;
+  border: none;
+  color: white;
+  text-align: center;
+  font-size: 14px;
+  justify-content: center;
+  border-radius: 2px;
+  align-self: center;
+  padding: 1px 8px 1px 8px;
+  width: 75%;
+  height: 24px;
+  font-family: $functional-font;
+  box-shadow: 0px 1px 4px -1px;
+  cursor: pointer;
+}
+
+.upload-button:hover::before {
+  content: "Upload Images";
+  display: inline-block;
+  background-color: white;
+  border: 1px solid $willow-blue;
+  color: $willow-blue;
+  text-align: center;
+  padding: 10px 15px;
+  font-size: 14px;
+  font-family: $functional-font;
+  border-radius: 2px;
+  align-self: center;
+  padding: 1px 8px 1px 8px;
+  min-width: 80px;
+  height: 24px;
+  box-shadow: 0px 1px 4px -1px;
+  cursor: pointer;
+}
+
+#create-listing-button {
+  width: 27%;
+  height: 4%;
+}

@@ -2,34 +2,38 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect, Route, withRouter } from 'react-router';
 
-const Auth = ({ component: Component, path, loggedIn, exact }) => (
+const LoggedInProtected = ({ component: Component, path, loggedIn, exact, redirectPath }) => (
+
     <Route 
         path={path}
         exact={exact}
         render={props => 
-        !loggedIn ? <Component {...props} /> : <Redirect to="/home" />
+        loggedIn ? <Component {...props} /> : <Redirect to={redirectPath} />
     }
     />
 );
 
-const Protected = ({ component: Component, path, loggedIn, exact }) => (
-    <Route
+const LoggedOutProtected = ({ component: Component, path, loggedIn, exact, redirectPath }) => (
+
+    <Route 
         path={path}
         exact={exact}
-        render={props =>
-        loggedIn ? <Component {...props} /> : <Redirect to="/welcome" />
+        render={props => 
+        !loggedIn ? <Component {...props} /> : <Redirect to={redirectPath} />
     }
     />
 );
+
+
 
 const mapStateToProps = state => ({
     loggedIn: Boolean(state.session.id) 
 });
 
-export const AuthRoute = withRouter(
-    connect(mapStateToProps, null)(Auth)
+export const LoggedInProtectedRoute = withRouter(
+    connect(mapStateToProps, null)(LoggedInProtected)
 );
 
-export const ProtectedRoute = withRouter(
-    connect(mapStateToProps, null)(Protected)
-)
+export const LoggedOutProtectedRoute = withRouter(
+    connect(mapStateToProps, null)(LoggedOutProtected)
+);

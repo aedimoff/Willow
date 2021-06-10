@@ -42,9 +42,6 @@ class ListingIndexItem extends React.Component {
     
     render() {
         const { listing } = this.props;
-
-        console.log("listingIndexItemListing", listing)
-
         return (
 
             <li className="listing-index-item" onClick={() => this.setListingAndOpenModal(listing.id)}>

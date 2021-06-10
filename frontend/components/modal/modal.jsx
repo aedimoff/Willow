@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import SignupFormContainer from '../../components/session/signup_form_container';
 import LoginFormContainer from '../../components/session/login_form_container';
 import ListingShowContainer from '../listing/listing_show_container';
+import ListingCreateContainer from '../listing/listing_create_container';
 import { Buy, Sell, Rent }from '../home/options';
 import { closeModal } from '../../actions/modal_actions';
 
@@ -24,6 +25,9 @@ const Modal = ({ modal, closeModal }) => {
             break;
         case 'Listing Show':
             component = <ListingShowContainer listing={modal.params.listing}/>;
+            break;
+        case 'Create Listing':
+            component = <ListingCreateContainer />
             break;
         case 'Buy':
             component = <Buy/>;

@@ -105,7 +105,7 @@ class ListingCreate extends React.Component {
                             multiple
                         />
                     </div>
-                    <button className="button" id="create-listing-button" type="submit">Create Listing</button>
+                    <button className="secondary-button" id="create-listing-button" type="submit">Create Listing</button>
                 </form>
             </div>
         )

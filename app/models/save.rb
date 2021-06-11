@@ -14,6 +14,11 @@
 #  index_saves_on_saver_id    (saver_id)
 #
 class Save < ApplicationRecord
-    belongs_to :user
-    belongs_to :listing
+    belongs_to :user,
+        foreign_key: :saver_id,
+        class_name: :User
+        
+    belongs_to :listing,
+        foreign_key: :listing_id,
+        class_name: :Listing
 end

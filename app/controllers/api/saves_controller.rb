@@ -1,21 +1,35 @@
-# class Api::SavesController < ApplicationController
-#     def create
-#         @save = Save.new(:listing_id: params: [:save][:listing_id])
-#         @save.user_id = current_user.id
-
-#         if @save.save!
-#             render 'api/saves/show'
-#         else
-#             render json: ["Error"], status: 401
-#         end
-#     end
-
-#     def index 
+class Api::SavesController < ApplicationController
+    def create
+        @save = Save.create(save_params)
         
+        if @save.save
+            render 'api/saves/show'
+        else
+            render json: ["Error"], status: 422
+        end
+    end
 
-#     end
+    def index 
+        if current_user
+            @saves = Save.all.where(user_id: current_user.id)
+        else
+            @saves = []
+        end
+        render 'api/saves/index'
+    end
 
-#     def destroy
+    def destroy
+        @save = Save.find_by(id: params[:id])
 
-#     end
-# end
+        if @save && @save.destroy
+            render json: ['unsaved']
+        else
+            render json: ['error'], status: 401
+        end
+    end
+
+    private
+    def save_params 
+        params.require(:save).permit(:saver_id, :listing_id)
+    end
+end

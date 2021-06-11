@@ -13,7 +13,6 @@ export const fetchListing = listingId => (
 )
 
 export const createListing = listing => {
-    console.log(listing)
     return $.ajax({
         method: "POST",
         url: 'api/listings',

@@ -50,48 +50,48 @@ class ListingCreate extends React.Component {
                         <h1 className="header">Willow</h1>
                     </div>
                     <label className="input">Street Address
-                        <input type="text" 
+                        <input className="create-listing-input" type="text" 
                         value={this.state.address}
                         onChange={this.update('address')}/>
                     </label>
                     <label className="input">City
-                        <input type="text" 
+                        <input className="create-listing-input" type="text" 
                         value={this.state.city}
                         onChange={this.update('city')}/>
                     </label>
                     <label className="input">State
-                        <input type="text" 
+                        <input className="create-listing-input" type="text" 
                         value={this.state.state}
                         onChange={this.update('state')}/>
                     </label>
                     <label className="input">Zipcode
-                        <input type="text" 
+                        <input className="create-listing-input" type="text" 
                         value={this.state.zipcode}
                         onChange={this.update('zipcode')}/>
                     </label>
                     <label className="input">Number of Beds
-                        <input type="text" 
+                        <input className="create-listing-input" type="text" 
                         value={this.state.beds}
                         onChange={this.update('beds')}/>
                     </label>
                     <label className="input">Number of Baths
-                        <input type="text" 
+                        <input className="create-listing-input" type="text" 
                         value={this.state.baths}
                         onChange={this.update('baths')}/>
                     </label>
                     <label className="input">Description
-                        <textarea
+                        <textarea className="create-listing-input"
                         value={this.state.description}
                         onChange={this.update('description')}
                         />
                     </label>
                     <label className="input">Listing Price
-                        <input type="text" 
+                        <input className="create-listing-input" type="text" 
                         value={this.state.price}
                         onChange={this.update('price')}/>
                     </label>
                     <label className="input">Property Type
-                        <select value={this.state.property_type}
+                        <select className="create-listing-input" value={this.state.property_type}
                             onChange={this.update('property_type')}>
                             <option defaultValue="Select"/>
                             <option value="house">House</option>

@@ -1,3 +1,26 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#create-button-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: lightgreen;
+    height: 10vw;
+
+}
+
+#create-listing-button-box {
+    height: 10vw;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#sell-header {
+    height: 3vw;
+    text-align: center;
+    padding-top: 26px;
+    font-size: 24px;
+    font-weight: bold;
+}

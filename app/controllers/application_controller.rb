@@ -1,10 +1,6 @@
 class ApplicationController < ActionController::Base
     helper_method :logged_in?, :current_user
     skip_before_action :verify_authenticity_token
-
-    # before_action do
-    #     ActiveStorage::Current.host = request.base_url
-    # end
     
     def current_user
         @current_user ||= User.find_by(session_token: session[:session_token])

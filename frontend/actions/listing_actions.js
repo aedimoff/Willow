@@ -40,7 +40,6 @@ export const requestListing = (listingId) => dispatch => (
     .then(listing => dispatch(receiveListing(listing)))
 )
 export const createListing = (listing) => dispatch => {
-    console.log("in createlisting listing_action", listing)
     return (ListingAPIUtil.createListing(listing)
     .then(listing => dispatch(receiveListing(listing))))
 }

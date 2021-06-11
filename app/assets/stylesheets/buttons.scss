@@ -86,10 +86,9 @@
   width: 27%;
   align-self: center;
   padding-left: 73px;
-  padding-top: 22px;
 }
 .upload-button-container {
-  height: 12%;
+  height: 9%;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -141,4 +140,8 @@
 #create-listing-button {
   width: 27%;
   height: 4%;
+}
+
+#user-listing-create {
+  width: 35%;
 }

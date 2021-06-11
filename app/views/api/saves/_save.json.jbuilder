@@ -1,0 +1,1 @@
+json.extract! save, :saver_id, :listing_id

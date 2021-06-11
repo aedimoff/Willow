@@ -8,7 +8,7 @@ class ListingsIndex extends React.Component {
     }
 
     render() {
-        const { listings, openModal, setSelectedListingId } = this.props;
+        const { listings, openModal, setSelectedListingId, createSave, deleteSave, userId, saveId, saves } = this.props;
         const display = listings[listings.length - 1] ? 
             (<ul className="listing-index-container">
                     {
@@ -18,6 +18,11 @@ class ListingsIndex extends React.Component {
                                 listing={listing}
                                 openModal={openModal}
                                 setSelectedListingId={setSelectedListingId}
+                                createSave={createSave}
+                                deleteSave={deleteSave}
+                                userId={userId}
+                                saveId={saveId}
+                                saves={saves}
                             />
                         ))
                     }

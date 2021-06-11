@@ -3,6 +3,10 @@ import { AiOutlineHeart} from 'react-icons/ai';
 import { Link, withRouter } from "react-router";
 
 class ListingIndexItem extends React.Component {
+    constructor(props) {
+        super(props)
+
+    }
     formatStatus(status) {
         if (this.props.listing.status === 'for_sale') {
             return 'for sale'
@@ -41,12 +45,12 @@ class ListingIndexItem extends React.Component {
     // }
     
     render() {
-        const { listing } = this.props;
+        const { listing, userId, saveId } = this.props;
         return (
 
             <li className="listing-index-item" onClick={() => this.setListingAndOpenModal(listing.id)}>
                 <div className="save-action">
-                    <AiOutlineHeart className="heart"/> 
+                    {<AiOutlineHeart className="heart" onClick={() => this.props.createSave(userId, listing.id)}/> }
                 </div>
                 <img className="image" src={listing.imageUrls && listing.imageUrls[0]}/>
                 <article className="listing-card">
@@ -57,13 +61,20 @@ class ListingIndexItem extends React.Component {
                     <div className="card-footer">
                         {this.formatAddress(listing.address, listing.city, listing.state, listing.zipcode)}
                     </div>
-
                 </article>
             </li>
 
         )
     }
 }
+
+    // toggleSave(userId, listingId, saveId) {
+    //     if(this.props.saves.includes(listingId)) {
+    //         return <AiFillHeart onClick={() =>this.props.deleteSave(saveId)}/>
+    //     } else {
+    //         return <AiOutlineHeart onClick={() =>this.props.createSave(userId, listingId)}/>
+    //     }
+    // }
 
 export default ListingIndexItem;
 

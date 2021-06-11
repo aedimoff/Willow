@@ -1,5 +1,5 @@
 import React from 'react';
-import { AiOutlineHeart } from 'react-icons/ai';
+import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
 import { BsHouseDoorFill } from 'react-icons/bs';
 
 class ListingShow extends React.Component {
@@ -29,8 +29,16 @@ class ListingShow extends React.Component {
         return name.charAt(0).toUpperCase() + name.slice(1)
     }
 
-    render() {
+    // saveIcon(listing) {
+    //     if(this.props.saves.includes(listing.id)) {
+    //         return <AiFillHeart onClick={this.props.deleteSave(listing.id)}/>
+    //     } else {
+    //         let save = {saver_id: this.props.userId, listingId: listing.id}
+    //         return <AiOutlineHeart onClick={this.props.createSave(save)}/>
+    //     }
+    // }
 
+    render() {
         const { listing } = this.props;
        
         return(
@@ -38,8 +46,8 @@ class ListingShow extends React.Component {
                 <div className="images">
                     <img className="header-image" src={listing.imageUrls.shift()}/>
                     <div className="image-grid">
-                        {listing.imageUrls.map(url => (
-                            <img className="listing-image" src={url}/>
+                        {listing.imageUrls.map((url, i) => (
+                            <img key={i} className="listing-image" src={url}/>
                         ))}
                     </div>
                 </div> 
@@ -49,9 +57,9 @@ class ListingShow extends React.Component {
                             <BsHouseDoorFill className="willow-icon"/>
                             <h1 className="show-header">Willow</h1>
                         </div>
-                        <div className="modal-save-action">
-                            <AiOutlineHeart className="modal-heart"/> <h5>Save</h5>
-                        </div>
+                        {/* <div className="modal-save-action">
+                            {this.saveIcon(listing)} <h5>Save</h5>
+                        </div> */}
                     </div>
                     
                     <h2 className="listing-header">{this.formatPrice(listing.price)}</h2>
@@ -72,8 +80,6 @@ class ListingShow extends React.Component {
                     <img className="listing-features" src={window.listing_features} />
                 </div>
             </div>
-
-            // {this.saveCount(listing.saves)}
         )
     }
 }

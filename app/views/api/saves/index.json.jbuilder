@@ -1,5 +1,5 @@
 @saves.each do |save|
     json.set! save.id do
-        json.partial! "api/saves/saves", save: save
+        json.extract! save, :saver_id, :listing_id
     end
 end

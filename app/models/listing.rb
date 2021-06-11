@@ -37,9 +37,11 @@ class Listing < ApplicationRecord
 
     has_many_attached :images
 
-    has_many :saves
+    has_many :saves,
+        foreign_key: :listing_id,
+        class_name: :Save
 
-    has_many :user_saves,
-        through: :saves, 
-        source: :user
+    # has_many :user_saves,
+    #     through: :saves, 
+    #     source: :user
 end

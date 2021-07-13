@@ -43,7 +43,8 @@ const Modal = ({ modal, closeModal }) => {
 
     return(
         <div className="modal-background" onClick={closeModal}>
-            <div className={`modal ${modalSize(modal.params.size)}-modal`} onClick={e => e.stopPropagation()}>
+            <div className={`modal ${modalSize(modal.params.size)}-modal`} 
+                onClick={e => e.stopPropagation()}>
                 { component }
             </div>
         </div>

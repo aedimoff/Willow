@@ -5,11 +5,11 @@ export const fetchAllSaves = () => (
     })
 );
 
-export const createSave = (saverId, listing) => (
+export const createSave = (userId, listingId) => (
         $.ajax({
         method: "POST",
         url: `api/saves`,
-        data: {save: { user_id: saverId, listing_id: listing.id }}
+        data: {save: { user_id: userId, listing_id: listingId }}
     })
 );
 

@@ -44,28 +44,23 @@ class ListingIndexItem extends React.Component {
 
     isSaved(listingId) {
       const { saves } = this.props;
-      if (saves.find(el => el.listingId === listingId)) {
-        return true
-      }
+      console.log("Saves in save page", saves)
+      // if (saves.find(el => el.listingId === listingId)) {
+      //   return true
+      // }
     }
 
     handleClick(action) {
       const { userId, listing, createSave, deleteSave } = this.props
-      action.preventDefault()
       if(action === "save") {
-        createSave(userId, listing)
+        createSave(userId, listing.id)
       } else {
         deleteSave(listing.id) }
       this.setState({saved: !this.state.saved});
     }
-
-
-    // handleClick(listingId) {
-    //     this.props.history.push(`/listings/${listingId}`)
-    // }
     
     render() {
-        const { listing, userId } = this.props;
+        const { listing } = this.props;
                                             
         return (
           <li className="listing-index-item">
@@ -105,14 +100,6 @@ class ListingIndexItem extends React.Component {
         );
     }
 }
-
-    // toggleSave(userId, listingId, saveId) {
-    //     if(this.props.saves.includes(listingId)) {
-    //         return <AiFillHeart onClick={() =>this.props.deleteSave(saveId)}/>
-    //     } else {
-    //         return <AiOutlineHeart onClick={() =>this.props.createSave(userId, listingId)}/>
-    //     }
-    // }
 
 export default ListingIndexItem;
 

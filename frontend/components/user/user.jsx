@@ -1,4 +1,5 @@
 import React from 'react';
+import SavesContainer from './saves_container'
 
 class User extends React.Component {
     render() {
@@ -15,6 +16,7 @@ class User extends React.Component {
                         onClick={() => openModal("Create Listing", { size: "large" })}>Create Listing
                     </button>
                 </div>
+                <SavesContainer />
             </div>
         )
     }

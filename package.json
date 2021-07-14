@@ -22,6 +22,7 @@
     "redux-thunk": "^2.3.0",
     "sass-loader": "^12.0.0",
     "style-loader": "^2.0.0",
+    "trim-newlines": "^3.0.1",
     "webpack": "^5.38.1"
   },
   "description": "This README would normally document whatever steps are necessary to get the application up and running.",

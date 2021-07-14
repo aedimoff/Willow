@@ -12,9 +12,7 @@ const savesReducer = (state = {}, action) => {
         case RECEIVE_ALL_SAVES:
             return Object.assign({}, state, action.saves);
         case CREATE_SAVE:
-            return Object.assign({}, state, {
-              [action.listing.id]: action.listing,
-            });
+            return Object.assign({}, state, {[action.listingId]: action.listingId});
         case REMOVE_SAVE:
             let newState = Object.assign({}, state);
             delete newState[action.listingId]

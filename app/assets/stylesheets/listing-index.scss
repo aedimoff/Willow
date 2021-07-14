@@ -15,7 +15,6 @@
     border-left: 0.5px solid #EAEAEA;
     border-top: 0.5px solid #EAEAEA;
     box-shadow: 0 4px 2px -2px gray;
-    cursor: pointer;
 
     h2 {
         font-size: 20px;
@@ -29,6 +28,7 @@
         justify-content: space-around;
         padding: 7px 5px 1px 10px;
         letter-spacing: 0.2px;
+        cursor: pointer;
     }
 }
 
@@ -40,6 +40,7 @@
     right: 12px;
     font-size: 26px;
     color: white;
+    cursor: pointer;
 }
 
 

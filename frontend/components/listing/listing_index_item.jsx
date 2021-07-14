@@ -1,11 +1,13 @@
 import React from 'react';
-import { AiOutlineHeart} from 'react-icons/ai';
+import { AiOutlineHeart, AiFillHeart} from 'react-icons/ai';
 import { Link, withRouter } from "react-router";
 
 class ListingIndexItem extends React.Component {
     constructor(props) {
         super(props)
-
+        this.state = {
+          saved: false
+        }
     }
     formatStatus(status) {
         if (this.props.listing.status === 'for_sale') {
@@ -40,31 +42,67 @@ class ListingIndexItem extends React.Component {
 
     }
 
+    isSaved(listingId) {
+      const { saves } = this.props;
+      if (saves.find(el => el.listingId === listingId)) {
+        return true
+      }
+    }
+
+    handleClick(action) {
+      const { userId, listing, createSave, deleteSave } = this.props
+      action.preventDefault()
+      if(action === "save") {
+        createSave(userId, listing)
+      } else {
+        deleteSave(listing.id) }
+      this.setState({saved: !this.state.saved});
+    }
+
+
     // handleClick(listingId) {
     //     this.props.history.push(`/listings/${listingId}`)
     // }
     
     render() {
-        const { listing, userId, saveId } = this.props;
+        const { listing, userId } = this.props;
+                                            
         return (
-
-            <li className="listing-index-item" onClick={() => this.setListingAndOpenModal(listing.id)}>
-                <div className="save-action">
-                    {<AiOutlineHeart className="heart" onClick={() => this.props.createSave(userId, listing.id)}/> }
-                </div>
-                <img className="image" src={listing.imageUrls && listing.imageUrls[0]}/>
-                <article className="listing-card">
-                    <h2 className="card-header">{this.formatPrice(listing.price)}</h2>
-                    <div className="card-body">
-                        {this.formatDetails(listing.beds, listing.baths, listing.propertyType)}
-                    </div>
-                    <div className="card-footer">
-                        {this.formatAddress(listing.address, listing.city, listing.state, listing.zipcode)}
-                    </div>
-                </article>
-            </li>
-
-        )
+          <li className="listing-index-item">
+            <div className="save-action">
+              {this.isSaved(listing.id) ? (
+                <AiFillHeart onClick={() => this.handleClick("remove")} />
+              ) : (
+                <AiOutlineHeart onClick={() => this.handleClick("save")}/>
+              )}
+            </div>
+            <img
+              className="image"
+              src={listing.imageUrls && listing.imageUrls[0]}
+            />
+            <article
+              className="listing-card"
+              onClick={() => this.setListingAndOpenModal(listing.id)}
+            >
+              <h2 className="card-header">{this.formatPrice(listing.price)}</h2>
+              <div className="card-body">
+                {this.formatDetails(
+                  listing.beds,
+                  listing.baths,
+                  listing.propertyType
+                )}
+              </div>
+              <div className="card-footer">
+                {this.formatAddress(
+                  listing.address,
+                  listing.city,
+                  listing.state,
+                  listing.zipcode
+                )}
+              </div>
+            </article>
+          </li>
+        );
     }
 }
 

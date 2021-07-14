@@ -19,7 +19,7 @@ class Api::SavesController < ApplicationController
     end
 
     def destroy
-        @save = Save.find_by(id: params[:id])
+        @save = Save.find_by(listing_id: (params[:id]))
 
         if @save && @save.destroy
             render json: ['unsaved']
@@ -30,6 +30,6 @@ class Api::SavesController < ApplicationController
 
     private
     def save_params 
-        params.require(:save).permit(:saver_id, :listing_id)
+        params.require(:save).permit(:user_id, :listing_id)
     end
 end

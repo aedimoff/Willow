@@ -6,16 +6,16 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  listing_id :integer
-#  saver_id   :integer
+#  user_id    :integer
 #
 # Indexes
 #
 #  index_saves_on_listing_id  (listing_id)
-#  index_saves_on_saver_id    (saver_id)
+#  index_saves_on_user_id     (user_id)
 #
 class Save < ApplicationRecord
     belongs_to :user,
-        foreign_key: :saver_id,
+        foreign_key: :user_id,
         class_name: :User
         
     belongs_to :listing,

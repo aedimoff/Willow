@@ -5,6 +5,7 @@ import Spinner from '../spinner/spinner';
 class ListingsIndex extends React.Component {
     componentDidMount() {
         this.props.requestListings()
+        this.props.requestSaves();
     }
 
     render() {

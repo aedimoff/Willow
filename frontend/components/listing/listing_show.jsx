@@ -33,7 +33,7 @@ class ListingShow extends React.Component {
     //     if(this.props.saves.includes(listing.id)) {
     //         return <AiFillHeart onClick={this.props.deleteSave(listing.id)}/>
     //     } else {
-    //         let save = {saver_id: this.props.userId, listingId: listing.id}
+    //         let save = {user_id: this.props.userId, listingId: listing.id}
     //         return <AiOutlineHeart onClick={this.props.createSave(save)}/>
     //     }
     // }

@@ -4,16 +4,20 @@ import {
     REMOVE_SAVE 
 } from '../actions/save_actions';
 
-const savesReducer = (state={}, action) => {
+
+
+const savesReducer = (state = {}, action) => {
     Object.freeze(state)
     switch (action.type) {
         case RECEIVE_ALL_SAVES:
             return Object.assign({}, state, action.saves);
         case CREATE_SAVE:
-            return Object.assign({}, state, {[action.save.id]: action.save});
+            return Object.assign({}, state, {
+              [action.listing.id]: action.listing,
+            });
         case REMOVE_SAVE:
             let newState = Object.assign({}, state);
-            delete newState[action.save.id]
+            delete newState[action.listingId]
             return newState;
         default:
             return state;

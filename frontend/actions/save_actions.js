@@ -9,14 +9,14 @@ const receiveAllSaves = saves => ({
     saves
 });
 
-const receiveSave = save => ({
+const receiveSave = listing => ({
     type: CREATE_SAVE,
-    save
-})
+    listing
+    })
 
-const removeSave = saveId => ({
+const removeSave = listingId => ({
     type: REMOVE_SAVE,
-    saveId
+    listingId
 })
 
 export const requestSaves = () => dispatch => {
@@ -24,12 +24,12 @@ export const requestSaves = () => dispatch => {
     .then(saves => dispatch(receiveAllSaves(saves)))
 }
 
-export const createSave = (userId, listingId) => dispatch => {
-    return SaveAPIUtil.createSave(userId, listingId)
-    .then(save => dispatch(receiveSave(save)))
+export const createSave = (userId, listing) => dispatch => {
+    return SaveAPIUtil.createSave(userId, listing)
+    .then(_response => dispatch(receiveSave(listing)))
 }
 
-export const deleteSave = saveId => dispatch => {
-    SaveAPIUtil.deleteSave(saveId) 
-    .then(saveId => dispatch(removeSave(saveId)))
+export const deleteSave = listingId => dispatch => {
+    SaveAPIUtil.deleteSave(listingId) 
+    .then(_response => dispatch(removeSave(listingId)))
 }

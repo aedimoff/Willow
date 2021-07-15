@@ -20,14 +20,13 @@ class SavesIndex extends React.Component {
       userId,
       saveId,
     } = this.props;
-    console.log("setSelected", setSelectedListingId)
     
     const savedListings = Object.values(saves).map((item) =>
       listings[item.listingId]
     );
 
     const display = savedListings[savedListings.length - 1] ? (
-      <ul className="listing-index-container">
+      <ul className="listing-index-container" id="saves-index-container">
         {savedListings.map((listing) => (
           <ListingIndexItem
             key={listing.id}

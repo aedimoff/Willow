@@ -5,16 +5,16 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
-    background-color: lightgreen;
     height: 10vw;
 
 }
 
 #create-listing-button-box {
-    height: 10vw;
+    height: 5vw;
     width: 100%;
     display: flex;
     justify-content: center;
+    border-bottom: 1px solid lightgray
 }
 
 #sell-header {
@@ -24,3 +24,4 @@
     font-size: 24px;
     font-weight: bold;
 }
+

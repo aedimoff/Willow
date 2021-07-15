@@ -9,9 +9,10 @@ const receiveAllSaves = saves => ({
     saves
 });
 
-const receiveSave = listingId => ({
+const receiveSave = (listingId, userId) => ({
     type: CREATE_SAVE,
-    listingId
+    listingId,
+    userId
     })
 
 const removeSave = listingId => ({
@@ -21,12 +22,12 @@ const removeSave = listingId => ({
 
 export const requestSaves = () => dispatch => {
     SaveAPIUtil.fetchAllSaves()
-    .then(saves => dispatch(receiveAllSaves(saves)))
+    .then(saves => dispatch(receiveAllSaves(Object.values(saves))))
 }
 
 export const createSave = (userId, listingId) => dispatch => {
     return SaveAPIUtil.createSave(userId, listingId)
-    .then(_response => dispatch(receiveSave(listingId)))
+    .then(_response => dispatch(receiveSave(listingId, userId)))
 }
 
 export const deleteSave = listingId => dispatch => {

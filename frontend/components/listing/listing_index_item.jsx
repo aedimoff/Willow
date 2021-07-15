@@ -44,10 +44,9 @@ class ListingIndexItem extends React.Component {
 
     isSaved(listingId) {
       const { saves } = this.props;
-      console.log("Saves in save page", saves)
-      // if (saves.find(el => el.listingId === listingId)) {
-      //   return true
-      // }
+      if (saves.find(el => el.listingId === listingId)) {
+        return true
+      }
     }
 
     handleClick(action) {

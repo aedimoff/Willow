@@ -31,12 +31,13 @@ class Markers {
     this.markers[marker.listingId] = listing;
   
     const infowindow = new google.maps.InfoWindow({
-      content: listing.address
+      content:`<img height='90px' width='150px' src=${listing.imageUrls[0]} />`
+          + `<p style="text-align:center; font-weight:600;" >${listing.address}</p>`
     })
 
     marker.addListener("mouseover", () => {infowindow.open(marker.map, marker)})
     marker.addListener("mouseout", () => {infowindow.close()})
-    marker.addListener("click", () => {this.handleClick(listing)})
+    marker.addListener("click", () => {this.handleClick(listing);})
   }
 
 

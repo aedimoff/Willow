@@ -1,5 +1,6 @@
 import React from 'react';
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
+import { MdClose} from 'react-icons/md'
 import { BsHouseDoorFill } from 'react-icons/bs';
 
 class ListingShow extends React.Component {
@@ -39,48 +40,73 @@ class ListingShow extends React.Component {
     // }
 
     render() {
-        const { listing } = this.props;
+        const { listing, closeModal } = this.props;
        
-        return(
-            <div className="listing-show">            
-                <div className="images">
-                    <img className="header-image" src={listing.imageUrls.shift()}/>
-                    <div className="image-grid">
-                        {listing.imageUrls.map((url, i) => (
-                            <img key={i} className="listing-image" src={url}/>
-                        ))}
-                    </div>
-                </div> 
-                <div className="description-container">
-                    <div className="header-box">
-                        <div className="willow-header" >
-                            <BsHouseDoorFill className="willow-icon"/>
-                            <h1 className="show-header">Willow</h1>
-                        </div>
-                        {/* <div className="modal-save-action">
+        return (
+          <div className="listing-show">
+            <div className="close-x" onClick={closeModal}>
+              <MdClose id="close-x" size={40} />
+            </div>
+            <div className="images">
+              <img className="header-image" src={listing.imageUrls.shift()} />
+              <div className="image-grid">
+                {listing.imageUrls.map((url, i) => (
+                  <img key={i} className="listing-image" src={url} />
+                ))}
+              </div>
+            </div>
+            <div className="description-container">
+              <div className="header-box">
+                <div className="willow-header">
+                  <BsHouseDoorFill className="willow-icon" />
+                  <h1 className="show-header">Willow</h1>
+                </div>
+                {/* <div className="modal-save-action">
                             {this.saveIcon(listing)} <h5>Save</h5>
                         </div> */}
-                    </div>
-                    
-                    <h2 className="listing-header">{this.formatPrice(listing.price)}</h2>
-                    <div className="listing-details">{this.formatDetails(listing.beds, listing.baths, listing.propertyType)}</div>
-                    <div className="listing-address">{this.formatAddress(listing.address, listing.city, listing.state, listing.zipcode)}</div>
-                    <h2 className="description-header">Overview</h2>
-                    <div className="days-and-saves">
-                        <div className="days-count">
-                            Time on Willow: 14 days
-                        </div>
-                        <div className="saves-count">
-                            Saves: 145
-                        </div>
-                    </div>
-                    {/* <p className="listing-description">{listing.description}</p> */}
-                    <p>Beautiful home on corner lot with mountain views! Enjoy an open floor plan and lots of natural light. The living room offers an inviting fireplace and flows to the gourmet kitchen. Kitchen features include a large center island, elegant cabinetry, and stainless steel appliances. The primary bedroom offers carpet flooring, a walk-in closet, dual sinks in the primary bathroom, a soaking tub, and a walk-in shower. Additional property highlights include the inside laundry room, 3 car tandem garage, and no HOA. Convenient to area schools, shopping plazas, and major freeways!</p>
-                    <h2 className="description-header">Facts and Features</h2>
-                    <img className="listing-features" src={window.listing_features} />
-                </div>
+              </div>
+
+              <h2 className="listing-header">
+                {this.formatPrice(listing.price)}
+              </h2>
+              <div className="listing-details">
+                {this.formatDetails(
+                  listing.beds,
+                  listing.baths,
+                  listing.propertyType
+                )}
+              </div>
+              <div className="listing-address">
+                {this.formatAddress(
+                  listing.address,
+                  listing.city,
+                  listing.state,
+                  listing.zipcode
+                )}
+              </div>
+              <h2 className="description-header">Overview</h2>
+              <div className="days-and-saves">
+                <div className="days-count">Time on Willow: 14 days</div>
+                <div className="saves-count">Saves: 145</div>
+              </div>
+              {/* <p className="listing-description">{listing.description}</p> */}
+              <p>
+                Beautiful home on corner lot with mountain views! Enjoy an open
+                floor plan and lots of natural light. The living room offers an
+                inviting fireplace and flows to the gourmet kitchen. Kitchen
+                features include a large center island, elegant cabinetry, and
+                stainless steel appliances. The primary bedroom offers carpet
+                flooring, a walk-in closet, dual sinks in the primary bathroom,
+                a soaking tub, and a walk-in shower. Additional property
+                highlights include the inside laundry room, 3 car tandem garage,
+                and no HOA. Convenient to area schools, shopping plazas, and
+                major freeways!
+              </p>
+              <h2 className="description-header">Facts and Features</h2>
+              <img className="listing-features" src={window.listing_features} />
             </div>
-        )
+          </div>
+        );
     }
 }
 

@@ -65,7 +65,7 @@ class ListingIndexItem extends React.Component {
           <li className="listing-index-item">
             <div className="save-action">
               {this.isSaved(listing.id) ? (
-                <AiFillHeart onClick={() => this.handleClick("remove")} />
+                <AiFillHeart id="heart" onClick={() => this.handleClick("remove")} />
               ) : (
                 <AiOutlineHeart onClick={() => this.handleClick("save")}/>
               )}

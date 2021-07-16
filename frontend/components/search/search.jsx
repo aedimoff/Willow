@@ -17,9 +17,13 @@ const Search = ({
 }) => {
   return (
     <div className="home-page">
-      <ListingMap listings={listings}/>
-      <ListingsIndex 
-        listings={listings} 
+      <ListingMap
+        listings={listings}
+        openModal={openModal}
+        setSelectedListingId={setSelectedListingId}
+      />
+      <ListingsIndex
+        listings={listings}
         openModal={openModal}
         setSelectedListingId={setSelectedListingId}
         requestListings={requestListings}

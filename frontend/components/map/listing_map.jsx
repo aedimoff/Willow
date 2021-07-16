@@ -8,13 +8,19 @@ class ListingMap extends React.Component {
             zoom: 10
         };
 
-        this.map = new google.maps.Map(this.mapNode, mapOptions)
-        this.Markers = new Markers(this.map)
-        this.Markers.updateMarkers(this.props.listings)
+        this.map = new google.maps.Map(this.mapNode, mapOptions);
+        this.Markers = new Markers(this.map, this.handleMarkerClick.bind(this));
+        this.Markers.updateMarkers(this.props.listings);
     }
 
     componentDidUpdate() {
         this.Markers.updateMarkers(this.props.listings)
+    }
+
+    handleMarkerClick(listing) {
+        const { setSelectedListingId, openModal } = this.props;
+        setSelectedListingId(listing.id)
+        openModal("Listing Show", { size: "large" });
     }
     render() {
        return(

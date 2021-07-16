@@ -1,8 +1,8 @@
 class Markers {
-  constructor(map) {
+  constructor(map, handleClick) {
     this.map = map;
+    this.handleClick = handleClick;
     this.markers = {};
-    this.handClick = this.handClick;
   }
 
   updateMarkers(listings) {
@@ -15,7 +15,7 @@ class Markers {
       (listing) => !this.markers[listing.id]
     );
     newListingMarkers.forEach((newListing) =>
-      this.createMarker(newListing, this.handClick)
+      this.createMarker(newListing, this.handleClick)
     );
   }
 
@@ -36,6 +36,7 @@ class Markers {
 
     marker.addListener("mouseover", () => {infowindow.open(marker.map, marker)})
     marker.addListener("mouseout", () => {infowindow.close()})
+    marker.addListener("click", () => {this.handleClick(listing)})
   }
 
 

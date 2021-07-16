@@ -57,8 +57,8 @@ property_urls = [
         beds: rand(1..6),
         baths: rand(1..3),
         property_type: 'house',
-        lat: rand(36..38),
-        lng: rand(-122..123),
+        lat: Faker::Number.between(from: 36.0, to: 38.0).round(6),
+        lng: Faker::Number.between(from: -122.0, to: -123.0).round(6),
     )
 
     urls = property_urls[index]
@@ -75,3 +75,7 @@ property_urls = [
 end
 
 # Faker::LoremFlickr.image(size: "300x200", search_terms: ['house'])
+
+
+
+

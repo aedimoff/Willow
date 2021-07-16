@@ -1,12 +1,41 @@
-import React from 'react';
-import ListingMap from '../map/listing_map';
-import ListingIndex from '../listing/listings_index';
+import React from "react";
+import ListingIndexContainer from "../listing/listing_index_container";
+import ListingsIndex from "../listing/listings_index";
+import ListingMap from "../map/listing_map";
 
-const Search = ({ listings }) => (
-    <div>
-        {/* <ListingMap listings={listings} /> */}
-        <ListingIndex listings={listings} />
+const Search = ({
+  listings,
+  openModal,
+  setSelectedListingId,
+  requestListings,
+  requestSaves,
+  createSave,
+  deleteSave,
+  userId,
+  saveId,
+  saves,
+}) => {
+  return (
+    <div className="home-page">
+      <ListingMap
+        listings={listings}
+        openModal={openModal}
+        setSelectedListingId={setSelectedListingId}
+      />
+      <ListingsIndex
+        listings={listings}
+        openModal={openModal}
+        setSelectedListingId={setSelectedListingId}
+        requestListings={requestListings}
+        requestSaves={requestSaves}
+        createSave={createSave}
+        deleteSave={deleteSave}
+        userId={userId}
+        saveId={saveId}
+        saves={saves}
+      />
     </div>
-);
+  );
+};
 
 export default Search;

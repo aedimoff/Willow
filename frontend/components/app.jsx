@@ -4,7 +4,7 @@ import { LoggedInProtectedRoute, LoggedOutProtectedRoute } from '../util/route_u
 import Modal from './modal/modal';
 import UserContainer from './user/user_container';
 import NavBarContainer from './navbar/nav_bar_container';
-import HomePage from './home/home_page';
+import SearchContainer from '../components/search/search_container'
 import WelcomeContainer from './home/welcome_container';
 
 const App = () => (
@@ -15,7 +15,7 @@ const App = () => (
             </Link>
         </header>
         <Switch>
-            <LoggedInProtectedRoute path="/home" component={HomePage} redirectPath="/"/>
+            <LoggedInProtectedRoute path="/home" component={SearchContainer} redirectPath="/"/>
             <LoggedInProtectedRoute path="/users/:userId" component={UserContainer} redirectPath="/"/>
             <LoggedOutProtectedRoute path="/" component={WelcomeContainer} redirectPath="/home" />
         </Switch>

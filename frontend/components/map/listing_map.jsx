@@ -1,4 +1,5 @@
 import React from 'react';
+import Markers from '../../util/markers';
 
 class ListingMap extends React.Component {
     componentDidMount() {
@@ -8,6 +9,12 @@ class ListingMap extends React.Component {
         };
 
         this.map = new google.maps.Map(this.mapNode, mapOptions)
+        this.Markers = new Markers(this.map)
+        this.Markers.updateMarkers(this.props.listings)
+    }
+
+    componentDidUpdate() {
+        this.Markers.updateMarkers(this.props.listings)
     }
     render() {
        return(

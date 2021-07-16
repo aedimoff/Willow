@@ -29,8 +29,16 @@ class Markers {
     });
 
     this.markers[marker.listingId] = listing;
+  
+    const infowindow = new google.maps.InfoWindow({
+      content: listing.address
+    })
 
+    marker.addListener("mouseover", () => {infowindow.open(marker.map, marker)})
+    marker.addListener("mouseout", () => {infowindow.close()})
   }
+
+
 }
 
 export default Markers;

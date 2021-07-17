@@ -30,10 +30,10 @@ export const setSelectedListingId = (selectedListingId) => dispatch => (
     dispatch(setListing(selectedListingId))
 )
 
-export const requestListings = () => dispatch => (
-    ListingAPIUtil.fetchAllListings()
+export const requestListings = filters => dispatch => {
+    ListingAPIUtil.fetchAllListings(filters)
     .then(listings => dispatch(receiveAllListings(listings)))
-)
+}
 
 export const requestListing = (listingId) => dispatch => (
     ListingAPIUtil.fetchListing(listingId)

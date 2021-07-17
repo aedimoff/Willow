@@ -11,6 +11,7 @@ const Search = ({
   requestSaves,
   createSave,
   deleteSave,
+  updateFilter,
   userId,
   saveId,
   saves,
@@ -21,12 +22,14 @@ const Search = ({
         listings={listings}
         openModal={openModal}
         setSelectedListingId={setSelectedListingId}
+        updateFilter={updateFilter}
       />
       <ListingsIndex
         listings={listings}
         openModal={openModal}
         setSelectedListingId={setSelectedListingId}
         requestListings={requestListings}
+        updateFilter={updateFilter}
         requestSaves={requestSaves}
         createSave={createSave}
         deleteSave={deleteSave}

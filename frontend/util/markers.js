@@ -17,6 +17,10 @@ class Markers {
     newListingMarkers.forEach((newListing) =>
       this.createMarker(newListing, this.handleClick)
     );
+
+    Object.keys(this.markers)
+    .filter(listingId => {!listingObj[listingId]})
+    .forEach(listingId => this.removeMarker(this.markers[listingId]))
   }
 
   createMarker(listing) {
@@ -26,7 +30,7 @@ class Markers {
       position: myLatLng,
       map: this.map,
       listingId: listing.id,
-    });
+    });a
 
     this.markers[marker.listingId] = listing;
   
@@ -40,6 +44,10 @@ class Markers {
     marker.addListener("click", () => {this.handleClick(listing);})
   }
 
+  removeMarker(marker) {
+    this.markers[marker.listingId].setMap(null)
+    delete this.markers[marker.listingId]
+  }
 
 }
 

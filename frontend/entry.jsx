@@ -7,6 +7,7 @@ import '../app/assets/stylesheets/application.scss';
 
 
 
+
 document.addEventListener('DOMContentLoaded', () => {
     let store;
     if (window.currentUser) {

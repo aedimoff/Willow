@@ -30,7 +30,7 @@ class Markers {
       position: myLatLng,
       map: this.map,
       listingId: listing.id,
-    });a
+    });
 
     this.markers[marker.listingId] = listing;
   

@@ -2,7 +2,8 @@ class Api::ListingsController < ApplicationController
     
     def index 
         # @listings = Listing.all
-        @listings = Listing.in_bounds(params[:filters])
+        # debugger
+        @listings = Listing.in_bounds(params["bounds"])
         render 'api/listings/index'
     end
 

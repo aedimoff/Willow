@@ -13,7 +13,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-    requestListings: () => dispatch(requestListings()),
+    requestListings: (filters) => dispatch(requestListings(filters)),
     requestSaves: () => dispatch(requestSaves()),
     setSelectedListingId: listingId => dispatch(setSelectedListingId(listingId)),
     openModal: (modal, params) => dispatch(openModal(modal, params)),

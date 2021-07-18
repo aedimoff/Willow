@@ -1,11 +1,11 @@
-export const fetchAllListings = data => (
-    $.ajax({
-        method: "GET",
-        url: "api/listings",
-        data
-
-    })
-)
+export const fetchAllListings = data => {
+    console.log("data in fetch all listings", data)
+    return $.ajax({
+      method: "GET",
+      url: "api/listings",
+      data: data,
+    });
+}
 
 export const fetchListing = listingId => (
     $.ajax({

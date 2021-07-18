@@ -12,10 +12,10 @@ class ListingMap extends React.Component {
         this.map = new google.maps.Map(map, mapOptions);
         return this.map;
     }
+
     componentDidMount() {
         this.map = this.setMap();
-        let bounds = this.getBounds()
-        this.props.updateFilter("bounds", bounds);
+        this.getBounds()
         
         this.Markers = new Markers(this.map, this.handleMarkerClick.bind(this));
         this.Markers.updateMarkers(this.props.listings);
@@ -42,9 +42,8 @@ class ListingMap extends React.Component {
             let north = bounds.lc.i
             boundaryObj["northEast"] = { lat: north, lng: east }
             boundaryObj["southWest"] = { lat: south, lng: west }
-            
+            this.props.updateFilter("bounds", boundaryObj);            
         })
-        return boundaryObj;
     }
 
     render() {

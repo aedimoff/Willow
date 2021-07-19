@@ -1,7 +1,8 @@
-export const fetchAllListings = () => (
+export const fetchAllListings = data => (
     $.ajax({
-        method: "GET",
-        url: "api/listings"
+      method: "GET",
+      url: "api/listings",
+      data: data,
     })
 )
 

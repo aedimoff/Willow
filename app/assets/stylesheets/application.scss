@@ -14,15 +14,8 @@
 .home-page {
   display: flex;
   overflow-y: hidden;
-  height: 95vh;
+  height: 100vh;
 }
-
-.listing-index-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 10px;
-    overflow-y: scroll;
-}  
 
 #map-container {
   width: 55vw;

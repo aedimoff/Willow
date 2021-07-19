@@ -4,9 +4,18 @@
     display: flex;
     justify-content: center;
     padding: 0.5rem;
+    height: 100vh;
     width: 45vw;
     margin: auto;
 }
+
+.listing-index-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+    overflow-y: auto;
+    height: 100vh;
+}  
 
 .listing-card {
     width: 100%;

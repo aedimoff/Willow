@@ -3,9 +3,16 @@ import ListingIndexItem from "./listing_index_item";
 import Spinner from "../spinner/spinner";
 
 class ListingsIndex extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {listings: this.props.listings}
+  }
   componentDidMount() {
-    this.props.requestListings();
     this.props.requestSaves();
+  }
+
+  componentDidUpdate() {
+    this.setState = this.props.listings
   }
 
   render() {

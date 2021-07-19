@@ -1,7 +1,7 @@
 class Api::ListingsController < ApplicationController
     
     def index 
-        @listings = Listing.all
+        @listings = params["bounds"] ? Listing.in_bounds(params["bounds"]) : Listing.all
         render 'api/listings/index'
     end
 

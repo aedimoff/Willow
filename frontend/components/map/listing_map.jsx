@@ -8,6 +8,10 @@ const mapOptions = {
 };
 const google = window.google;
 class ListingMap extends React.Component {
+    constructor(props) {
+        super(props)
+        this.map;
+    }
     
 
     setMap() {
@@ -35,7 +39,6 @@ class ListingMap extends React.Component {
     }
 
     getBounds() {
-        this.map = this.setMap()
         const boundaryObj = {}
         google.maps.event.addListener(this.map, "idle", () => {
             let bounds = this.map.getBounds()

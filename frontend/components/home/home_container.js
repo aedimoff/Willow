@@ -13,13 +13,13 @@ const mapStateToProps = (state) => ({
   listings: Object.values(state.entities.listings),
   userId: state.session.id,
   saves: Object.values(state.entities.saves),
+  position: state.ui.position,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   requestListings: (filters) => dispatch(requestListings(filters)),
   requestSaves: () => dispatch(requestSaves()),
-  setSelectedListingId: (listingId) =>
-    dispatch(setSelectedListingId(listingId)),
+  setSelectedListingId: (listingId) => dispatch(setSelectedListingId(listingId)),
   openModal: (modal, params) => dispatch(openModal(modal, params)),
   createSave: (userId, listing) => dispatch(createSave(userId, listing)),
   deleteSave: (listingId) => dispatch(deleteSave(listingId)),

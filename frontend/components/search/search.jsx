@@ -1,42 +1,62 @@
-import React from "react";
-import ListingIndexContainer from "../listing/listing_index_container";
-import ListingsIndex from "../listing/listings_index";
-import ListingMap from "../map/listing_map";
+import React from 'react';
+import usePlacesAutocomplete, {
+  getGeocode,
+  getLatLng,
+} from "use-places-autocomplete";
+import {
+  Combobox,
+  ComboboxInput,
+  ComboboxPopover,
+  ComboboxOption,
+} from "@reach/combobox";
+import "@reach/combobox/styles.css";
 
-const Search = ({
-  listings,
-  openModal,
-  setSelectedListingId,
-  requestListings,
-  requestSaves,
-  createSave,
-  deleteSave,
-  updateFilter,
-  userId,
-  saveId,
-  saves,
-}) => {
+const Search = (props) => {
+
+  const {
+    ready,
+    value,
+    suggestions: { status, data },
+    setValue,
+    clearSuggestions,
+  } = usePlacesAutocomplete({
+    requestOptions: {
+      location: { lat: () => 33.830296, lng: () => -116.545296 },
+      radius: 200 * 1000,
+    },
+  });
+
   return (
-    <div className="home-page">
-      <ListingMap
-        listings={listings}
-        openModal={openModal}
-        setSelectedListingId={setSelectedListingId}
-        updateFilter={updateFilter}
-      />
-      <ListingsIndex
-        listings={listings}
-        openModal={openModal}
-        setSelectedListingId={setSelectedListingId}
-        requestListings={requestListings}
-        updateFilter={updateFilter}
-        requestSaves={requestSaves}
-        createSave={createSave}
-        deleteSave={deleteSave}
-        userId={userId}
-        saveId={saveId}
-        saves={saves}
-      />
+    <div className="search">
+      <Combobox className="search-bar"
+        onSelect={async (address) => {
+            setValue(address, true);
+            clearSuggestions();
+
+            try {
+                const result = await getGeocode({address});
+                const { lat, lng } = await getLatLng(result[0]);
+                props.setPosition({lat, lng})
+            } catch(error) {
+                console.log("error!", error)
+            }
+
+        }}
+      >
+        <ComboboxInput
+          value={value}
+          onChange={(e) => {
+            setValue(e.target.value);
+          }}
+          disabled={!ready}
+          placeholder="Enter a city, state, or ZIP code"
+        />
+        <ComboboxPopover>
+            {status === "OK" && data.map(({description, id}) => (
+                <ComboboxOption key={id} value={description} />
+            ))}
+        </ComboboxPopover>
+      </Combobox>
     </div>
   );
 };

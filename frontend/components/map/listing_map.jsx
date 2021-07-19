@@ -1,64 +1,70 @@
+import React from "react";
+import Markers from "../../util/markers";
+import SearchContainer from "../search/search_container"
 
-import React from 'react';
-import Markers from '../../util/markers';
-
-const mapOptions = {
-    center: { lat: 37.77, lng: -122.4 },
-    zoom: 10
-};
+// const mapOptions = {
+//   center: { lat: 37.77, lng: -122.4 },
+//   zoom: 10,
+// };
 const google = window.google;
 class ListingMap extends React.Component {
-    constructor(props) {
-        super(props)
-        this.map;
-    }
+  constructor(props) {
+    super(props);
+    this.map;
+    this.state = {
+      center: { lat: 37.77, lng: -122.4 },
+    };
+  }
+
+  setMap() {
+    const map = this.refs.map;
+    this.map = new google.maps.Map(map, {center: this.state.center, zoom: 10});
+    return this.map;
+  }
+
+  componentDidMount() {
+    this.map = this.setMap();
+    this.getBounds();
+    this.Markers = new Markers(this.map, this.handleMarkerClick.bind(this));
+    this.Markers.updateMarkers(this.props.listings);
+  }
+
+  componentDidUpdate() {
+    this.Markers.updateMarkers(this.props.listings);
     
-
-    setMap() {
-        const map = this.refs.map;
-        this.map = new google.maps.Map(map, mapOptions);
-        return this.map;
+    const { position } = this.props;
+    if (Object.keys(position).length && this.state.center !== position) {
+      this.map.setCenter({
+        lat: position.lat,
+        lng: position.lng,
+      });
     }
 
-    componentDidMount() {
-        this.map = this.setMap();
-        this.getBounds()
-        
-        this.Markers = new Markers(this.map, this.handleMarkerClick.bind(this));
-        this.Markers.updateMarkers(this.props.listings);
-    }
+  }
 
-    componentDidUpdate() {
-        this.Markers.updateMarkers(this.props.listings)
-    }
+  handleMarkerClick(listing) {
+    const { setSelectedListingId, openModal } = this.props;
+    setSelectedListingId(listing.id);
+    openModal("Listing Show", { size: "large" });
+  }
 
-    handleMarkerClick(listing) {
-        const { setSelectedListingId, openModal } = this.props;
-        setSelectedListingId(listing.id)
-        openModal("Listing Show", { size: "large" });
-    }
+  getBounds() {
+    const boundaryObj = {};
+    google.maps.event.addListener(this.map, "idle", () => {
+      let bounds = this.map.getBounds();
+      let west = bounds.Eb.g;
+      let east = bounds.Eb.i;
+      let south = bounds.lc.g;
+      let north = bounds.lc.i;
+      boundaryObj["northEast"] = { lat: north, lng: east };
+      boundaryObj["southWest"] = { lat: south, lng: west };
+      this.props.updateFilter("bounds", boundaryObj);
+    });
+  }
 
-    getBounds() {
-        const boundaryObj = {}
-        google.maps.event.addListener(this.map, "idle", () => {
-            let bounds = this.map.getBounds()
-            let west = bounds.Eb.g
-            let east = bounds.Eb.i
-            let south = bounds.lc.g
-            let north = bounds.lc.i
-            boundaryObj["northEast"] = { lat: north, lng: east }
-            boundaryObj["southWest"] = { lat: south, lng: west }
-            this.props.updateFilter("bounds", boundaryObj);            
-        })
-    }
-
-    render() {
-       return(
-        <div id='map-container' ref='map'>
-            
-        </div>
-       )
-    }
+  render() {
+    return <div id="map-container" ref="map" onChange={this.updatePosition}/>
+  }
 }
 
 export default ListingMap;

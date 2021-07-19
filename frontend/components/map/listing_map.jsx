@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Markers from '../../util/markers';
 
@@ -5,7 +6,9 @@ const mapOptions = {
     center: { lat: 37.77, lng: -122.4 },
     zoom: 10
 };
+const google = window.google;
 class ListingMap extends React.Component {
+    
 
     setMap() {
         const map = this.refs.map;

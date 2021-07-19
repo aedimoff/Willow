@@ -7,6 +7,7 @@ class SavesIndex extends React.Component {
   componentDidMount() {
     this.props.requestListings();
     this.props.requestSaves();
+    console.log("CDM IN SAVESINDEX", this.props)
   }
 
   render() {

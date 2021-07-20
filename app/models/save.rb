@@ -11,7 +11,6 @@
 # Indexes
 #
 #  index_saves_on_listing_id  (listing_id)
-#  index_saves_on_user_id     (user_id)
 #
 class Save < ApplicationRecord
     belongs_to :user,

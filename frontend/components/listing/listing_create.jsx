@@ -1,5 +1,5 @@
 import React from "react";
-import { BsHouseDoorFill } from "react-icons/bs";
+import logo from "../../../app/assets/images/logo.png";
 
 class ListingCreate extends React.Component {
   constructor(props) {
@@ -44,12 +44,11 @@ class ListingCreate extends React.Component {
   render() {
     return (
       <div className="listing-create-container">
-        <BsHouseDoorFill className="header" id="listing-logo-header" />
-        <h3 className="listing-header">Sell Your Home on Willow!</h3>
+
+          <img className="form-logo" src={logo} alt="willow logo" />
+
+          <h3 className="listing-header">Sell Your Home on Willow!</h3>
         <form className="listing-create-form" onSubmit={this.handleSubmit}>
-          {/* <div className="willow-header">
-            <BsHouseDoorFill className="willow-icon" />
-          </div> */}
           <label>
             <input
               className="create-listing-input"
@@ -142,11 +141,7 @@ class ListingCreate extends React.Component {
               multiple
             />
           </div>
-          <button
-            className="button"
-            id="create-listing-button"
-            type="submit"
-          >
+          <button className="button" id="create-listing-button" type="submit">
             Create Listing
           </button>
         </form>

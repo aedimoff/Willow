@@ -1,7 +1,6 @@
 import React from 'react';
-import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
 import { MdClose} from 'react-icons/md'
-import { BsHouseDoorFill } from 'react-icons/bs';
+import logo from "../../../app/assets/images/logo.png";
 
 class ListingShow extends React.Component {
     formatPrice(price) {
@@ -30,15 +29,6 @@ class ListingShow extends React.Component {
         return name.charAt(0).toUpperCase() + name.slice(1)
     }
 
-    // saveIcon(listing) {
-    //     if(this.props.saves.includes(listing.id)) {
-    //         return <AiFillHeart onClick={this.props.deleteSave(listing.id)}/>
-    //     } else {
-    //         let save = {user_id: this.props.userId, listingId: listing.id}
-    //         return <AiOutlineHeart onClick={this.props.createSave(save)}/>
-    //     }
-    // }
-
     render() {
         const { listing, closeModal } = this.props;
        
@@ -56,17 +46,12 @@ class ListingShow extends React.Component {
               </div>
             </div>
             <div className="description-container">
-              <div className="header-box">
-                <div className="willow-header">
-                  <BsHouseDoorFill className="willow-icon" />
-                  <h1 className="show-header">Willow</h1>
-                </div>
-                {/* <div className="modal-save-action">
-                            {this.saveIcon(listing)} <h5>Save</h5>
-                        </div> */}
+              <div className="listing-show-logo-container">
+              <img className="listing-show-logo" src={logo} alt="willow logo" />
+
               </div>
 
-              <h2 className="listing-header">
+              <h2 className="listing-price">
                 {this.formatPrice(listing.price)}
               </h2>
               <div className="listing-details">

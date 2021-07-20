@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { BsHouseDoorFill } from 'react-icons/bs';
+import logo from "../../../app/assets/images/logo.png";
+
 
 
 
@@ -26,20 +27,15 @@ const NavBar = ({ currentUser, logout, openModal }) => {
     )
 
     return (
-        <header className="nav-bar">
-            <div className="nav-bar-options">
-                <div className="nav-bar-link">Buy</div>
-                <div className="nav-bar-link">Rent</div>
-                <div>{sellLink()}</div>
-            </div>
-            <div className="logo">
-                <BsHouseDoorFill className="willow-icon"/>
-                <h1 className="logo-title">Willow</h1>
-            </div>
-            <div className="nav-menu">
-                {currentUser ? loggedIn() : loggedOut()}
-            </div>
-        </header>
+      <header className="nav-bar">
+        <div className="nav-bar-options">
+          <div className="nav-bar-link">Buy</div>
+          <div className="nav-bar-link">Rent</div>
+          <div>{sellLink()}</div>
+        </div>
+          <img className="main-logo" src={logo} alt="willow logo" />
+        <div className="nav-menu">{currentUser ? loggedIn() : loggedOut()}</div>
+      </header>
     );
 };
 

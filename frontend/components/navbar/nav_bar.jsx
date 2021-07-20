@@ -33,7 +33,7 @@ const NavBar = ({ currentUser, logout, openModal }) => {
           <div className="nav-bar-link">Rent</div>
           <div>{sellLink()}</div>
         </div>
-          <img className="main-logo" src={logo} alt="willow logo" />
+          <img className="main-logo" src={window.logo} alt="willow logo" />
         <div className="nav-menu">{currentUser ? loggedIn() : loggedOut()}</div>
       </header>
     );

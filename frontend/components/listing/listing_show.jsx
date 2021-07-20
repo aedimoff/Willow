@@ -47,7 +47,7 @@ class ListingShow extends React.Component {
             </div>
             <div className="description-container">
               <div className="listing-show-logo-container">
-              <img className="listing-show-logo" src={logo} alt="willow logo" />
+              <img className="listing-show-logo" src={window.logo} alt="willow logo" />
 
               </div>
 

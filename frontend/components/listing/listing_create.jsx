@@ -45,7 +45,7 @@ class ListingCreate extends React.Component {
     return (
       <div className="listing-create-container">
 
-          <img className="form-logo" src={logo} alt="willow logo" />
+          <img className="form-logo" src={window.logo} alt="willow logo" />
 
           <h3 className="listing-header">Sell Your Home on Willow!</h3>
         <form className="listing-create-form" onSubmit={this.handleSubmit}>

@@ -32,6 +32,7 @@ gem 'jquery-rails'
 gem 'faker'
 gem 'figaro'
 gem 'aws-sdk-s3'
+gem 'geocoder'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'

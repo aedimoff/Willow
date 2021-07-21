@@ -43,8 +43,10 @@ class SessionForm extends React.Component {
     );
   }
 
-  buttonName(formType) {
-    return formType === "Log In" ? "Create Account" : "Log In";
+  toggleForm(formType) {
+    return formType === "Log In"
+      ? "Not on Willow? Create Account!"
+      : "Already have an account? Log In!";
   }
 
   render() {
@@ -54,39 +56,34 @@ class SessionForm extends React.Component {
         <form className="login-form" onSubmit={this.handleSubmit}>
           {this.renderErrors()}
           <div className="modal-input">
-            <label>Email:</label>
             <input
               type="text"
               value={this.state.email}
               onChange={this.update("email")}
               className="login-input"
+              placeholder="Email"
             />
           </div>
           <div className="modal-input">
-            <label>Password:</label>
             <input
               type="password"
               value={this.state.password}
               onChange={this.update("password")}
               className="login-input"
+              placeholder="Password"
             />
           </div>
           <div className="form-submit-button">
-            <input
-              className="button"
-              type="submit"
-              value={this.props.formType}
-            />
+          <button className="button" type="submit">{this.props.formType}</button>
+            <p>or</p>
+            <button className="secondary-button" onClick={this.loginDemoUser}>
+              Log In as Demo User
+            </button>
           </div>
         </form>
-        <div className="button-box">
-          <button className="secondary-button" onClick={this.props.openModal}>
-            {this.buttonName(this.props.formType)}
+          <button className="form-type-toggle" onClick={this.props.openModal}>
+            {this.toggleForm(this.props.formType)}
           </button>
-          <button className="secondary-button" onClick={this.loginDemoUser}>
-            Demo User
-          </button>
-        </div>
       </div>
     );
   }

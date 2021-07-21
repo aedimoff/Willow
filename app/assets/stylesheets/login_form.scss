@@ -1,4 +1,4 @@
-@import 'variables';
+@import "variables";
 
 .modal-input {
   display: flex;
@@ -10,7 +10,6 @@
   width: 40%;
 }
 
-
 .modal-background {
   position: fixed;
   top: 0;
@@ -20,9 +19,6 @@
   background: rgba(0, 0, 0, 0.7);
   z-index: 10;
 }
-
-
-
 
 .login-form-container {
   display: flex;
@@ -37,6 +33,12 @@
   display: flex;
   flex-direction: column;
   flex: 9;
+}
+
+.login-form p {
+  text-align: center;
+  padding: 12px 0px 12px 0px;
+  color: grey;
 }
 
 .login-input {
@@ -55,17 +57,37 @@
 }
 
 .form-submit-button {
-  padding-top: 15px;
-}
-
-.button-box {
   display: flex;
-  justify-content: space-between;
-  flex: 1;
+  flex-direction: column;
+  padding-top: 15px;
 }
 
 .session-errors {
   color: red;
   margin-top: 10px;
+  text-align: center;
 }
 
+.form-type-toggle {
+  background: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  color: $willow-blue;
+  font-family: $functional-font;
+  padding-bottom: 5px;
+  font-size: 16px;
+}
+
+.form-type-toggle:hover {
+  background: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  text-decoration: underline;
+  font-family: $functional-font;
+  padding-bottom: 5px;
+  font-size: 16px;
+}

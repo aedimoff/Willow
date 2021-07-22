@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { createListing } from '../../actions/listing_actions';
+import { closeModal } from '../../actions/modal_actions'
 import ListingCreate from './listing_create';
 
 const mapStateToProps = state => ({
@@ -24,7 +25,8 @@ const mapStateToProps = state => ({
 
 
 const mapDispatchToProps = dispatch => ({
-    createListing: listing => (dispatch(createListing(listing)))
+    createListing: listing => (dispatch(createListing(listing))),
+    closeModal: () => (dispatch(closeModal()))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ListingCreate);

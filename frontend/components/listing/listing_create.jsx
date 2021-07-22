@@ -1,4 +1,5 @@
 import React from "react";
+import { MdClose } from "react-icons/md";
 import logo from "../../../app/assets/images/logo.png";
 
 class ListingCreate extends React.Component {
@@ -31,6 +32,7 @@ class ListingCreate extends React.Component {
     }
 
     this.props.createListing(formData);
+    // this.props.closeModal();
   }
 
   handleFile(e) {
@@ -44,10 +46,13 @@ class ListingCreate extends React.Component {
   render() {
     return (
       <div className="listing-create-container">
+        <div className="close-x" onClick={this.props.closeModal}>
+          <MdClose id="close-x" size={40} />
+        </div>
 
-          <img className="form-logo" src={window.logo} alt="willow logo" />
+        <img className="form-logo" src={window.logo} alt="willow logo" />
 
-          <h3 className="listing-header">Sell Your Home on Willow!</h3>
+        <h3 className="listing-header">Sell Your Home on Willow!</h3>
         <form className="listing-create-form" onSubmit={this.handleSubmit}>
           <label>
             <input

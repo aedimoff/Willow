@@ -1,0 +1,47 @@
+@import "variables";
+
+.saves-houses-img {
+  height: 38vh;
+  width: 35vw;
+  display: block;
+  align-self: center;
+  position: absolute;
+  top: 68%;
+}
+
+.saves-page-text {
+  display: flex;
+  flex-direction: column;
+  height: 50%;
+  width: 33%;
+  position: absolute;
+  top: 106%;
+}
+
+.accreditation-link {
+  font-size: 8px;
+  text-decoration: none;
+}
+
+.saves-index-greeting {
+  text-align: center;
+  font-family: $functional-font;
+  font-weight: 900;
+  font-size: 40px;
+  padding: 15px;
+}
+
+.saves-index-directions {
+  text-align: center;
+  font-family: $functional-font;
+  font-size: 20px;
+}
+
+#instruction-heart {
+  color: $willow-blue;
+}
+
+#saves-spinner {
+  position: absolute;
+  top: 73%;
+}

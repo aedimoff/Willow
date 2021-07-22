@@ -33,7 +33,7 @@ class ListingMap extends React.Component {
       this.state.center = position;
       let lat = position.lat
       let lng = position.lng
-      this.map.setCenter(new google.maps.LatLng(lat, lng));
+      this.map.setCenter(lat, lng, 12);
     }
   }
 

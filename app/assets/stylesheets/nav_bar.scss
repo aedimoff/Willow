@@ -1,67 +1,69 @@
-@import 'variables';
+@import "variables";
 
 .nav-bar {
-    display: flex;
-    background-color: white;
-    justify-content: space-between;
-    padding: 20px;
-    border-bottom: 1px solid lightgrey;
-    color: $willow-blue;
-    font-family: $style-font;
-    position: sticky;
-    height: 3vh;
-    
-    .main-logo {
-    height: 5vh;
-    position: absolute;
-    top: 9px;
-    right: 45%;
-    }
-
-    .nav-bar-greeting {
-      padding: 10px 14px;
-      text-decoration: none;
-    }
-
-    .nav-bar-options {
-      flex: 1;
-      display: flex;
-      justify-content: flex-start;
-      color: $font-black;
-      padding: 9px 0px 0px 3px;
-    }
-
-    .nav-bar-link {
-      padding-right: 75px;
-      text-decoration: none;
-    }
-
-    .willow-icon {
-      font-size: 34px
-    }
-
-  .nav-menu {
-    flex: 1;
-    display: flex;
-    justify-content: flex-end;
-
-      h2 {
-        margin-right: 15px;
-        margin-top: 3px;
-        align-self: center;
-      }
-
-      .login-status {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        justify-content: flex-end;
-      }
-  }
-
-  .nav-button {
-    margin-top: 10px;
-  }
-
+  display: flex;
+  background-color: white;
+  justify-content: space-between;
+  padding: 20px;
+  border-bottom: 1px solid lightgrey;
+  color: $willow-blue;
+  font-family: $style-font;
+  position: sticky;
+  height: 5vh;
 }
 
+.main-logo {
+  height: 5vh;
+  position: absolute;
+  top: 17px;
+  right: 45%;
+}
+
+.nav-bar-greeting {
+  position: absolute;
+  top: 46%;
+  right: 13%;
+  text-decoration: none;
+}
+
+.nav-bar-options {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+  color: #2d2d2d;
+  position: absolute;
+  top: 46%;
+  left: 3%;
+}
+
+.nav-bar-link {
+  padding-right: 75px;
+  text-decoration: none;
+}
+
+.willow-icon {
+  font-size: 34px;
+}
+
+.nav-menu {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+
+  h2 {
+    margin-right: 15px;
+    margin-top: 3px;
+    align-self: center;
+  }
+}
+
+.login-status {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.nav-button {
+  margin-top: 10px;
+}

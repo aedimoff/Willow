@@ -15,7 +15,7 @@ const NavBar = ({ currentUser, logout, openModal }) => {
     const loggedIn = () => (
         <nav className="login-status">
             <Link to={`users/${currentUser.id}`} className="nav-bar-greeting">My Saves</Link>
-            <button className="secondary-button nav-button" onClick={logout}>Log Out</button>
+            <button className="logout-button" onClick={logout}>Log Out</button>
         </nav>  
     )
 

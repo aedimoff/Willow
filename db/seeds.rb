@@ -1,17 +1,10 @@
-        # This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
 require 'faker'
 require 'geocoder'
+require 'zip-codes'
 require 'open-uri'
 
 User.destroy_all
-Listing.destroy_all
+# Listing.destroy_all
 
 User.create(email: "test@gmail.com", password: "123456")
 10.times do
@@ -78,26 +71,25 @@ property_urls = [
 ]
 
 1000.times do |index|
-    location = Geocoder.search(Faker::Internet.ip_v4_address).first
+    location = Geocoder.search(Faker::Internet.ip_v4_address)
+    address = location.find { |place| place.country == "US" }
 
+    next if (!address || !address.city || !address.state || !address.postal_code || !address.latitude || !address.longitude)
+        
     listing = Listing.create!(
         address: Faker::Address.street_name,
-        zipcode: Faker::Address.zip,
-        description: Faker::Quote.famous_last_words,
-        city: Faker::Address.city,
-        state: Faker::Address.state_abbr,
+        zipcode: address.postal_code,
+        description: "N/A",
+        city: address.city,
+        state: address.state,
         price: rand(500000..3000000),
         seller_id: 117,
         status: "for_sale",
         beds: rand(1..6),
         baths: rand(1..3),
         property_type: 'house',
-        lat: location.latitude,
-        lng: location.longitude,
-        # lat: Faker::Number.between(from: 36.0, to: 38.0).round(6),
-        # lng: Faker::Number.between(from: -122.0, to: -123.0).round(6),
-        # //local_latlng(country_code='US', coords_only=True)
-
+        lat: address.latitude,
+        lng: address.longitude,
     )
 
     urls = property_urls[index % 50]
@@ -108,13 +100,5 @@ property_urls = [
         listing.images.attach(io: open(url), filename: filename)
     end
 
-
-    # listing.images.attach(io: open(Faker::LoremFlickr.image(size: "300x200", search_terms: ['house'])), filename: 'house')
-    # l.images.attach(io: File.open(url), filename: "house")
 end
-
-# Faker::LoremFlickr.image(size: "300x200", search_terms: ['house'])
-
-
-
 

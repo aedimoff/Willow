@@ -29,10 +29,11 @@ gem 'binding_of_caller'
 gem 'pry-rails'
 gem 'annotate'
 gem 'jquery-rails'
-gem 'faker'
 gem 'figaro'
 gem 'aws-sdk-s3'
 gem 'geocoder'
+gem 'zip-codes' 
+gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'

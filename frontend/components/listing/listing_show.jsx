@@ -71,7 +71,7 @@ class ListingShow extends React.Component {
               </div>
               <h2 className="description-header">Overview</h2>
               <div className="days-and-saves">
-                <div className="days-count">Time on Willow: 14 days</div>
+                <div className="days-count">Days on Willow: 14 days</div>
                 <div className="saves-count">Saves: 145</div>
               </div>
               {/* <p className="listing-description">{listing.description}</p> */}

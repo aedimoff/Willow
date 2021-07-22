@@ -31,10 +31,9 @@ class ListingMap extends React.Component {
     const { position } = this.props;
     if (Object.keys(position).length && this.state.center !== position) {
       this.state.center = position;
-      this.map.setCenter({
-        lat: position.lat,
-        lng: position.lng,
-      });
+      let lat = position.lat
+      let lng = position.lng
+      this.map.setCenter(new google.maps.LatLng(lat, lng));
     }
   }
 
@@ -42,14 +41,15 @@ class ListingMap extends React.Component {
     const boundaryObj = {};
 
     let bounds = this.map.getBounds();
-    let west = bounds.Eb.g;
-    let east = bounds.Eb.i;
-    let south = bounds.lc.g;
-    let north = bounds.lc.i;
+
+    let north = bounds.getNorthEast().lat(); //39.77782736161393
+    let east = bounds.getNorthEast().lng(); //-120.88160734400154
+    let south = bounds.getSouthWest().lat(); //35.706138683584875
+    let west = bounds.getSouthWest().lng(); // -123.91839265599847
+
     boundaryObj["northEast"] = { lat: north, lng: east };
     boundaryObj["southWest"] = { lat: south, lng: west };
     this.props.updateFilter("bounds", boundaryObj);
-
   }
 
   updateMarkers() {

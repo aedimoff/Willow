@@ -25,7 +25,7 @@ class SavesIndex extends React.Component {
     );
     if (savedListings.length) {
       return savedListings[savedListings.length - 1] ? (
-        <ul className="listing-index-container" id="saves-index-container">
+        <ul className="saves-index-container" id="saves-index-container">
           {savedListings.map((listing) => (
             <ListingIndexItem
               key={listing.id}
@@ -45,7 +45,7 @@ class SavesIndex extends React.Component {
       );
     } else {
       return (
-        <div className="listing-grid-container">
+        <div className="saves-grid-container">
           <img className="saves-houses-img" src={window.houses} />
           <div className="saves-page-text">
             <a className="accreditation-link" href="http://www.freepik.com">
@@ -65,7 +65,7 @@ class SavesIndex extends React.Component {
   }
 
   render() {
-    return <div className="listing-grid-container">{this.display()}</div>;
+    return <div className="saves-grid-container">{this.display()}</div>;
   }
 }
 

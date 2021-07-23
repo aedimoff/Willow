@@ -20,15 +20,18 @@ class SavesIndex extends React.Component {
       userId,
       saveId,
     } = this.props;
+
     const savedListings = Object.values(saves).map(
       (item) => listings[item.listingId]
     );
+
+
     if (savedListings.length) {
       return savedListings[savedListings.length - 1] ? (
         <ul className="saves-index-container" id="saves-index-container">
-          {savedListings.map((listing) => (
+          {savedListings.map((listing, idx) => (
             <ListingIndexItem
-              key={listing.id}
+              key={idx}
               listing={listing}
               openModal={openModal}
               setSelectedListingId={setSelectedListingId}
@@ -37,6 +40,7 @@ class SavesIndex extends React.Component {
               userId={userId}
               saveId={saveId}
               saves={saves}
+              modalType={"Listing Show"}
             />
           ))}
         </ul>

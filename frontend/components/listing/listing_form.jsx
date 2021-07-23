@@ -1,36 +1,45 @@
 import React from "react";
-import logo from "../../../app/assets/images/logo.png";
+import { MdClose } from "react-icons/md";
 
-class ListingCreate extends React.Component {
+class ListingForm extends React.Component {
   constructor(props) {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleFile = this.handleFile.bind(this);
+    this.handleClick = this.handleClick.bind(this);
     this.state = this.props.listing;
   }
 
   handleSubmit(e) {
-    e.preventDefault();
-    const formData = new FormData();
-    formData.append("listing[address]", this.state.address);
-    formData.append("listing[description]", this.state.description);
-    formData.append("listing[zipcode]", this.state.zipcode);
-    formData.append("listing[city]", this.state.city);
-    formData.append("listing[state]", this.state.state);
-    formData.append("listing[price]", this.state.price);
-    formData.append("listing[status]", this.state.status);
-    formData.append("listing[property_type]", this.state.property_type);
-    formData.append("listing[beds]", this.state.beds);
-    formData.append("listing[baths]", this.state.baths);
-    formData.append("listing[lat]", this.state.lat);
-    formData.append("listing[lng]", this.state.lng);
+    if (this.props.formType === "Create Listing") {
+      e.preventDefault();
+      const formData = new FormData();
+      formData.append("listing[address]", this.state.address);
+      formData.append("listing[description]", this.state.description);
+      formData.append("listing[zipcode]", this.state.zipcode);
+      formData.append("listing[city]", this.state.city);
+      formData.append("listing[state]", this.state.state);
+      formData.append("listing[price]", this.state.price);
+      formData.append("listing[status]", this.state.status);
+      formData.append("listing[property_type]", this.state.property_type);
+      formData.append("listing[beds]", this.state.beds);
+      formData.append("listing[baths]", this.state.baths);
+      formData.append("listing[seller_id", this.props.sellerId);
+      formData.append("listing[lat]", this.state.lat);
+      formData.append("listing[lng]", this.state.lng);
 
-    const { images } = this.state;
-    for (let i = 0; i < images.length; i++) {
-      formData.append("listing[images][]", images[i]);
+      const { images } = this.state;
+      for (let i = 0; i < images.length; i++) {
+        formData.append("listing[images][]", images[i]);
+      }
+      this.props.action(formData);
+    } else {
+      this.props.action(this.state, this.props.listing.id);
     }
+  }
 
-    this.props.createListing(formData);
+  handleClick(listingId) {
+    this.props.deleteListing(listingId);
   }
 
   handleFile(e) {
@@ -44,11 +53,14 @@ class ListingCreate extends React.Component {
   render() {
     return (
       <div className="listing-create-container">
+        <div className="close-x" onClick={() => this.props.closeModal()}>
+          <MdClose id="close-x" size={40} />
+        </div>
 
-          <img className="form-logo" src={window.logo} alt="willow logo" />
+        <img className="form-logo" src={window.logo} alt="willow logo" />
 
-          <h3 className="listing-header">Sell Your Home on Willow!</h3>
-        <form className="listing-create-form" onSubmit={this.handleSubmit}>
+        <h3 className="listing-header">Sell Your Home on Willow!</h3>
+        <form className="listing-create-form">
           <label>
             <input
               className="create-listing-input"
@@ -141,13 +153,27 @@ class ListingCreate extends React.Component {
               multiple
             />
           </div>
-          <button className="button" id="create-listing-button" type="submit">
-            Create Listing
+          <button
+            className="button"
+            id="create-listing-button"
+            type="submit"
+            onClick={(e) => {
+              this.handleSubmit(e), this.props.closeModal();
+            }}
+          >
+            {this.props.formType}
           </button>
         </form>
+        {this.props.formType === "Edit Listing" ? 
+          <button
+            id="delete-listing-button"
+            onClick={this.props.deleteListing(this.props.listing.id)}
+          >
+            No longer selling? Delete this listing
+          </button> : ""}
       </div>
     );
   }
 }
 
-export default ListingCreate;
+export default ListingForm;

@@ -14,17 +14,19 @@ const NavBar = ({ currentUser, logout, openModal }) => {
 
     const loggedIn = () => (
         <nav className="login-status">
-            <Link to={`users/${currentUser.id}`} className="nav-bar-greeting">My Saves</Link>
+            <Link to={`/users/${currentUser.id}/listings`} className="my-listings-link" >My Listings</Link>
+            <Link to={`/users/${currentUser.id}`} className="my-saves-link">My Saves</Link>
             <button className="logout-button" onClick={logout}>Log Out</button>
         </nav>  
     )
 
     const sellLink = () => (
         currentUser ? 
-        <Link to={`users/${currentUser.id}`} className="nav-bar-link" 
+        <Link to={`/users/${currentUser.id}`} className="nav-bar-link" 
             onClick={() => openModal("Create Listing", { size: "large" })}>Sell</Link> :
             ""
     )
+
 
     return (
       <header className="nav-bar">

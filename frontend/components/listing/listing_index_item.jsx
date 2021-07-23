@@ -36,10 +36,10 @@ class ListingIndexItem extends React.Component {
     return `${address}, ${city}, ${state}, ${zipcode}`;
   }
 
-  setListingAndOpenModal(listingId) {
+  setListingAndOpenModal(listingId, modalType) {
     const { openModal, setSelectedListingId } = this.props;
     setSelectedListingId(listingId);
-    openModal("Listing Show", { size: "large" });
+    openModal(modalType, { size: "large" });
   }
 
   isSaved(listingId) {
@@ -78,7 +78,7 @@ class ListingIndexItem extends React.Component {
         }
         <div
           className="listing-card"
-          onClick={() => this.setListingAndOpenModal(listing.id)}
+          onClick={() => this.setListingAndOpenModal(listing.id, this.props.modalType)}
         >
           <img
             className="image"

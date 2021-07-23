@@ -1,23 +1,19 @@
 import React from "react";
-import ListingIndexItem from "./listing_index_item";
 import Spinner from "../spinner/spinner";
+import ListingIndexItem from "../listing/listing_index_item";
 
-class ListingsIndex extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {listings: this.props.listings}
-  }
+class UserListingIndex extends React.Component {
   componentDidMount() {
-    this.props.requestSaves();
+    this.props.requestUsersListings(this.props.userId);
   }
 
-  componentDidUpdate() {
-    this.setState = this.props.listings
+  handleListingClick() {
+    this.props.openModal("Create Listing", { size: "large" });
   }
 
   render() {
+    const listings = Object.values(this.props.listings);
     const {
-      listings,
       openModal,
       setSelectedListingId,
       createSave,
@@ -27,34 +23,36 @@ class ListingsIndex extends React.Component {
       saves,
     } = this.props;
 
-    
     const display = listings[listings.length - 1] ? (
-      <ul className="listing-index-container">
+      <ul className="user-listing-index-container">
         {listings.map((listing) => (
           <ListingIndexItem
             key={listing.id}
             listing={listing}
             openModal={openModal}
+            setSelectedListingId={setSelectedListingId}
             createSave={createSave}
             deleteSave={deleteSave}
-            setSelectedListingId={setSelectedListingId}
             userId={userId}
             saveId={saveId}
             saves={saves}
-            modalType={"Listing Show"}
+            modalType={"Edit Listing"}
           />
         ))}
       </ul>
     ) : (
-      <Spinner id="index-spinner"/>
-    )
+      <div id="my-listings-spinner">
+        <Spinner id="my-listings-spinner" />
+      </div>
+    );
 
     return (
-      <div className="listing-grid-container">
+      <div className="user-listing-grid-container">
+        <h1 className="user-header">My Listings</h1>
         {display}
       </div>
     );
   }
 }
 
-export default ListingsIndex;
+export default UserListingIndex;

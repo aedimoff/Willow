@@ -25,6 +25,10 @@ class User < ApplicationRecord
         foreign_key: :seller_id,
         class_name: :Listing
 
+    has_many :saved_listings,
+        foreign_key: :user_id, 
+        class_name: :Save
+
     def generate_session_token 
         SecureRandom.base64
     end

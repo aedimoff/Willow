@@ -1,39 +1,42 @@
-export const fetchAllListings = data => (
-    $.ajax({
-      method: "GET",
-      url: "api/listings",
-      data: data,
-    })
-)
+export const fetchAllListings = (data) =>
+  $.ajax({
+    method: "GET",
+    url: "api/listings",
+    data: data,
+  });
 
-export const fetchListing = listingId => (
-    $.ajax({
-        method: "GET",
-        url:`api/listings/${listingId}`
-    })
-)
+export const fetchListing = (listingId) =>
+  $.ajax({
+    method: "GET",
+    url: `api/listings/${listingId}`,
+  });
 
-export const createListing = listing => {
-    return $.ajax({
-        method: "POST",
-        url: 'api/listings',
-        data: listing,
-        contentType: false,
-        processData: false
-    })
-}
+export const fetchUsersListings = userId => (
+  $.ajax({
+    method: "GET",
+    url: `api/users/${userId}/listings`,
+  })
+);
 
-export const updateListing = listingId => (
-    $.ajax({
-        method: "PATCH",
-        url: `api/listings/${listingId}`,
-        data: { listing }
-    })
-)
+export const createListing = listing => (
+  $.ajax({
+    method: "POST",
+    url: "api/listings",
+    data: listing,
+    contentType: false,
+    processData: false,
+  })
+);
 
-export const deleteListing = listingId => (
-    $.ajax({
-        method: "DELETE",
-        url: `api/listings/${listingId}`
-    })
-)
+export const updateListing = (listing, listingId) =>
+  $.ajax({
+    method: "PATCH",
+    url: `api/listings/${listingId}`,
+    data: { listing: listing },
+  });
+
+export const deleteListing = (listingId) =>
+  $.ajax({
+    method: "DELETE",
+    url: `api/listings/${listingId}`,
+  });

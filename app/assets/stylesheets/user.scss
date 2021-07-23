@@ -1,9 +1,86 @@
+@import "variables";
+
+.user-page {
+  height: 90vh;
+}
+
 .user-header {
-    height: 3vw;
-    text-align: center;
-    padding-top: 26px;
-    margin-bottom: 18px;
-    font-size: 40px;
-    font-weight: bold;
-    border-bottom: 1px solid lightgray;
+  height: 3vw;
+  text-align: center;
+  padding: 26px 0px 12px 0px;
+  margin-bottom: 18px;
+  font-size: 40px;
+  font-weight: bold;
+  border-bottom: 1px solid lightgray;
+}
+
+.user-listing-grid-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0.5rem;
+  height: 100vh;
+  width: 45vw;
+  margin: auto;
+}
+
+.user-listing-index-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+  overflow-y: auto;
+  height: 100vh;
+
+  .save-action {
+    display: none;
+  }
+}
+
+.user-listing-index-item {
+  position: relative;
+  font-family: $functional-font;
+  border-bottom: 4px solid $willow-blue;
+  border-right: 0.5px solid #eaeaea;
+  border-left: 0.5px solid #eaeaea;
+  border-top: 0.5px solid #eaeaea;
+  box-shadow: 0 4px 2px -2px gray;
+  max-height: 30vh;
+}
+
+.user-listing {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+#delete-listing-button {
+  background: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  text-decoration: none;
+  color: #146ef0;
+  font-family: "Open Sans", sans-serif;
+  padding-bottom: 16px;
+  font-size: 16px;
+}
+
+#delete-listing-button:hover {
+  background: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  text-decoration: underline;
+  color: #146ef0;
+  font-family: "Open Sans", sans-serif;
+  padding-bottom: 16px;
+  font-size: 16px;
+}
+
+#my-listings-spinner {
+  position: absolute;
+  top: 72%;
+  right: 46%;
 }

@@ -1,7 +1,8 @@
 class Api::ListingsController < ApplicationController
     
-    def index 
+    def index
         @listings = params["bounds"] ? Listing.in_bounds(params["bounds"]) : Listing.all
+        #@listings = Listing.in_bounds(params["bounds"])
         render 'api/listings/index'
     end
 
@@ -30,6 +31,16 @@ class Api::ListingsController < ApplicationController
         end
     end
 
+    def destroy 
+        @listing = Listing.find_by(id: params[:id])
+
+        if @listing && @listing.destroy
+            render 'api/listings/show'
+        else
+            render json: ["Error deleting listing"], status: 401
+        end
+    end
+
     private 
     def listing_params
         params.require(:listing).permit(
@@ -45,6 +56,7 @@ class Api::ListingsController < ApplicationController
             :baths,
             :lat,
             :lng,
+            :seller_id,
             images: [], 
             )
     end

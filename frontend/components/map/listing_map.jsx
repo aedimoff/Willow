@@ -30,10 +30,11 @@ class ListingMap extends React.Component {
     this.updateMarkers()
     const { position } = this.props;
     if (Object.keys(position).length && this.state.center !== position) {
+      console.log("change center", position.lat)
       this.state.center = position;
       let lat = position.lat
       let lng = position.lng
-      this.map.setCenter(lat, lng, 12);
+      this.map.setCenter(new google.maps.LatLng(lat, lng));
     }
   }
 

@@ -1,8 +1,16 @@
-import { connect } from 'react-redux';
-import SavesIndex from './saves_index'
+import { connect } from "react-redux";
+import SavesIndex from "./saves_index";
 import { openModal } from "../../actions/modal_actions";
-import { requestListings, setSelectedListingId } from '../../actions/listing_actions';
-import { requestSaves, createSave, deleteSave } from '../../actions/save_actions';
+import {
+  requestListings,
+  setSelectedListingId,
+} from "../../actions/listing_actions";
+import {
+  requestSaves,
+  createSave,
+  deleteSave,
+} from "../../actions/save_actions";
+import { updateFilter } from "../../actions/filter_actions";
 
 const mapStateToProps = (state) => ({
   userId: state.session.id,
@@ -17,6 +25,7 @@ const mapDispatchToProps = (dispatch) => ({
   openModal: (modal, params) => dispatch(openModal(modal, params)),
   createSave: (save) => dispatch(createSave(save)),
   deleteSave: (saveId) => dispatch(deleteSave(saveId)),
+  updateFilter: (filter, value) => dispatch(updateFilter(filter, value)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(SavesIndex)
+export default connect(mapStateToProps, mapDispatchToProps)(SavesIndex);

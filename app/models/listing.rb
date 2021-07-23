@@ -41,6 +41,15 @@ class Listing < ApplicationRecord
         foreign_key: :listing_id,
         class_name: :Save
 
+    has_many :savers,
+        through: :saves,
+        source: :user 
+
+
+    def self.saved_by(bounds)
+        self.where("listings.saves.user_id", bounds["saves"])
+    end
+
     def self.in_bounds(bounds) 
         self.where("lat < ?", bounds[:northEast][:lat])
         .where("lat > ?", bounds[:southWest][:lat])

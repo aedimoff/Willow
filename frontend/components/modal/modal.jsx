@@ -4,6 +4,7 @@ import SignupFormContainer from '../../components/session/signup_form_container'
 import LoginFormContainer from '../../components/session/login_form_container';
 import ListingShowContainer from '../listing/listing_show_container';
 import ListingCreateContainer from '../listing/listing_create_container';
+import EditListingContainer from '../listing/edit_listing_container';
 import { Buy, Sell, Rent }from '../home/options';
 import { closeModal } from '../../actions/modal_actions';
 
@@ -16,6 +17,7 @@ const Modal = ({ modal, closeModal }) => {
         return null;
     }
     let component;
+    
     switch (modal.type) {
         case 'Log In':
             component = <LoginFormContainer />;
@@ -28,6 +30,9 @@ const Modal = ({ modal, closeModal }) => {
             break;
         case 'Create Listing':
             component = <ListingCreateContainer />
+            break;
+        case 'Edit Listing':
+            component = <EditListingContainer />
             break;
         case 'Buy':
             component = <Buy/>;

@@ -50,15 +50,16 @@ export const requestUsersListings = userId => dispatch => (
     .then(listings => dispatch(recieveUsersListings(listings)))
 )
 
-export const createListing = (listing) => dispatch => {
-    return (ListingAPIUtil.createListing(listing)
-    .then(listing => dispatch(receiveListing(listing))))
-}
-export const updateListing = (listing) => dispatch => (
-    ListingAPIUtil.updateListing(listing)
+
+export const createListing = (listing) => dispatch => (
+    ListingAPIUtil.createListing(listing)
+    .then(listing => dispatch(receiveListing(listing)))
+)
+export const updateListing = (listing, listingId) => dispatch => (
+    ListingAPIUtil.updateListing(listing, listingId)
     .then(listing => dispatch(receiveListing(listing)))
 )
 export const deleteListing = (listingId) => dispatch => (
     ListingAPIUtil.deleteListing(listingId) 
-    .then(() => dispatch(removeListing(listingId)))
+    .then(_response => dispatch(removeListing(listingId)))
 )

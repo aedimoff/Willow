@@ -1,7 +1,8 @@
 class Api::ListingsController < ApplicationController
     
-    def index 
+    def index
         @listings = params["bounds"] ? Listing.in_bounds(params["bounds"]) : Listing.all
+        #@listings = Listing.in_bounds(params["bounds"])
         render 'api/listings/index'
     end
 
@@ -27,6 +28,16 @@ class Api::ListingsController < ApplicationController
             render 'api/listings/show'
         else
             render json: ["Invalid user input"], status: 401
+        end
+    end
+
+    def destroy 
+        @listing = Listing.find_by(id: params[:id])
+
+        if @listing && @listing.destroy
+            render 'api/listings/show'
+        else
+            render json: ["Error deleting listing"], status: 401
         end
     end
 

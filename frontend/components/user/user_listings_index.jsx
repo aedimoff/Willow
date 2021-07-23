@@ -8,7 +8,7 @@ class UserListingIndex extends React.Component {
   }
 
   handleListingClick() {
-    console.log("listing clicked")
+    this.props.openModal("Create Listing", { size: "large" });
   }
 
   render() {
@@ -23,12 +23,8 @@ class UserListingIndex extends React.Component {
       saves,
     } = this.props;
 
-    console.log("props", this.props);
-
     const display = listings[listings.length - 1] ? (
-      <ul
-        className="user-listing-index-container"
-      >
+      <ul className="user-listing-index-container">
         {listings.map((listing) => (
           <ListingIndexItem
             key={listing.id}
@@ -40,12 +36,14 @@ class UserListingIndex extends React.Component {
             userId={userId}
             saveId={saveId}
             saves={saves}
-            handleListingClick={this.handleListingClick}
+            modalType={"Edit Listing"}
           />
         ))}
       </ul>
     ) : (
-      <Spinner />
+      <div id="my-listings-spinner">
+        <Spinner id="my-listings-spinner" />
+      </div>
     );
 
     return (

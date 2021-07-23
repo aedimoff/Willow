@@ -41,6 +41,7 @@ class ListingsIndex extends React.Component {
             userId={userId}
             saveId={saveId}
             saves={saves}
+            modalType={"Listing Show"}
           />
         ))}
       </ul>

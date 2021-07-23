@@ -7,10 +7,10 @@ class User extends React.Component {
     const { openModal } = this.props;
     return (
       <div className="user-page">
-        {/* <img className="welcome-banner" src={window.profile} />
+        <img className="welcome-banner" src={window.profile} />
         <h2 className="user-header">My Saved Homes</h2>
-        <SavesContainer /> */}
-        <UserListingsContainer />
+        <SavesContainer />
+        {/* <UserListingsContainer /> */}
       </div>
     );
   }

@@ -25,7 +25,7 @@ const App = () => (
         redirectPath="/"
       />
       <LoggedInProtectedRoute
-        path="/user/:userId/listings"
+        path="/users/:userId/listings"
         component={UserListingsContainer}
       />
       <LoggedInProtectedRoute

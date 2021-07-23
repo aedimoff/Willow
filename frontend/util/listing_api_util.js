@@ -13,6 +13,13 @@ export const fetchListing = listingId => (
     })
 )
 
+export const fetchUsersListings = userId => (
+  $.ajax({
+    method: "GET",
+    url: `api/users/${userId}/listings`,
+  })
+);
+
 export const createListing = listing => {
     return $.ajax({
         method: "POST",

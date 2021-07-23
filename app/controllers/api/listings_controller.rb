@@ -45,6 +45,7 @@ class Api::ListingsController < ApplicationController
             :baths,
             :lat,
             :lng,
+            :seller_id,
             images: [], 
             )
     end

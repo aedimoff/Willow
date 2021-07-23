@@ -11,7 +11,7 @@ class Api::SavesController < ApplicationController
 
     def index 
         if current_user
-            @saves = Save.all.where(user_id: current_user.id)
+            @saves = Save.where(user_id: current_user.id)
         else
             @saves = []
         end

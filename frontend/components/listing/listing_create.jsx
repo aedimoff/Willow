@@ -23,6 +23,7 @@ class ListingCreate extends React.Component {
     formData.append("listing[property_type]", this.state.property_type);
     formData.append("listing[beds]", this.state.beds);
     formData.append("listing[baths]", this.state.baths);
+    formData.append("listing[seller_id", this.props.sellerId);
     formData.append("listing[lat]", this.state.lat);
     formData.append("listing[lng]", this.state.lng);
 
@@ -32,7 +33,7 @@ class ListingCreate extends React.Component {
     }
 
     this.props.createListing(formData);
-    // this.props.closeModal();
+    this.props.closeModal();
   }
 
   handleFile(e) {

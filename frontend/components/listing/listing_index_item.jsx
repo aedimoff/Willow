@@ -78,7 +78,7 @@ class ListingIndexItem extends React.Component {
         }
         <div
           className="listing-card"
-          onClick={() => this.setListingAndOpenModal(listing.id)}
+          onClick={() => this.props.handleListingClick ? this.props.handleListingClick() : this.setListingAndOpenModal(listing.id)}
         >
           <img
             className="image"

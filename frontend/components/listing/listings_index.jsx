@@ -26,6 +26,7 @@ class ListingsIndex extends React.Component {
       saveId,
       saves,
     } = this.props;
+
     
     const display = listings[listings.length - 1] ? (
       <ul className="listing-index-container">
@@ -34,9 +35,9 @@ class ListingsIndex extends React.Component {
             key={listing.id}
             listing={listing}
             openModal={openModal}
-            setSelectedListingId={setSelectedListingId}
             createSave={createSave}
             deleteSave={deleteSave}
+            setSelectedListingId={setSelectedListingId}
             userId={userId}
             saveId={saveId}
             saves={saves}
@@ -45,12 +46,11 @@ class ListingsIndex extends React.Component {
       </ul>
     ) : (
       <Spinner id="index-spinner"/>
-    );
+    )
 
     return (
       <div className="listing-grid-container">
         {display}
-        {/* <h1 className="listing-header">Real Estate & Homes for Sale</h1> */}
       </div>
     );
   }

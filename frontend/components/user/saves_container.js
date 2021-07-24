@@ -11,7 +11,6 @@ import {
   createSave,
   deleteSave,
 } from "../../actions/save_actions";
-import { updateFilter } from "../../actions/filter_actions";
 
 const mapStateToProps = (state) => ({
   saves: Object.values(state.entities.saves),

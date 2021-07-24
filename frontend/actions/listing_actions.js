@@ -6,7 +6,6 @@ export const REMOVE_LISTING = "REMOVE_LISTING";
 export const SET_SELECTED_LISTING_ID = "SET_SELECTED_LISTING_ID";
 
 const receiveAllListings = (listings) => {
-  console.log("recieveALl", listings);
   return { type: RECEIVE_ALL_LISTINGS, listings };
 };
 

@@ -30,7 +30,6 @@ class ListingMap extends React.Component {
     this.updateMarkers()
     const { position } = this.props;
     if (Object.keys(position).length && this.state.center !== position) {
-      console.log("change center", position.lat)
       this.state.center = position;
       let lat = position.lat
       let lng = position.lng

@@ -41,6 +41,12 @@ export const requestListings = (filters) => (dispatch) => {
   );
 };
 
+export const requestSavedListings = () => (dispatch) => {
+  ListingAPIUtil.fetchSavedListings().then((listings) =>
+    dispatch(receiveAllListings(listings))
+  );
+};
+
 export const requestListing = (listingId) => (dispatch) =>
   ListingAPIUtil.fetchListing(listingId).then((listing) =>
     dispatch(receiveListing(listing))

@@ -5,6 +5,7 @@ Rails.application.routes.draw do
         resources :listings, only: [:index], controller: "user_listings"
       end
       resources :listings, except: [:new]
+      get '/saved_listings', to: 'listings#saved_listings'
       resource :session, only: [:create, :destroy]
       resources :saves, except: [:new, :show]
   end

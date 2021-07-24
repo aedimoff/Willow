@@ -6,6 +6,15 @@ class Api::ListingsController < ApplicationController
         render 'api/listings/index'
     end
 
+    def saved_listings
+        listings_ids = Save.where(user_id: current_user.id).map { |s| s.listing_id }
+
+        @listings = Listing.find(listings_ids)
+
+        render 'api/listings/index'
+    end
+
+
     def create
         @listing = Listing.new(listing_params)
 

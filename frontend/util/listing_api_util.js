@@ -18,6 +18,12 @@ export const fetchUsersListings = userId => (
   })
 );
 
+export const fetchSavedListings = () =>
+  $.ajax({
+    method: "GET",
+    url: `api/saved_listings`,
+  });
+
 export const createListing = listing => (
   $.ajax({
     method: "POST",

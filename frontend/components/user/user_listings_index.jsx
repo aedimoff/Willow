@@ -3,8 +3,13 @@ import Spinner from "../spinner/spinner";
 import ListingIndexItem from "../listing/listing_index_item";
 
 class UserListingIndex extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {listings: this.props.listings}
+  }
   componentDidMount() {
     this.props.requestUsersListings(this.props.userId);
+    this.setState({listings: this.props.listings})
   }
 
   handleListingClick() {

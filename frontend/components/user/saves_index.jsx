@@ -4,35 +4,37 @@ import Spinner from "../spinner/spinner";
 import { AiOutlineHeart } from "react-icons/ai";
 
 class SavesIndex extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {listings: this.props.listings}
+  }
   componentDidMount() {
-    this.props.requestListings();
-    this.props.requestSaves();
+    this.props.requestSaves()
+    this.props.requestSavedListings();
+    this.setState({ listings: this.props.listings });
   }
 
   display() {
     const {
       listings,
-      saves,
       openModal,
       setSelectedListingId,
       createSave,
       deleteSave,
       userId,
+      saves,
       saveId,
     } = this.props;
 
-    const savedListings = Object.values(saves).map(
-      (item) => listings[item.listingId]
-    );
 
-
-    if (savedListings.length) {
-      return savedListings[savedListings.length - 1] ? (
+    const listingIds = Object.keys(listings)
+    if (listingIds.length) {
+      return (
         <ul className="saves-index-container" id="saves-index-container">
-          {savedListings.map((listing, idx) => (
+          {listingIds.map((listingId, idx) => (
             <ListingIndexItem
               key={idx}
-              listing={listing}
+              listing={listings[listingId]}
               openModal={openModal}
               setSelectedListingId={setSelectedListingId}
               createSave={createSave}
@@ -44,9 +46,7 @@ class SavesIndex extends React.Component {
             />
           ))}
         </ul>
-      ) : (
-        <Spinner />
-      );
+      )
     } else {
       return (
         <div className="saves-grid-container">

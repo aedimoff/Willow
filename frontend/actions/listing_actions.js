@@ -3,23 +3,19 @@ import * as ListingAPIUtil from '../util/listing_api_util';
 export const RECEIVE_ALL_LISTINGS = "RECEIVE_ALL_LISTINGS";
 export const RECEIVE_LISTING = "RECEIVE_LISTING";
 export const REMOVE_LISTING = "REMOVE_LISTING";
-export const RECIEVE_USERS_LISTINGS = "RECIEVE_USERS_LISTINGS";
 export const SET_SELECTED_LISTING_ID = "SET_SELECTED_LISTING_ID";
 
-const receiveAllListings = listings => ({
-    type: RECEIVE_ALL_LISTINGS,
-    listings
-});
+const receiveAllListings = listings => {
+    console.log("recieveALl", listings)
+    return {type: RECEIVE_ALL_LISTINGS,
+    listings}
+};
 
 const receiveListing = listing => ({
     type: RECEIVE_LISTING,
     listing
 })
 
-const recieveUsersListings = listings => ({
-    type: RECIEVE_USERS_LISTINGS,
-    listings
-})
 
 const setListing = selectedListingId => ({
     type: SET_SELECTED_LISTING_ID,
@@ -47,7 +43,7 @@ export const requestListing = (listingId) => dispatch => (
 
 export const requestUsersListings = userId => dispatch => (
     ListingAPIUtil.fetchUsersListings(userId)
-    .then(listings => dispatch(recieveUsersListings(listings)))
+    .then(listings => dispatch(receiveAllListings(listings)))
 )
 
 

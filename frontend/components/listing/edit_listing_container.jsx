@@ -1,13 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
-import { requestListing, updateListing, deleteListing } from "../../actions/listing_actions";
+import { updateListing, deleteListing } from "../../actions/listing_actions";
 import { closeModal } from "../../actions/modal_actions";
 import ListingForm from "./listing_form";
 
 class EditListing extends React.Component {
 
   render() {
-    const { action, formType, listing, closeModal } = this.props;
+    const { action, formType, listing, closeModal, deleteListing } = this.props;
 
     if (!listing) return null;
     return (
@@ -28,10 +28,9 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  //   requestListing: (listingId) => dispatch(requestListing(listingId)),
   action: (listing, listingId) => dispatch(updateListing(listing, listingId)),
   closeModal: () => dispatch(closeModal()),
-  deleteListing: listingId => dispatch(deleteListing(listingId)),
+  deleteListing: (listingId) => dispatch(deleteListing(listingId)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(EditListing);

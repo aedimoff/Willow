@@ -40,6 +40,7 @@ class ListingForm extends React.Component {
 
   handleClick(listingId) {
     this.props.deleteListing(listingId);
+    this.props.closeModal()
   }
 
   handleFile(e) {
@@ -167,7 +168,7 @@ class ListingForm extends React.Component {
         {this.props.formType === "Edit Listing" ? 
           <button
             id="delete-listing-button"
-            onClick={this.props.deleteListing(this.props.listing.id)}
+            onClick={this.handleClick(this.props.listing.id)}
           >
             No longer selling? Delete this listing
           </button> : ""}

@@ -25,10 +25,10 @@ const mapStateToProps = state => ({
 });
 
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = dispatch => ({
   action: (listing) => dispatch(createListing(listing)),
   closeModal: () => dispatch(closeModal()),
-  deleteListing: (listingId) => dispatch(deleteListing(listingId)),
+  // deleteListing: (listingId) => dispatch(deleteListing(listingId)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ListingForm);

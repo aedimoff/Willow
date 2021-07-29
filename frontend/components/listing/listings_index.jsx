@@ -47,15 +47,6 @@ class ListingsIndex extends React.Component {
     ) : (
       <div id="listings-index-spinner">
         <Spinner id="listings-index-spinner" />
-<<<<<<< HEAD
-      </div>
-    );
-
-    return (
-      <div className="listing-grid-container">
-        {display}
-=======
->>>>>>> 2061e4fffc37d1f6f23123b4fd32f67e38724b72
       </div>
     );
 

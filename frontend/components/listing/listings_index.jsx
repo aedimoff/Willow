@@ -46,8 +46,10 @@ class ListingsIndex extends React.Component {
         ))}
       </ul>
     ) : (
-      <Spinner id="index-spinner"/>
-    )
+      <div id="listings-index-spinner">
+        <Spinner id="listings-index-spinner" />
+      </div>
+    );
 
     return (
       <div className="listing-grid-container">

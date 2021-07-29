@@ -165,13 +165,16 @@ class ListingForm extends React.Component {
             {this.props.formType}
           </button>
         </form>
-        {this.props.formType === "Edit Listing" ? 
+        {this.props.formType === "Edit Listing" ? (
           <button
-            id="delete-listing-button"
-            onClick={this.handleClick(this.props.listing.id)}
+            id="listing-crud-button"
+            onClick={() => this.props.deleteListing(this.props.listing.id)}
           >
             No longer selling? Delete this listing
-          </button> : ""}
+          </button>
+        ) : (
+          ""
+        )}
       </div>
     );
   }

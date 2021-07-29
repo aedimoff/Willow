@@ -54,7 +54,7 @@ class UserListingIndex extends React.Component {
     } else {
       return (
         <button
-          id="delete-listing-button"
+          id="listing-crud-button"
           onClick={() =>
             this.props.openModal("Create Listing", { size: "large" })
           }

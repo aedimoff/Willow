@@ -9,6 +9,17 @@
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
 
+    <meta property="og:title" content="Willow" />
+    <meta property="og:image" content="https://i.imgur.com/F7WttsY.jpg" />
+    <meta
+       property="og:url"
+       content="https://willowapp.herokuapp.com/"
+     />
+    <meta
+      name="description"
+      content="A fullstack clone of the real-estate website Zillow using Ruby on Rails, React, Javascript, PostgresSQL, and Webpack."
+    />
+
     <% if current_user %>
       <script>
         window.currentUser = { 

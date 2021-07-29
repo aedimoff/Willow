@@ -16,7 +16,7 @@ const listingReducer = (state = {}, action) => {
       });
     case REMOVE_LISTING:
       let newState = Object.assign({}, state);
-      delete newState[action.listing.id];
+      delete newState[action.listingId];
       return newState;
     default:
       return state;

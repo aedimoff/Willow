@@ -38,8 +38,9 @@ class ListingForm extends React.Component {
     }
   }
 
-  handleClick(listingId) {
+  handleClick = (listingId) => {
     this.props.deleteListing(listingId);
+    this.props.closeModal()
   }
 
   handleFile(e) {
@@ -164,13 +165,17 @@ class ListingForm extends React.Component {
             {this.props.formType}
           </button>
         </form>
-        {this.props.formType === "Edit Listing" ? 
+        {this.props.formType === "Edit Listing" ? (
           <button
-            id="delete-listing-button"
-            onClick={this.props.deleteListing(this.props.listing.id)}
+            id="listing-crud-button"
+            type="button"
+            onClick={() => {this.props.deleteListing(this.props.listing.id), this.props.closeModal()}}
           >
             No longer selling? Delete this listing
-          </button> : ""}
+          </button>
+        ) : (
+          ""
+        )}
       </div>
     );
   }

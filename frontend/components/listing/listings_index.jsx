@@ -4,15 +4,15 @@ import Spinner from "../spinner/spinner";
 
 class ListingsIndex extends React.Component {
   constructor(props) {
-    super(props)
-    this.state = {listings: this.props.listings}
+    super(props);
+    this.state = { listings: this.props.listings };
   }
   componentDidMount() {
     this.props.requestSaves();
   }
 
   componentDidUpdate() {
-    this.setState = this.props.listings
+    this.setState = this.props.listings;
   }
 
   render() {
@@ -27,7 +27,6 @@ class ListingsIndex extends React.Component {
       saves,
     } = this.props;
 
-    
     const display = listings[listings.length - 1] ? (
       <ul className="listing-index-container">
         {listings.map((listing) => (
@@ -46,14 +45,12 @@ class ListingsIndex extends React.Component {
         ))}
       </ul>
     ) : (
-      <Spinner id="index-spinner"/>
-    )
-
-    return (
-      <div className="listing-grid-container">
-        {display}
+      <div id="listings-index-spinner">
+        <Spinner id="listings-index-spinner" />
       </div>
     );
+
+    return <div className="listing-grid-container">{display}</div>;
   }
 }
 

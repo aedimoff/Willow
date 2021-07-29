@@ -1,6 +1,5 @@
 import React from "react";
 import ListingIndexItem from "../listing/listing_index_item";
-import Spinner from "../spinner/spinner";
 import { AiOutlineHeart } from "react-icons/ai";
 
 class SavesIndex extends React.Component {

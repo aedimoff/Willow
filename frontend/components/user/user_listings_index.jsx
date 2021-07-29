@@ -12,10 +12,6 @@ class UserListingIndex extends React.Component {
     this.setState({ listings: this.props.listings });
   }
 
-  // handleListingClick() {
-  //   this.props.openModal("Create Listing", { size: "large" });
-  // }
-
   display() {
     const {
       openModal,

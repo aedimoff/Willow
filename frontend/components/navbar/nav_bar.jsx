@@ -31,9 +31,8 @@ const NavBar = ({ currentUser, logout, openModal }) => {
   const sellLink = () =>
     currentUser ? (
       <Link
-        to={`/users/${currentUser.id}/listings`}
+        to={`/users/for-sale-by-owner`}
         className="nav-bar-link"
-        onClick={() => openModal("Create Listing", { size: "large" })}
       >
         Sell
       </Link>

@@ -1,34 +1,39 @@
 @import "variables";
 
-.listing-create-form {
-  height: 100%;
+.form-input-container {
+  position: absolute;
   width: 100%;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.listing-create-container {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
+  gap: 1%;
+  z-index: 2;
+  top: 26%;;
 }
 
-.listing-header {
-  text-align: center;
-  color: $willow-blue;
+#state-dropdown {
+  width: 10vw;
 }
 
-label {
-  width: 45%;
+.trapezoid {
+  height: 7vh;
 }
 
-input, textarea, select {
+.form-background {
+  background: rgb(31, 124, 217);
+  position: absolute;
+  height: 26vh;
+  width: 100%;
+  opacity: 0.8;
+  z-index: 1;
+  top: 17.3%
+}
+
+input,
+textarea,
+select {
   display: block;
   box-sizing: border-box;
-  width: 100%;
   border-radius: 5px;
   margin-bottom: 9px;
   margin-top: 1px;
@@ -38,17 +43,13 @@ input, textarea, select {
   font-family: inherit;
 }
 
-.form-logo {
-    padding-top: 10px;
-    height: 8vh;
-    width: 14vw;
-    align-self: center;
+#street-address {
+  width: 40vw;
 }
 
+#city {
+  width: 16vw;
+}
 
-
-#listing-logo-header {
-  align-self: center;
-  font-size: 50px;
-  padding-top: 24px;
+#state {
 }

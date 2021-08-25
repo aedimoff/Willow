@@ -10,6 +10,7 @@ class SaleForm extends React.Component {
     this.update = this.update.bind(this);
     this.setDropDownField = this.setDropDownField.bind(this);
     this.toggleForm = this.toggleForm.bind(this);
+    this.setPosition = this.setPosition.bind(this);
   }
 
   update(field) {
@@ -35,13 +36,26 @@ class SaleForm extends React.Component {
     }));
   }
 
+  setPosition(lat, lng) {
+
+  }
+
   toggleForm(num) {
     this.setState({ currentStep: num });
   }
 
   render() {
-    const { address, city, zipcode, state, beds, baths, price, description, property_type } =
-      this.state.listing;
+    const {
+      address,
+      city,
+      zipcode,
+      state,
+      beds,
+      baths,
+      price,
+      description,
+      property_type,
+    } = this.state.listing;
     return (
       <div className="sale-by-owner-page">
         {/* <SellFormStepOne
@@ -63,7 +77,14 @@ class SaleForm extends React.Component {
           description={description}
           toggleForm={this.toggleForm}
         /> */}
-        <SellFormStepThree currentStep={this.state.currentStep} address={address} city={city} state={state} zipcode={zipcode}/>
+        <SellFormStepThree
+          currentStep={this.state.currentStep}
+          address={address}
+          city={city}
+          state={state}
+          zipcode={zipcode}
+          setPosition={this.setPosition}
+        />
       </div>
     );
   }

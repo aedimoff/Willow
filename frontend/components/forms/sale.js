@@ -1,58 +1,69 @@
 import React from "react";
 import SellFormStepOne from "./sell_form_1";
+import SellFormStepTwo from "./sell_form_2";
+import SellFormStepThree from "./sell_form_3";
 
 class SaleForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = { listing: this.props.listing, currentStep: 1 };
-    this.update = this.update.bind(this)
-    this.setStateCode = this.setStateCode.bind(this);
+    this.update = this.update.bind(this);
+    this.setDropDownField = this.setDropDownField.bind(this);
+    this.toggleForm = this.toggleForm.bind(this);
   }
-  
 
   update(field) {
-    let input = document.getElementById(`${field}`)
-    this.setState(prevState => ({
+    let input = document.getElementById(`${field}`);
+    this.setState((prevState) => ({
       listing: {
         ...prevState.listing,
-        [field]: input.value
+        [field]: input.value,
       },
-      currentStep: prevState.currentStep
-    }))
-    // console.log("input value", input.value)
-    // return (e) => this.setState({listing: { [field]: e.currentTarget.value }});
+      currentStep: prevState.currentStep,
+    }));
   }
 
-  setStateCode() {
-    var select = document.getElementById("state-dropdown");
-    var value = select.options[select.selectedIndex].value;
-    this.setState(prevState => ({
+  setDropDownField(field) {
+    let select = document.getElementById(`${field}`);
+    let value = select.options[select.selectedIndex].value;
+    this.setState((prevState) => ({
       listing: {
         ...prevState.listing,
-        state: value
+        [field]: value,
       },
-      currentStep: prevState.currentStep
-    }))
+      currentStep: prevState.currentStep,
+    }));
   }
 
   toggleForm(num) {
-    this.setState({ form: num });
+    this.setState({ currentStep: num });
   }
 
   render() {
-    const { address, city, zipcode } = this.state.listing;
-    console.log("state", this.state);
+    const { address, city, zipcode, state, beds, baths, price, description, property_type } =
+      this.state.listing;
     return (
-      <div>
-        <SellFormStepOne
+      <div className="sale-by-owner-page">
+        {/* <SellFormStepOne
           currentStep={this.state.currentStep}
           toggleForm={this.toggleForm}
           address={address}
           city={city}
           zipcode={zipcode}
-          setStateCode={this.setStateCode}
+          setDropDownField={this.setDropDownField}
           update={this.update}
         />
+        <SellFormStepTwo
+          currentStep={this.state.currentStep}
+          setDropDownField={this.setDropDownField}
+          beds={beds}
+          baths={baths}
+          price={price}
+          propertyType={property_type}
+          description={description}
+          toggleForm={this.toggleForm}
+        /> */}
+        <SellFormStepThree currentStep={this.state.currentStep} address={address} city={city} state={state} zipcode={zipcode}/>
       </div>
     );
   }

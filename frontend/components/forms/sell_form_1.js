@@ -28,7 +28,7 @@ const SellFormStepOne = (props) => {
             id="city"
           />
         </label>
-        <StateDropdown id="state-dropdown" onChange={props.setStateCode} />
+        <StateDropdown id="state" onChange={props.setDropDownField} />
         <label>
           <input
             className="create-listing-input"

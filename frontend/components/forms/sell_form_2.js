@@ -1,0 +1,71 @@
+import React from "react";
+
+const SellFormStepTwo = (props) => {
+  if (props.currentStep !== 2) return null;
+  return (
+    <form className="listing-create-form">
+      <div className="form-background" />
+      <img className="trapezoid" src={window.trapezoid} />
+      <div className="form-input-field-wrapper">
+        <select
+          className="dropdown-item"
+          id="beds"
+          onChange={() => props.setDropDownField("beds")}
+        >
+          <option value="" disable="true">
+            Beds
+          </option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6+</option>
+        </select>
+        <select
+          className="dropdown-item"
+          id="baths"
+          onChange={() => props.setDropDownField("baths")}
+        >
+          <option value="" disable="true">
+            Baths
+          </option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4+</option>
+        </select>
+        <select
+          className="dropdown-item"
+          id="property_type"
+          onChange={() => props.setDropDownField("property_type")}
+        >
+          <option value="" disable="true">
+            Property Type
+          </option>
+          <option value="House">House</option>
+          <option value="Apartment">Apartment</option>
+          <option value="Lot">Lot</option>
+        </select>
+        <label>
+          <input
+            className="create-listing-input"
+            type="text"
+            value={props.price}
+            onChange={() => props.update("price")}
+            placeholder="$ Listing Price"
+            id="city"
+          />
+        </label>
+      </div>
+      <button id="continue-button" onClick={() => props.toggleForm(1)}>
+        Previous
+      </button>
+      <button id="continue-button-2" onClick={() => props.toggleForm(3)}>
+        Continue
+      </button>
+    </form>
+  );
+};
+
+export default SellFormStepTwo;

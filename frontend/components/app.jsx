@@ -10,7 +10,7 @@ import NavBarContainer from "./navbar/nav_bar_container";
 import HomeContainer from "./home/home_container";
 import UserListingsContainer from "./user/user_listings_container";
 import WelcomeContainer from "./home/welcome_container";
-import SaleFormContainer from "./listing/sale_container";
+import SaleFormContainer from "./forms/sale_container";
 
 const App = () => (
   <div>

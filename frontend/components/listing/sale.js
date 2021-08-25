@@ -1,25 +1,36 @@
 import React from "react";
 import StateDropdown from "./state_dropdown";
-import SelectUSState from "react-select-us-states";
 
 class SaleForm extends React.Component {
   constructor(props) {
     super(props);
-    //bind selectStateDropdown
-    //this.setStateValue = this.setStateValue.bind(this);
+    this.state = this.props.listing;
+    this.setStateCode = this.setStateCode.bind(this);
   }
+
+  update(field) {
+    return (e) => this.setState({ [field]: e.currentTarget.value });
+  }
+
+  setStateCode() {
+    var select = document.getElementById('state-dropdown');
+    var value = select.options[select.selectedIndex].value;
+    this.setState( {["state"]: value})
+  }
+
   render() {
+      console.log("state", this.state)
     return (
       <form className="listing-create-form">
         <div className="form-background" />
         <img className="trapezoid" src={window.trapezoid} />
-        <div className="form-input-container">
+        <div className="form-input-field-wrapper">
           <label>
             <input
               className="create-listing-input"
               type="text"
-              // value={this.state.address}
-              // onChange={this.update("address")}
+              value={this.state.address}
+              onChange={this.update("address")}
               placeholder="Street Address"
               id="street-address"
             />
@@ -28,81 +39,25 @@ class SaleForm extends React.Component {
             <input
               className="create-listing-input"
               type="text"
-              // value={this.state.city}
-              // onChange={this.update("city")}
+              value={this.state.city}
+              onChange={this.update("city")}
               placeholder="City"
               id="city"
             />
           </label>
-          {/* <label> */}
-          {/* <input
-                className="create-listing-input"
-                type="text"
-                value={this.state.state}
-                onChange={this.update("state")}
-                placeholder="State"
-              />
-            </label> */}
-          <StateDropdown id="state-dropdown" />
+          <StateDropdown id="state-dropdown" onChange={this.setStateCode}/>
           <label>
             <input
               className="create-listing-input"
               type="text"
-              // value={this.state.zipcode}
-              // onChange={this.update("zipcode")}
+              value={this.state.zipcode}
+              onChange={this.update("zipcode")}
               placeholder="Zip"
               id="zip"
             />
           </label>
-          {/* <label> */}
-          {/* <input
-                className="create-listing-input"
-                type="text"
-                value={this.state.beds}
-                onChange={this.update("beds")}
-                placeholder="Number of Beds"
-              />
-            </label> */}
-          {/* <label> */}
-          {/* <input
-                className="create-listing-input"
-                type="text"
-                value={this.state.baths}
-                onChange={this.update("baths")}
-                placeholder="Number of Baths"
-              />
-            </label> */}
-          {/* <label>
-              <textarea
-                className="create-listing-input"
-                value={this.state.description}
-                onChange={this.update("description")}
-                placeholder="Description"
-              />
-            </label> */}
-          {/* <label>
-              <input
-                className="create-listing-input"
-                type="text"
-                value={this.state.price}
-                onChange={this.update("price")}
-                placeholder="Listing Price"
-              />
-            </label> */}
-          {/* <label>
-              <select
-                className="create-listing-input"
-                value={this.state.property_type}
-                onChange={this.update("property_type")}
-                placeholder="Property Type"
-              >
-                <option placeholder="Select" />
-                <option value="house">House</option>
-                <option value="apartment">Apartment</option>
-                <option value="lot">Lot</option>
-              </select>
-            </label> */}
         </div>
+        <button id="continue-button">Continue</button>
       </form>
     );
   }

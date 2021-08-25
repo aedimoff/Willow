@@ -1,6 +1,6 @@
 @import "variables";
 
-.form-input-container {
+.form-input-field-wrapper {
   position: absolute;
   width: 100%;
   display: flex;
@@ -8,11 +8,25 @@
   justify-content: center;
   gap: 1%;
   z-index: 2;
-  top: 26%;;
+  top: 26%;
 }
 
 #state-dropdown {
   width: 10vw;
+  color: grey;
+}
+
+#continue-button {
+  position: absolute;
+  top: 36%;
+  left: 10%;
+  z-index: 2;
+  color: white;
+  font-size: 18px;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 24px;
+  background: $green;
 }
 
 .trapezoid {
@@ -26,7 +40,7 @@
   width: 100%;
   opacity: 0.8;
   z-index: 1;
-  top: 17.3%
+  top: 17.3%;
 }
 
 input,
@@ -51,5 +65,3 @@ select {
   width: 16vw;
 }
 
-#state {
-}

@@ -4,6 +4,7 @@ import SellFormStepTwo from "./sell_form_2";
 import SellFormStepThree from "./sell_form_3";
 import MovePin from "./move_pin";
 import ReviewAndSubmit from "./review_and_submit";
+import UploadPhotos from "./upload_photos";
 
 class SaleForm extends React.Component {
   constructor(props) {
@@ -13,7 +14,8 @@ class SaleForm extends React.Component {
     this.setDropDownField = this.setDropDownField.bind(this);
     this.toggleForm = this.toggleForm.bind(this);
     this.setPosition = this.setPosition.bind(this);
-  }
+    this.handlePhotos = this.handlePhotos.bind(this);
+  };
 
   update(field) {
     let input = document.getElementById(`${field}`);
@@ -24,7 +26,7 @@ class SaleForm extends React.Component {
       },
       currentStep: prevState.currentStep,
     }));
-  }
+  };
 
   setDropDownField(field) {
     let select = document.getElementById(`${field}`);
@@ -36,7 +38,16 @@ class SaleForm extends React.Component {
       },
       currentStep: prevState.currentStep,
     }));
-  }
+  };
+
+  handlePhotos(files) {
+    this.setState((prevState) => ({
+      listing: {...prevState.listing,
+        ["images"]: files
+      },
+      currentStep: prevState.currentStep,
+    }));
+  };
 
   setPosition(lat, lng) {
     this.setState((prevState) => ({
@@ -47,11 +58,11 @@ class SaleForm extends React.Component {
       },
       currentStep: prevState.currentStep,
     }));
-  }
+  };
 
   toggleForm(num) {
     this.setState({ currentStep: num });
-  }
+  };
 
   formComponents(currentStep) {
     const {
@@ -115,6 +126,10 @@ class SaleForm extends React.Component {
           />
         );
       case 5:
+        return <UploadPhotos 
+          handlePhotos={this.handlePhotos}
+        />;
+      case 6:
         return (
           <ReviewAndSubmit
             submissionData={this.state.listing}
@@ -122,17 +137,13 @@ class SaleForm extends React.Component {
           />
         );
     }
-  }
+  };
 
   render() {
     console.log("state", this.state);
 
-    return (
-      <div className="sale-by-owner-page">
-        {this.formComponents(5)}
-      </div>
-    );
+    return <div className="sale-by-owner-page">{this.formComponents(5)}</div>;
   }
-}
+};
 
 export default SaleForm;

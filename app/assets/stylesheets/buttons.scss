@@ -80,69 +80,69 @@
   width: 70%;
 }
 
-.upload-button {
-  display: flex;
-  width: 30%;
-  align-self: center;
-  padding-left: 73px;
-  border: none;
-}
+// .upload-button {
+//   display: flex;
+//   width: 30%;
+//   align-self: center;
+//   padding-left: 73px;
+//   border: none;
+// }
 
-.upload-button:hover {
-  display: flex;
-  width: 30%;
-  align-self: center;
-  padding-left: 73px;
-}
-.upload-button-container {
-  height: 9%;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-}
+// .upload-button:hover {
+//   display: flex;
+//   width: 30%;
+//   align-self: center;
+//   padding-left: 73px;
+// }
+// .upload-button-container {
+//   height: 9%;
+//   width: 100%;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: space-around;
+// }
 
-.upload-button::-webkit-file-upload-button {
-  visibility: hidden;
-}
+// .upload-button::-webkit-file-upload-button {
+//   visibility: hidden;
+// }
 
-.upload-button::before {
-  content: "Upload Images";
-  display: inline-block;
-  background-color: white;
-  border: 1px solid $willow-blue;
-  color: $willow-blue;
-  text-align: center;
-  padding: 10px 15px;
-  font-size: 14px;
-  font-family: $functional-font;
-  border-radius: 2px;
-  align-self: center;
-  padding: 1px 8px 1px 8px;
-  width: 82%;
-  height: 24px;
-  box-shadow: 0px 1px 4px -1px;
-  cursor: pointer;
-}
+// .upload-button::before {
+//   content: "Upload Images";
+//   display: inline-block;
+//   background-color: white;
+//   border: 1px solid $willow-blue;
+//   color: $willow-blue;
+//   text-align: center;
+//   padding: 10px 15px;
+//   font-size: 14px;
+//   font-family: $functional-font;
+//   border-radius: 2px;
+//   align-self: center;
+//   padding: 1px 8px 1px 8px;
+//   width: 82%;
+//   height: 24px;
+//   box-shadow: 0px 1px 4px -1px;
+//   cursor: pointer;
+// }
 
-.upload-button:hover::before {
-  content: "Upload Images";
-  display: inline-block;
-  background-color: white;
-  border: 1px solid $willow-blue;
-  color: $willow-blue;
-  text-align: center;
-  padding: 10px 15px;
-  font-size: 14px;
-  font-family: $functional-font;
-  border-radius: 2px;
-  align-self: center;
-  padding: 1px 8px 1px 8px;
-  width: 82%;
-  height: 24px;
-  box-shadow: 0px 1px 4px -1px;
-  cursor: pointer;
-}
+// .upload-button:hover::before {
+//   content: "Upload Images";
+//   display: inline-block;
+//   background-color: white;
+//   border: 1px solid $willow-blue;
+//   color: $willow-blue;
+//   text-align: center;
+//   padding: 10px 15px;
+//   font-size: 14px;
+//   font-family: $functional-font;
+//   border-radius: 2px;
+//   align-self: center;
+//   padding: 1px 8px 1px 8px;
+//   width: 82%;
+//   height: 24px;
+//   box-shadow: 0px 1px 4px -1px;
+//   cursor: pointer;
+// }
 
 #create-listing-button {
   width: 27%;

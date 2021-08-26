@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 
 class MovePin extends React.Component {
   constructor(props) {
@@ -6,7 +6,6 @@ class MovePin extends React.Component {
     this.state = { lat: this.props.lat, lng: this.props.lng };
     this.initMap = this.initMap.bind(this);
   }
-  // if (props.currentStep !== 4) return null;
 
   componentDidMount() {
     this.initMap();
@@ -15,7 +14,7 @@ class MovePin extends React.Component {
   initMap = () => {
     const center = { lat: this.props.lat, lng: this.props.lng };
 
-    map.current = new google.maps.Map(document.getElementById("map"), {
+    window.map = new google.maps.Map(document.getElementById("map"), {
       center: center,
       zoom: 19.5,
       disableDefaultUI: true,
@@ -34,7 +33,7 @@ class MovePin extends React.Component {
       },
     });
 
-    marker.setMap(map.current);
+    marker.setMap(window.map);
 
     google.maps.event.addListener(marker, "dragend", (e) => {
       this.setState({ lat: e.latLng.lat(), lng: e.latLng.lng()});      
@@ -42,7 +41,9 @@ class MovePin extends React.Component {
   };
 
   render() {
+
     const { lat, lng } = this.state;
+    const { setPosition, toggleForm } = this.props;
     return (
       <div>
         <h3>
@@ -54,7 +55,7 @@ class MovePin extends React.Component {
           {lng.toFixed(4)}
         </h4>
         <div id="map" width="95vw" height="40vh" />
-        <button className="button" onClick={() => {this.props.setPosition(lat, lng)}}>Save and Continue</button>
+        <button className="button" onClick={() => {setPosition(lat, lng), toggleForm(5)}}>Save and Continue</button>
       </div>
     );
   }

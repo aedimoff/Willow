@@ -1,7 +1,7 @@
 import React from "react";
 
 const SellFormStepTwo = (props) => {
-  if (props.currentStep !== 2) return null;
+  // if (props.currentStep !== 2) return null;
   return (
     <form className="listing-create-form">
       <div className="form-background" />

@@ -3,6 +3,7 @@ import SellFormStepOne from "./sell_form_1";
 import SellFormStepTwo from "./sell_form_2";
 import SellFormStepThree from "./sell_form_3";
 import MovePin from "./move_pin";
+import ReviewAndSubmit from "./review_and_submit";
 
 class SaleForm extends React.Component {
   constructor(props) {
@@ -38,13 +39,11 @@ class SaleForm extends React.Component {
   }
 
   setPosition(lat, lng) {
-    console.log("lat in Sale", lat)
-    console.log("lng in Sale", lng)
     this.setState((prevState) => ({
       listing: {
         ...prevState.listing,
         ["lat"]: lat,
-        ["lng"]: lng
+        ["lng"]: lng,
       },
       currentStep: prevState.currentStep,
     }));
@@ -54,8 +53,7 @@ class SaleForm extends React.Component {
     this.setState({ currentStep: num });
   }
 
-  render() {
-    console.log("state", this.state)
+  formComponents(currentStep) {
     const {
       address,
       city,
@@ -66,42 +64,72 @@ class SaleForm extends React.Component {
       price,
       description,
       property_type,
-      lat, 
+      lat,
       lng,
     } = this.state.listing;
+
+    switch (currentStep) {
+      case 1:
+        return (
+          <SellFormStepOne
+            toggleForm={this.toggleForm}
+            address={address}
+            city={city}
+            zipcode={zipcode}
+            setDropDownField={this.setDropDownField}
+            update={this.update}
+          />
+        );
+      case 2:
+        return (
+          <SellFormStepTwo
+            setDropDownField={this.setDropDownField}
+            beds={beds}
+            baths={baths}
+            price={price}
+            propertyType={property_type}
+            description={description}
+            toggleForm={this.toggleForm}
+          />
+        );
+      case 3:
+        return (
+          <SellFormStepThree
+            address={address}
+            city={city}
+            state={state}
+            zipcode={zipcode}
+            lat={lat}
+            lng={lng}
+            setPosition={this.setPosition}
+            toggleForm={this.toggleForm}
+          />
+        );
+      case 4:
+        return (
+          <MovePin
+            lat={lat}
+            lng={lng}
+            setPosition={this.setPosition}
+            toggleForm={this.toggleForm}
+          />
+        );
+      case 5:
+        return (
+          <ReviewAndSubmit
+            submissionData={this.state.listing}
+            createListing={this.props.createListing}
+          />
+        );
+    }
+  }
+
+  render() {
+    console.log("state", this.state);
+
     return (
       <div className="sale-by-owner-page">
-        {/* <SellFormStepOne
-          currentStep={this.state.currentStep}
-          toggleForm={this.toggleForm}
-          address={address}
-          city={city}
-          zipcode={zipcode}
-          setDropDownField={this.setDropDownField}
-          update={this.update}
-        />
-        <SellFormStepTwo
-          currentStep={this.state.currentStep}
-          setDropDownField={this.setDropDownField}
-          beds={beds}
-          baths={baths}
-          price={price}
-          propertyType={property_type}
-          description={description}
-          toggleForm={this.toggleForm}
-        /> */}
-        {/* <SellFormStepThree
-          currentStep={this.state.currentStep}
-          address={address}
-          city={city}
-          state={state}
-          zipcode={zipcode}
-          lat={lat}
-          lng={lng}
-          setPosition={this.setPosition}
-          toggleForm={this.toggleForm}
-        /> */}
-        <MovePin lat={lat} lng={lng} setPosition={this.setPosition}/>
+        {this.formComponents(5)}
       </div>
     );
   }

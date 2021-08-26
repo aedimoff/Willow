@@ -2,7 +2,7 @@ import React from "react";
 import StateDropdown from "./state_dropdown";
 
 const SellFormStepOne = (props) => {
-  if (props.currentStep !== 1) return null;
+  // if (props.currentStep !== 1) return null;
   return (
     <form className="listing-create-form">
       <div className="form-background" />

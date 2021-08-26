@@ -33,8 +33,6 @@ const SellFormStepThree = (props) => {
 
         let marker = new google.maps.Marker({
           position: center,
-          // draggable: true,
-          // animation: google.maps.Animation.DROP,
           icon: {
             path: google.maps.SymbolPath.CIRCLE,
             scale: 8.5,
@@ -45,16 +43,6 @@ const SellFormStepThree = (props) => {
         });
 
         marker.setMap(map.current);
-
-        // google.maps.event.addListener(marker, "dragend", function (e) {
-        //   lat.current = e.latLng.lat();
-        //   lng.current = e.latLng.lng();
-
-        //   props.setPosition(lat.current, lng.current);
-        // });
-
-        //update lat long using props.update(field) function
-        // props.setPosition(lat.current, lng.current);
       }
     });
   };
@@ -74,7 +62,7 @@ const SellFormStepThree = (props) => {
       </div>
       <h4>Is this the correct location of your home?</h4>
       <div id="map" width="95vw" height="40vh" />
-      <button className="button">Yes, it's the correct location </button>
+      <button className="button" onClick={() => props.toggleForm(5)}>Yes, it's the correct location </button>
       <button className="secondary-button" onClick={() => props.toggleForm(4)}>No, let me change it</button>
     </div>
   );

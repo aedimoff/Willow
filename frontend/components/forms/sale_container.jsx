@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import SaleForm from './sale';
+import { createListing } from '../../actions/listing_actions';
 
 const mapStateToProps = (state) => ({
   sellerId: state.session.id,
@@ -22,4 +23,8 @@ const mapStateToProps = (state) => ({
   formType: "Create Listing",
 });
 
-export default connect(mapStateToProps, null)(SaleForm);
+const mapDispatchToProps = (dispatch) => ({
+  createListing: (listing) => dispatch(createListing(listing)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(SaleForm);

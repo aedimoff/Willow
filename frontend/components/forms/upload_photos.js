@@ -11,6 +11,7 @@ const UploadPhotos = (props) => {
           onChange={(e) => props.handlePhotos(e.target.files)}
           multiple
         />
+        <button className="button" onClick={() => props.toggleForm(6)}>Save and Continue</button>
       </div>
     );
 };

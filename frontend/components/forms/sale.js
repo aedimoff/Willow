@@ -101,6 +101,7 @@ class SaleForm extends React.Component {
             propertyType={property_type}
             description={description}
             toggleForm={this.toggleForm}
+            update={this.update}
           />
         );
       case 3:
@@ -126,14 +127,18 @@ class SaleForm extends React.Component {
           />
         );
       case 5:
-        return <UploadPhotos 
-          handlePhotos={this.handlePhotos}
-        />;
+        return (
+          <UploadPhotos
+            handlePhotos={this.handlePhotos}
+            toggleForm={this.toggleForm}
+          />
+        );
       case 6:
         return (
           <ReviewAndSubmit
             submissionData={this.state.listing}
             createListing={this.props.createListing}
+           
           />
         );
     }
@@ -142,7 +147,7 @@ class SaleForm extends React.Component {
   render() {
     console.log("state", this.state);
 
-    return <div className="sale-by-owner-page">{this.formComponents(5)}</div>;
+    return <div className="sale-by-owner-page">{this.formComponents(this.state.currentStep)}</div>;
   }
 };
 

@@ -44,7 +44,7 @@ const ReviewAndSubmit = (props) => {
 
   return (
     <div>
-      <button onClick={(e) => {handleSubmit(e)}}>Submit Listing</button>
+      <button onClick={(e) => {handleSubmit(e), alert("Listing Created Successfully")}}>Submit Listing</button>
     </div>
   );
 };

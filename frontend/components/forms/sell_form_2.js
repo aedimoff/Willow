@@ -54,7 +54,16 @@ const SellFormStepTwo = (props) => {
             value={props.price}
             onChange={() => props.update("price")}
             placeholder="$ Listing Price"
-            id="city"
+            id="price"
+          />
+        </label>
+        <label>
+          <textarea
+            className="create-listing-input"
+            value={props.description}
+            onChange={() => props.update("description")}
+            placeholder="Description"
+            id="description"
           />
         </label>
       </div>

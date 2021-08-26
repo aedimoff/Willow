@@ -1,12 +1,13 @@
 import React from "react";
+import SellFormHeader from "./sell_form_header";
+import SellFormFooter from './sell_form_footer';
 import StateDropdown from "./state_dropdown";
 
+
 const SellFormStepOne = (props) => {
-  // if (props.currentStep !== 1) return null;
   return (
-    <form className="listing-create-form">
-      <div className="form-background" />
-      <img className="trapezoid" src={window.trapezoid} />
+    <div className="listing-create-form">
+      <SellFormHeader/>
       <div className="form-input-field-wrapper">
         <label>
           <input
@@ -39,11 +40,12 @@ const SellFormStepOne = (props) => {
             id="zipcode"
           />
         </label>
-      </div>
       <button id="continue-button" onClick={() => props.toggleForm(2)}>
         Continue
       </button>
-    </form>
+      </div>
+      <SellFormFooter />
+    </div>
   );
 };
 

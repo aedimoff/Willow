@@ -93,26 +93,27 @@
   top: 48.8%;
 }
 
-.form-three-header {
+.form-subheader {
   border-bottom: 1px solid lightgray;
   padding: 40px 15px 25px 0px;
-  margin-left: 18px;
 }
 
-.form-three-header h1 {
+.form-subheader h1 {
   font-weight: bold;
   font-size: 44px;
-  padding-bottom: 9px;
+  margin-bottom: 18px;
 }
 
-.form-three-header h3 {
-  font-weight: bold;
-  font-size: 22px;
+.move-pin-component h3 {
+  margin-top: 3vh;
+  font-size: 20px;
 }
 
-.form-three h4 {
-  font-size: 19px;
-  padding: 33px;
+.move-pin-component h4 {
+  font-size: 18px;
+  color: gray;
+  padding-top: 1.5vh;
+  padding-bottom: 3vh;
 }
 
 .sale-by-owner-page {
@@ -134,6 +135,7 @@ select {
   border: 1px solid lightgray;
   font-size: inherit;
   font-family: inherit;
+  max-height: 50px;
 }
 
 #continue-button {
@@ -145,26 +147,42 @@ select {
   border: none;
   border-radius: 7px;
   margin-top: 1px;
+  max-height: 50px;
   background: $green;
+  cursor: pointer;
+}
+
+#continue-button:hover {
+  -webkit-box-shadow: 0px 10px 13px -7px #000000,
+    5px 5px 15px 5px rgba(0, 0, 0, 0);
+  box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
 }
 
 #continue-button-2 {
-  position: absolute;
-  top: 36%;
-  left: 20%;
   z-index: 3;
   color: white;
   font-size: 18px;
-  border: none;
-  border-radius: 2px;
-  padding: 10px 24px;
-  background: $green;
+  width: 7vw;
+  height: 6.5vh;
+  border: 1px solid white;
+  border-radius: 7px;
+  margin-top: 1px;
+  max-height: 50px;
+  background: transparent;
+  cursor: pointer;
+}
+
+#continue-button-2:hover {
+  -webkit-box-shadow: 0px 10px 13px -7px #000000,
+    5px 5px 15px 5px rgba(0, 0, 0, 0);
+  box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
 }
 
 #map {
   align-self: center;
-  width: 95vw;
-  height: 40vw;
+  width: 80vw;
+  height: 23vw;
+  margin-bottom: 4vh;
 }
 
 #address {

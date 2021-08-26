@@ -1,4 +1,5 @@
 import React from "react";
+import SellFormSubheader from "./sell_form_subheader";
 
 class MovePin extends React.Component {
   constructor(props) {
@@ -41,18 +42,17 @@ class MovePin extends React.Component {
   };
 
   render() {
-
     const { lat, lng } = this.state;
-    const { setPosition, toggleForm } = this.props;
+    const { setPosition, toggleForm, listing } = this.props;
     return (
-      <div>
+      <div className="move-pin-component">
+        <SellFormSubheader listing={listing} />
         <h3>
           Drag the pin to the correct location and your home will be placed
           there
         </h3>
         <h4>
-          Currently selected: {lat.toFixed(4)},{" "}
-          {lng.toFixed(4)}
+          Currently selected: {lat},{" "}{lng}
         </h4>
         <div id="map" width="95vw" height="40vh" />
         <button className="button" onClick={() => {setPosition(lat, lng), toggleForm(5)}}>Save and Continue</button>

@@ -122,6 +122,7 @@ class SaleForm extends React.Component {
           <MovePin
             lat={lat}
             lng={lng}
+            listing={this.state.listing}
             setPosition={this.setPosition}
             toggleForm={this.toggleForm}
           />
@@ -147,7 +148,8 @@ class SaleForm extends React.Component {
   render() {
     console.log("state", this.state);
 
-    return <div className="sale-by-owner-page">{this.formComponents(this.state.currentStep)}</div>;
+    return <div className="sale-by-owner-page">{this.formComponents(4)}</div>;
+    // return <div className="sale-by-owner-page">{this.formComponents(this.state.currentStep)}</div>;
   }
 };
 

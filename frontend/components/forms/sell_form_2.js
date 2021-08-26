@@ -1,11 +1,11 @@
 import React from "react";
+import SellFormHeader from "./sell_form_header";
+import SellFormFooter from "./sell_form_footer";
 
 const SellFormStepTwo = (props) => {
-  // if (props.currentStep !== 2) return null;
   return (
-    <form className="listing-create-form">
-      <div className="form-background" />
-      <img className="trapezoid" src={window.trapezoid} />
+    <div className="listing-create-form">
+      <SellFormHeader />
       <div className="form-input-field-wrapper">
         <select
           className="dropdown-item"
@@ -66,14 +66,15 @@ const SellFormStepTwo = (props) => {
             id="description"
           />
         </label>
-      </div>
-      <button id="continue-button" onClick={() => props.toggleForm(1)}>
-        Previous
-      </button>
-      <button id="continue-button-2" onClick={() => props.toggleForm(3)}>
+      <button id="continue-button" onClick={() => props.toggleForm(3)}>
         Continue
       </button>
-    </form>
+      <button id="continue-button-2" onClick={() => props.toggleForm(1)}>
+        Go Back
+      </button>
+      </div>
+      <SellFormFooter />
+    </div>
   );
 };
 

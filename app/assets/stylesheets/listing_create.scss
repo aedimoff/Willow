@@ -104,12 +104,19 @@
   margin-bottom: 18px;
 }
 
-.move-pin-component h3 {
+.form-subheader h3 {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.move-pin-component h3,
+.photo-upload-form h3 {
   margin-top: 3vh;
   font-size: 20px;
 }
 
-.move-pin-component h4 {
+.move-pin-component h4,
+.photo-upload-form h4 {
   font-size: 18px;
   color: gray;
   padding-top: 1.5vh;
@@ -121,6 +128,15 @@
   height: 100vh;
   width: 100vw;
   justify-content: center;
+}
+
+.photo-upload-form {
+  width: 90vw;
+}
+
+.photo-uploader {
+  padding: 1vh;
+  margin-bottom: 3vh;
 }
 
 input,

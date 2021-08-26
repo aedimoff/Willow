@@ -132,6 +132,7 @@ class SaleForm extends React.Component {
           <UploadPhotos
             handlePhotos={this.handlePhotos}
             toggleForm={this.toggleForm}
+            listing={this.state.listing}
           />
         );
       case 6:
@@ -148,7 +149,7 @@ class SaleForm extends React.Component {
   render() {
     console.log("state", this.state);
 
-    return <div className="sale-by-owner-page">{this.formComponents(4)}</div>;
+    return <div className="sale-by-owner-page">{this.formComponents(5)}</div>;
     // return <div className="sale-by-owner-page">{this.formComponents(this.state.currentStep)}</div>;
   }
 };

@@ -17,7 +17,7 @@ class MovePin extends React.Component {
 
     window.map = new google.maps.Map(document.getElementById("map"), {
       center: center,
-      zoom: 19.5,
+      zoom: 18.5,
       disableDefaultUI: true,
     });
 
@@ -52,7 +52,7 @@ class MovePin extends React.Component {
           there
         </h3>
         <h4>
-          Currently selected: {lat},{" "}{lng}
+          Currently selected: {lat.toFixed(6)},{" "}{lng.toFixed(6)}
         </h4>
         <div id="map" width="95vw" height="40vh" />
         <button className="button" onClick={() => {setPosition(lat, lng), toggleForm(5)}}>Save and Continue</button>

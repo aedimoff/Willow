@@ -26,7 +26,7 @@ const SellFormStepThree = (props) => {
 
         map.current = new google.maps.Map(document.getElementById("map"), {
           center: center,
-          zoom: 18,
+          zoom: 18.5,
           disableDefaultUI: true,
         });
 

@@ -1,32 +1,40 @@
-import { makeArray } from "jquery";
 import React, { useEffect, useRef } from "react";
 
 const SellFormStepThree = (props) => {
-  //   if (props.currentStep !== 3) return null;
+    // if (props.currentStep !== 3) return null;
 
   const { address, city, state, zipcode } = props;
   const map = useRef();
-  const lat = useRef();
-  const lng = useRef();
+
 
   const initMap = () => {
     const geocoder = new google.maps.Geocoder();
 
     geocoder.geocode({ address: address }, (results, status) => {
       if (status == google.maps.GeocoderStatus.OK) {
-        lat.current = results[0].geometry.location.lat();
-        lng.current = results[0].geometry.location.lng();
-        let latLng = { lat: lat.current, lng: lng.current };
+        let geoCodeLat = results[0].geometry.location.lat();
+        let geoCodeLng = results[0].geometry.location.lng();
+
+        
+        const center = {lat: "", lng: ""};
+        
+        //if a real lat/lng in state, use them
+        //otherwise use the geocode ones
+        center.lat = props.lat === 0 ? geoCodeLat : props.lat
+        center.lng = props.lng === 0 ? geoCodeLng : props.lng
+        
+        props.setPosition(center.lat, center.lng);
+
         map.current = new google.maps.Map(document.getElementById("map"), {
-          center: latLng,
+          center: center,
           zoom: 19.5,
           disableDefaultUI: true,
         });
 
         let marker = new google.maps.Marker({
-          position: latLng,
-          draggable: true,
-          animation: google.maps.Animation.DROP,
+          position: center,
+          // draggable: true,
+          // animation: google.maps.Animation.DROP,
           icon: {
             path: google.maps.SymbolPath.CIRCLE,
             scale: 8.5,
@@ -38,20 +46,19 @@ const SellFormStepThree = (props) => {
 
         marker.setMap(map.current);
 
-        google.maps.event.addListener(marker, "dragend", function (e) {
-          lat.current = e.latLng.lat();
-          lng.current = e.latLng.lng();
-          console.log("lat", lat)
-          console.log("lng", lng)
-          console.log("marker moved", e.latLng);
-        });
+        // google.maps.event.addListener(marker, "dragend", function (e) {
+        //   lat.current = e.latLng.lat();
+        //   lng.current = e.latLng.lng();
 
-        console.log("PROPS", props)
+        //   props.setPosition(lat.current, lng.current);
+        // });
+
         //update lat long using props.update(field) function
-        props.updatePosition(lat.current, lng.current)
+        // props.setPosition(lat.current, lng.current);
       }
     });
   };
+
 
   useEffect(() => {
     initMap();
@@ -67,6 +74,8 @@ const SellFormStepThree = (props) => {
       </div>
       <h4>Is this the correct location of your home?</h4>
       <div id="map" width="95vw" height="40vh" />
+      <button className="button">Yes, it's the correct location </button>
+      <button className="secondary-button" onClick={() => props.toggleForm(4)}>No, let me change it</button>
     </div>
   );
 };

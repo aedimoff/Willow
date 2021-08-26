@@ -2,6 +2,7 @@ import React from "react";
 import SellFormStepOne from "./sell_form_1";
 import SellFormStepTwo from "./sell_form_2";
 import SellFormStepThree from "./sell_form_3";
+import MovePin from "./move_pin";
 
 class SaleForm extends React.Component {
   constructor(props) {
@@ -37,7 +38,16 @@ class SaleForm extends React.Component {
   }
 
   setPosition(lat, lng) {
-
+    console.log("lat in Sale", lat)
+    console.log("lng in Sale", lng)
+    this.setState((prevState) => ({
+      listing: {
+        ...prevState.listing,
+        ["lat"]: lat,
+        ["lng"]: lng
+      },
+      currentStep: prevState.currentStep,
+    }));
   }
 
   toggleForm(num) {
@@ -45,6 +55,7 @@ class SaleForm extends React.Component {
   }
 
   render() {
+    console.log("state", this.state)
     const {
       address,
       city,
@@ -55,6 +66,8 @@ class SaleForm extends React.Component {
       price,
       description,
       property_type,
+      lat, 
+      lng,
     } = this.state.listing;
     return (
       <div className="sale-by-owner-page">
@@ -77,14 +90,18 @@ class SaleForm extends React.Component {
           description={description}
           toggleForm={this.toggleForm}
         /> */}
-        <SellFormStepThree
+        {/* <SellFormStepThree
           currentStep={this.state.currentStep}
           address={address}
           city={city}
           state={state}
           zipcode={zipcode}
+          lat={lat}
+          lng={lng}
           setPosition={this.setPosition}
-        />
+          toggleForm={this.toggleForm}
+        /> */}
+        <MovePin lat={lat} lng={lng} setPosition={this.setPosition}/>
       </div>
     );
   }

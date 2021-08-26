@@ -15,8 +15,8 @@ const mapStateToProps = (state) => ({
     status: "for_sale",
     beds: "",
     baths: "",
-    lat: 0,
-    lng: 0,
+    lat: 41.76838, //default should be 0
+    lng: -71.42353,
     seller_id: state.session.id,
   },
   formType: "Create Listing",

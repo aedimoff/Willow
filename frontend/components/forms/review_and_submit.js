@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import SellFormSubheader from "./sell_form_subheader";
 
 const ReviewAndSubmit = (props) => {
@@ -20,6 +20,8 @@ const ReviewAndSubmit = (props) => {
     images,
     currentUser
   } = props.submissionData;
+
+  const history = useHistory();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -42,7 +44,8 @@ const ReviewAndSubmit = (props) => {
       formData.append("listing[images][]", images[i]);
     }
     props.createListing(formData);
-    // alert("Listing created successfully. Thank you for selling with Willow!")
+    alert("Listing created successfully. Thank you for selling with Willow!");
+    history.push(`/users/${currentUser}`);
   };
 
   return (
@@ -58,16 +61,15 @@ const ReviewAndSubmit = (props) => {
         <p>{`You have added ${images.length} photos`}</p>
       </div>
 
-      <Link
+      <button
         className="button"
-        to={`/users/${currentUser}/listings`}
         id="submit-listing-button"
         onClick={(e) => {
           handleSubmit(e);
         }}
       >
         Submit Listing
-      </Link>
+      </button>
     </div>
   );
 };

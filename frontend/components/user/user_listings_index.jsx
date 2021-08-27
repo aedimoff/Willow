@@ -54,7 +54,6 @@ class UserListingIndex extends React.Component {
         <Link
           id="listing-crud-button"
           to={`/users/for-sale-by-owner`}
-          className="nav-bar-link"
         >
           Click here to list your home on Willow!
         </Link>
@@ -63,6 +62,7 @@ class UserListingIndex extends React.Component {
   }
 
   render() {
+    console.log("user listings", this.props)
     return (
       <div className="my-listings-page">
         <img className="sell-page" src={window.sell_page} />

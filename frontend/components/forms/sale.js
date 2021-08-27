@@ -1,7 +1,7 @@
 import React from "react";
 import SellFormStepOne from "./sell_form_1";
 import SellFormStepTwo from "./sell_form_2";
-import SellFormStepThree from "./sell_form_3";
+import ShowPinMap from "./show_pin_map";
 import MovePin from "./move_pin";
 import ReviewAndSubmit from "./review_and_submit";
 import UploadPhotos from "./upload_photos";
@@ -78,7 +78,6 @@ class SaleForm extends React.Component {
       lat,
       lng,
     } = this.state.listing;
-
     switch (currentStep) {
       case 1:
         return (
@@ -93,20 +92,7 @@ class SaleForm extends React.Component {
         );
       case 2:
         return (
-          <SellFormStepTwo
-            setDropDownField={this.setDropDownField}
-            beds={beds}
-            baths={baths}
-            price={price}
-            propertyType={property_type}
-            description={description}
-            toggleForm={this.toggleForm}
-            update={this.update}
-          />
-        );
-      case 3:
-        return (
-          <SellFormStepThree
+          <ShowPinMap
             address={address}
             city={city}
             state={state}
@@ -117,7 +103,7 @@ class SaleForm extends React.Component {
             toggleForm={this.toggleForm}
           />
         );
-      case 4:
+      case 3:
         return (
           <MovePin
             lat={lat}
@@ -125,6 +111,19 @@ class SaleForm extends React.Component {
             listing={this.state.listing}
             setPosition={this.setPosition}
             toggleForm={this.toggleForm}
+          />
+        );
+      case 4:
+        return (
+          <SellFormStepTwo
+            setDropDownField={this.setDropDownField}
+            beds={beds}
+            baths={baths}
+            price={price}
+            propertyType={property_type}
+            description={description}
+            toggleForm={this.toggleForm}
+            update={this.update}
           />
         );
       case 5:
@@ -147,10 +146,9 @@ class SaleForm extends React.Component {
   };
 
   render() {
-    console.log("state", this.state);
 
-    return <div className="sale-by-owner-page">{this.formComponents(6)}</div>;
-    // return <div className="sale-by-owner-page">{this.formComponents(this.state.currentStep)}</div>;
+    // return <div className="sale-by-owner-page">{this.formComponents(6)}</div>;
+    return <div className="sale-by-owner-page">{this.formComponents(this.state.currentStep)}</div>;
   }
 };
 

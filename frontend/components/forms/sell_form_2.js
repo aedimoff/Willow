@@ -66,10 +66,10 @@ const SellFormStepTwo = (props) => {
             id="description"
           />
         </label>
-      <button id="continue-button" onClick={() => props.toggleForm(3)}>
+      <button id="continue-button" onClick={() => props.toggleForm(5)}>
         Continue
       </button>
-      <button id="continue-button-2" onClick={() => props.toggleForm(1)}>
+      <button id="continue-button-2" onClick={() => props.toggleForm(2)}>
         Go Back
       </button>
       </div>

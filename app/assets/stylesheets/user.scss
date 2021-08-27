@@ -53,29 +53,18 @@
 }
 
 #listing-crud-button {
-  background: none;
-  border: none;
-  margin: 0;
-  padding: 0;
   cursor: pointer;
-  text-decoration: none;
   color: #146ef0;
   font-family: "Open Sans", sans-serif;
-  padding-bottom: 16px;
-  font-size: 16px;
+  font-size: 22px;
+  font-weight: bold;
+  align-self: center;
+  margin: 0.5rem;
+  text-decoration: none;
 }
 
 #listing-crud-button:hover {
-  background: none;
-  border: none;
-  margin: 0;
-  padding: 0;
-  cursor: pointer;
   text-decoration: underline;
-  color: #146ef0;
-  font-family: "Open Sans", sans-serif;
-  padding-bottom: 16px;
-  font-size: 16px;
 }
 
 #my-listings-spinner {

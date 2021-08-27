@@ -55,7 +55,7 @@ class MovePin extends React.Component {
           Currently selected: {lat.toFixed(6)},{" "}{lng.toFixed(6)}
         </h4>
         <div id="map" width="95vw" height="40vh" />
-        <button className="button" onClick={() => {setPosition(lat, lng), toggleForm(5)}}>Save and Continue</button>
+        <button className="button" onClick={() => {setPosition(lat, lng), toggleForm(4)}}>Save and Continue</button>
       </div>
     );
   }

@@ -1,15 +1,15 @@
 import { connect } from 'react-redux';
 import SaleForm from './sale';
 import { createListing } from '../../actions/listing_actions';
-
+import { receiveErrors} from '../../actions/session_actions';
+ 
 const mapStateToProps = (state) => ({
-  sellerId: state.session.id,
   listing: {
     description: "",
     price: "",
     property_type: "",
     images: [],
-    address: "25 Sharon St",
+    address: "",
     zipcode: "94114",
     city: "San Francisco",
     state: "",
@@ -20,11 +20,13 @@ const mapStateToProps = (state) => ({
     lng: 0,
     seller_id: state.session.id,
   },
-  formType: "Create Listing",
+  sellerId: state.session.id,
+  errors: state.errors.session,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   createListing: (listing) => dispatch(createListing(listing)),
+  receiveErrors: (errors) => dispatch(receiveErrors(errors))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SaleForm);

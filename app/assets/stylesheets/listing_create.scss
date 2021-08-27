@@ -109,6 +109,42 @@
   font-weight: bold;
 }
 
+.form-errors {
+  display: flex;
+  position: absolute;
+  top: 67%;
+  z-index: 3;
+}
+
+.address-error-true,
+.city-error-true,
+.zip-error-true,
+.state-error-true {
+  border: 2px solid red;
+  background: pink;
+}
+
+#address-error-false, 
+#city-error-false,
+#zip-error-false {
+  display: none;
+}
+
+#address-error-true {
+  margin-left: 10.5vw;
+  color: white;
+}
+
+#city-error-true {
+  margin-left: 19.5vw;
+  color: white;
+}
+
+#zip-error-true {
+  margin-left: 14vw;
+  color: white;
+}
+
 .move-pin-component h3,
 .photo-upload-form h3 {
   margin-top: 3vh;

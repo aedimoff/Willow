@@ -1,4 +1,5 @@
 import React from "react";
+import RenderErrors from "./render_form_errors";
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -31,18 +32,6 @@ class SessionForm extends React.Component {
     this.props.processForm(this.demoUser).then(this.props.closeModal);
   }
 
-  renderErrors() {
-    return (
-      <ul>
-        {this.props.errors.map((error, i) => (
-          <li className="session-errors" key={`error-${i}`}>
-            {error}
-          </li>
-        ))}
-      </ul>
-    );
-  }
-
   toggleForm(formType) {
     return formType === "Log In"
       ? "Not on Willow? Create Account!"
@@ -54,7 +43,7 @@ class SessionForm extends React.Component {
       <div className="login-form-container">
         <h1 className="modal-header">Welcome to Willow!</h1>
         <form className="login-form" onSubmit={this.handleSubmit}>
-          {this.renderErrors()}
+          <RenderErrors errors={this.props.errors} />
           <div className="modal-input">
             <input
               type="text"
@@ -74,16 +63,18 @@ class SessionForm extends React.Component {
             />
           </div>
           <div className="form-submit-button">
-          <button className="button" type="submit">{this.props.formType}</button>
+            <button className="button" type="submit">
+              {this.props.formType}
+            </button>
             <p>or</p>
             <button className="secondary-button" onClick={this.loginDemoUser}>
               Log In as Demo User
             </button>
           </div>
         </form>
-          <button className="form-type-toggle" onClick={this.props.openModal}>
-            {this.toggleForm(this.props.formType)}
-          </button>
+        <button className="form-type-toggle" onClick={this.props.openModal}>
+          {this.toggleForm(this.props.formType)}
+        </button>
       </div>
     );
   }

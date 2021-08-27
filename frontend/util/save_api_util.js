@@ -14,7 +14,6 @@ export const createSave = (userId, listingId) => (
 );
 
 export const deleteSave = listingId => {
-    console.log(listingId)
     return $.ajax({
         method: "DELETE",
         url: `api/saves/${listingId}`

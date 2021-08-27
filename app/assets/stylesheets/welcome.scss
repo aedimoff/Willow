@@ -6,13 +6,18 @@
   object-fit: cover;
 }
 
+.welcome-page {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
 .welcome-page-header {
-  text-align: center;
-  font-family: $functional-font;
+  position: absolute;
+  top: 51vh;
+  color: white;
   font-weight: bold;
-  font-size: 25px;
-  padding-top: 35px;
-  color: $font-black;
+  font-size: 5vh;
 }
 
 .welcome-cards {

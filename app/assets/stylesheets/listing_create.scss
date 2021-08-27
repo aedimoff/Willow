@@ -130,13 +130,33 @@
   justify-content: center;
 }
 
-.photo-upload-form {
+.photo-upload-form,
+.review-and-submit-component {
   width: 90vw;
 }
 
 .photo-uploader {
   padding: 1vh;
   margin-bottom: 3vh;
+}
+
+.review-and-submit-component h2 {
+  font-weight: bold;
+  font-size: 3vh;
+  margin: 3vh;
+}
+
+.listing-review {
+  margin-left: 3vh;
+  line-height: 6vh;
+  font-size: 2vh;
+  border: 1px solid lightgrey;
+  padding: 30px;
+}
+
+#submit-listing-button {
+  margin-left: 6vh;
+  margin-top: 3vh;
 }
 
 input,

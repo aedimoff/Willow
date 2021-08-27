@@ -1,4 +1,5 @@
 import React from "react";
+import SellFormSubheader from "./sell_form_subheader";
 
 const ReviewAndSubmit = (props) => {
   const {
@@ -35,7 +36,6 @@ const ReviewAndSubmit = (props) => {
     formData.append("listing[lat]", lat);
     formData.append("listing[lng]", lng);
 
-
     for (let i = 0; i < images.length; i++) {
       formData.append("listing[images][]", images[i]);
     }
@@ -43,12 +43,28 @@ const ReviewAndSubmit = (props) => {
   };
 
   return (
-    <div>
-      <button onClick={(e) => {handleSubmit(e), alert("Listing Created Successfully")}}>Submit Listing</button>
+    <div className="review-and-submit-component">
+      <SellFormSubheader listing={props.submissionData} />
+      <h2>Review your information before submitting</h2>
+      <div className="listing-review">
+        <p>{`${address}, ${city}, ${state}, ${zipcode}`}</p>
+        <p>{`Property type: ${property_type}`}</p>
+        <p>{`${beds} beds, ${baths} baths.`}</p>
+        <p>{`Desription: ${description}`}</p>
+        <p>{`Listing Price: $${price}`}</p>
+      </div>
+
+      <button
+        className="button"
+        id="submit-listing-button"
+        onClick={(e) => {
+          handleSubmit(e), alert("Listing Created Successfully");
+        }}
+      >
+        Submit Listing
+      </button>
     </div>
   );
 };
 
 export default ReviewAndSubmit;
-
-

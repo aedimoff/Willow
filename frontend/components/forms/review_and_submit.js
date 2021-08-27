@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import SellFormSubheader from "./sell_form_subheader";
 
 const ReviewAndSubmit = (props) => {
@@ -17,6 +18,7 @@ const ReviewAndSubmit = (props) => {
     lat,
     lng,
     images,
+    currentUser
   } = props.submissionData;
 
   const handleSubmit = (e) => {
@@ -40,6 +42,7 @@ const ReviewAndSubmit = (props) => {
       formData.append("listing[images][]", images[i]);
     }
     props.createListing(formData);
+    // alert("Listing created successfully. Thank you for selling with Willow!")
   };
 
   return (
@@ -52,17 +55,19 @@ const ReviewAndSubmit = (props) => {
         <p>{`${beds} beds, ${baths} baths.`}</p>
         <p>{`Desription: ${description}`}</p>
         <p>{`Listing Price: $${price}`}</p>
+        <p>{`You have added ${images.length} photos`}</p>
       </div>
 
-      <button
+      <Link
         className="button"
+        to={`/users/${currentUser}/listings`}
         id="submit-listing-button"
         onClick={(e) => {
-          handleSubmit(e), alert("Listing Created Successfully");
+          handleSubmit(e);
         }}
       >
         Submit Listing
-      </button>
+      </Link>
     </div>
   );
 };

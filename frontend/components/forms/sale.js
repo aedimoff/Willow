@@ -140,13 +140,17 @@ class SaleForm extends React.Component {
           <ReviewAndSubmit
             submissionData={this.state.listing}
             createListing={this.props.createListing}
+            currentUser={this.props.sellerId}
           />
         );
     }
   };
 
   render() {
-    return <div className="sale-by-owner-page">{this.formComponents(this.state.currentStep)}</div>;
+    console.log("state", this.state);
+
+    return <div className="sale-by-owner-page">{this.formComponents(6)}</div>;
+    // return <div className="sale-by-owner-page">{this.formComponents(this.state.currentStep)}</div>;
   }
 };
 

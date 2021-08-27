@@ -152,11 +152,14 @@
   font-size: 2vh;
   border: 1px solid lightgrey;
   padding: 30px;
+  margin-bottom: 4vh;
 }
 
 #submit-listing-button {
-  margin-left: 6vh;
-  margin-top: 3vh;
+  margin: 3vh;
+  text-decoration: none;
+  text-align: center;
+  padding: 6px 40px 6px 40px;
 }
 
 input,

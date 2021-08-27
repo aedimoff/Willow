@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import logo from "../../../app/assets/images/logo.png";
 
 const NavBar = ({ currentUser, logout, openModal }) => {
   const loggedOut = () => (

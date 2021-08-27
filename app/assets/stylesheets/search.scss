@@ -1,9 +1,14 @@
-@import 'variables';
+@import "variables";
 
 .search {
-    position: absolute;
-    top: 6rem;
-    left: 19rem;
-    z-index: 10;
-    width: 25vw;
+  position: absolute;
+  top: 6rem;
+  left: 19rem;
+  z-index: 10;
+  width: 25vw;
+}
+
+#search-bar {
+  width: 15vw;
+  text-align: center;
 }

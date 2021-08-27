@@ -50,6 +50,7 @@ class SaleForm extends React.Component {
   };
 
   setPosition(lat, lng) {
+    console.log("position changed")
     this.setState((prevState) => ({
       listing: {
         ...prevState.listing,
@@ -147,7 +148,7 @@ class SaleForm extends React.Component {
 
   render() {
 
-    // return <div className="sale-by-owner-page">{this.formComponents(6)}</div>;
+    // return <div className="sale-by-owner-page">{this.formComponents(2)}</div>;
     return <div className="sale-by-owner-page">{this.formComponents(this.state.currentStep)}</div>;
   }
 };

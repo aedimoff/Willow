@@ -62,7 +62,6 @@ class UserListingIndex extends React.Component {
   }
 
   render() {
-    console.log("user listings", this.props)
     return (
       <div className="my-listings-page">
         <img className="sell-page" src={window.sell_page} />

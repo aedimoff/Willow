@@ -6,7 +6,6 @@ class ShowPinMap extends React.Component {
     this.initMap()
   }
   initMap = () => {
-    console.log("initMap");
     const geocoder = new google.maps.Geocoder();
 
     geocoder.geocode({ address: this.props.address }, (results, status) => {
@@ -48,7 +47,6 @@ class ShowPinMap extends React.Component {
   render() {
     return (
       <div className="form-three">
-        {console.log("rendered", this.state)}
         <SellFormSubheader listing={this.props} />
         <h4>Is this the correct location of your home?</h4>
         <div id="map" width="95vw" height="40vh">

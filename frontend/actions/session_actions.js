@@ -13,12 +13,13 @@ const logoutCurrentUser = () => ({
     type: LOGOUT_CURRENT_USER
 })
 
-const receiveErrors = errors => ({
-    type: RECEIVE_SESSION_ERRORS,
-    errors
-})
+export const receiveErrors = errors => {
+    return {type: RECEIVE_SESSION_ERRORS,
+    errors}
+}
 
-export const signup= user => dispatch => (
+
+export const signup = user => dispatch => (
     SessionAPIUtil.signup(user)
     .then(currentUser => dispatch(receiveCurrentUser(currentUser)))
     .fail(errors => dispatch(receiveErrors(errors.responseJSON)))

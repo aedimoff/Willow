@@ -6,6 +6,7 @@ import MovePin from "./move_pin";
 import ReviewAndSubmit from "./review_and_submit";
 import UploadPhotos from "./upload_photos";
 
+
 class SaleForm extends React.Component {
   constructor(props) {
     super(props);
@@ -50,7 +51,6 @@ class SaleForm extends React.Component {
   };
 
   setPosition(lat, lng) {
-    console.log("position changed")
     this.setState((prevState) => ({
       listing: {
         ...prevState.listing,
@@ -79,6 +79,7 @@ class SaleForm extends React.Component {
       lat,
       lng,
     } = this.state.listing;
+
     switch (currentStep) {
       case 1:
         return (
@@ -89,6 +90,8 @@ class SaleForm extends React.Component {
             zipcode={zipcode}
             setDropDownField={this.setDropDownField}
             update={this.update}
+            receiveErrors={this.props.receiveErrors}
+            errors={this.props.errors}
           />
         );
       case 2:

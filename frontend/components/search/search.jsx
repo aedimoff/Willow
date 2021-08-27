@@ -44,6 +44,7 @@ const Search = (props) => {
         }}
       >
         <ComboboxInput
+          id="search-bar"
           value={value}
           onChange={(e) => {
             setValue(e.target.value);

@@ -1,10 +1,8 @@
 import React, { useEffect, useRef } from "react";
 import SellFormSubheader from "./sell_form_subheader";
 
-const SellFormStepThree = (props) => {
-  // if (props.currentStep !== 3) return null;
-
-  const { address, city, state, zipcode } = props;
+const ShowPinMap = (props) => {
+  const { address } = props;
   const map = useRef();
 
   const initMap = () => {
@@ -17,8 +15,7 @@ const SellFormStepThree = (props) => {
 
         const center = { lat: "", lng: "" };
 
-        //if a real lat/lng in state, use them
-        //otherwise use the geocode ones
+        //if lat/lng in state, use them otherwise use the geocode ones
         center.lat = props.lat === 0 ? geoCodeLat : props.lat;
         center.lng = props.lng === 0 ? geoCodeLng : props.lng;
 
@@ -55,14 +52,14 @@ const SellFormStepThree = (props) => {
       <SellFormSubheader listing={props}/>
       <h4>Is this the correct location of your home?</h4>
       <div id="map" width="95vw" height="40vh" />
-      <button className="button" onClick={() => props.toggleForm(5)}>
+      <button className="button" onClick={() => props.toggleForm(4)}>
         Yes, it's the correct location
       </button>
-      <button className="secondary-button" onClick={() => props.toggleForm(4)}>
+      <button className="secondary-button" onClick={() => props.toggleForm(3)}>
         No, let me change it
       </button>
     </div>
   );
 };
 
-export default SellFormStepThree;
+export default ShowPinMap;

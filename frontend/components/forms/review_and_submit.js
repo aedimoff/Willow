@@ -18,7 +18,6 @@ const ReviewAndSubmit = (props) => {
     lat,
     lng,
     images,
-    currentUser
   } = props.submissionData;
 
   const history = useHistory();
@@ -36,7 +35,7 @@ const ReviewAndSubmit = (props) => {
     formData.append("listing[property_type]", property_type);
     formData.append("listing[beds]", beds);
     formData.append("listing[baths]", baths);
-    formData.append("listing[seller_id", sellerId);
+    formData.append("listing[seller_id]", props.currentUser);
     formData.append("listing[lat]", lat);
     formData.append("listing[lng]", lng);
 
@@ -45,7 +44,7 @@ const ReviewAndSubmit = (props) => {
     }
     props.createListing(formData);
     alert("Listing created successfully. Thank you for selling with Willow!");
-    history.push(`/users/${currentUser}`);
+    history.push(`/users/${props.currentUser}/listings`);
   };
 
   return (

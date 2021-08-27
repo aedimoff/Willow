@@ -29,7 +29,7 @@ class Listing < ApplicationRecord
     validates :address, :zipcode, :city, :state, :price, :description, presence: true
     validates :status, presence: true, inclusion: { in: %w(for_sale pending sold),
     message: "%{value} is not a valid input" }
-    validates :property_type, presence: true, inclusion: { in: %w(house apartment lot)}
+    validates :property_type, presence: true, inclusion: { in: %w(House Apartment Lot)}
 
     belongs_to :seller, optional: true,
         foreign_key: :seller_id,

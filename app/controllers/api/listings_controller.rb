@@ -17,7 +17,6 @@ class Api::ListingsController < ApplicationController
 
     def create
         @listing = Listing.new(listing_params)
-
         if @listing.save!
             render 'api/listings/show'
         else

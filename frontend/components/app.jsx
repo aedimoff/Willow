@@ -10,6 +10,7 @@ import NavBarContainer from "./navbar/nav_bar_container";
 import HomeContainer from "./home/home_container";
 import UserListingsContainer from "./user/user_listings_container";
 import WelcomeContainer from "./home/welcome_container";
+import SaleFormContainer from "./forms/sale_container";
 
 const App = () => (
   <div>
@@ -28,6 +29,8 @@ const App = () => (
         path="/users/:userId/listings"
         component={UserListingsContainer}
       />
+      <LoggedInProtectedRoute path="/users/for-sale-by-owner"
+      component={SaleFormContainer} />
       <LoggedInProtectedRoute
         path="/users/:userId"
         component={UserContainer}

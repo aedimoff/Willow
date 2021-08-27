@@ -1,4 +1,6 @@
+
 import React from "react";
+import { Link } from "react-router-dom";
 import Spinner from "../spinner/spinner";
 import ListingIndexItem from "../listing/listing_index_item";
 
@@ -49,14 +51,13 @@ class UserListingIndex extends React.Component {
       );
     } else {
       return (
-        <button
+        <Link
           id="listing-crud-button"
-          onClick={() =>
-            this.props.openModal("Create Listing", { size: "large" })
-          }
+          to={`/users/for-sale-by-owner`}
+          className="nav-bar-link"
         >
           Click here to list your home on Willow!
-        </button>
+        </Link>
       );
     }
   }

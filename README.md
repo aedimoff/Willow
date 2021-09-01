@@ -23,12 +23,12 @@ Willow was built with:
 
 Features 
 -------------------------------------------------------------------------------
-#### Listing Views
+### Viewing Listings
 <img width="1636" alt="Screen Shot 2021-09-01 at 10 52 52 AM" src="https://user-images.githubusercontent.com/76131255/131719841-576d94df-b24b-49b6-91a7-f1808fa6b216.png">
 
 Listing views are controlled by the map, which uses Google Maps API to render the map, and Google Places API to place pins on the map based on the latitude and longitude attached to each listing. Users can scroll through listings by moving the map, or by entering a city, state, or ZIP code in the search bar. As the map view changes, an event listener is utilized to update the listings on the right hand side to display listings located within the current map bounds.
 
-#### Listing Saves
+### Saving Listings
 <img width="1620" alt="Screen Shot 2021-09-01 at 11 06 35 AM" src="https://user-images.githubusercontent.com/76131255/131722101-4764f516-5eae-47a1-90c1-59f25e333e0d.png">
 
 Users can save their favorite listings for later reference. When a user clicks on the heart-shaped save icon a Redux action is triggered that add the user's ID and the saved listing's ID to a joins table. 
@@ -37,7 +37,7 @@ Users can save their favorite listings for later reference. When a user clicks o
 
 When the user navigates to their "My Saved Listings" page, a custom Rails route is utilized to retrieve listings from the database using a `.where` query.
 
-#### Uploading Listings
+### Uploading Listings
 
 <img width="1628" alt="Screen Shot 2021-09-01 at 11 38 54 AM" src="https://user-images.githubusercontent.com/76131255/131725716-e026d73d-8cdd-4bee-9597-421e8ea06430.png">
 
